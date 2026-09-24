@@ -1,0 +1,32 @@
+flowchart LR
+  subgraph PUB[Área pública]
+    T01[T01 Cardápio] --> T02[T02 Detalhes do Produto]
+    T02 --> T03[T03 Carrinho]
+    T01 --> T03
+    T01 --> T15[T15 Ajuda e Suporte]
+    T04[T04 Login] <--> T05[T05 Cadastro]
+  end
+  subgraph CLI[Área do cliente - exige login]
+    T06[T06 Checkout - Endereço] --> T07[T07 Pagamento]
+    T07 --> T08[T08 Confirmação]
+    T08 --> T09[T09 Acompanhar Pedido]
+    T12[T12 Minha Conta] --> T10[T10 Meus Pedidos]
+    T12 --> T13[T13 Meus Endereços]
+    T12 --> T14[T14 Notificações]
+    T12 --> T15
+    T10 --> T09
+    T10 --> T11[T11 Avaliar Pedido]
+    T14 --> T09
+    T06 --> T13
+  end
+  subgraph ADM[Área administrativa - perfil ADMIN]
+    A01[A01 Painel de Pedidos] --> A02[A02 Detalhe do Pedido]
+    A01 <--> A03[A03 Produtos]
+    A03 --> A04[A04 Formulário de Produto]
+  end
+  T03 -->|Finalizar compra| T06
+  T03 -.->|sem login| T04
+  T04 -->|perfil CLIENTE| T01
+  T04 -->|perfil ADMIN| A01
+  T08 --> T01
+  T10 -->|Repetir pedido| T03

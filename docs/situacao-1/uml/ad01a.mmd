@@ -1,0 +1,13 @@
+flowchart TD
+  I((Início)) --> A[Acessar Cardápio]
+  A --> B{Filtrar ou<br/>pesquisar?}
+  B -- Sim --> B1[Aplicar filtro ou<br/>pesquisar nome] --> B2{Achou<br/>resultados?}
+  B2 -- Não --> B3[MSG-I01 +<br/>Limpar filtros] --> A
+  B2 -- Sim --> D
+  B -- Não --> D[Abrir Detalhes<br/>do Produto]
+  D --> E{Disponível?}
+  E -- Não --> E1[Selo Indisponível,<br/>botão desabilitado] --> A
+  E -- Sim --> F[Adicionar ao carrinho]
+  F --> G{Continuar<br/>comprando?}
+  G -- Sim --> A
+  G -- Não --> H((Ir para Parte 2))

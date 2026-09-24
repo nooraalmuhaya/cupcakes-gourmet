@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T05 – Cadastro – validação</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado de erro: e-mail repetido (MSG-E02), senha fraca</text>
+<text x="20" y="59.7" font-size="11" fill="#6B6B6B" text-anchor="start">(MSG-E03), senhas diferentes (MSG-E19)</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<polyline points="45,118 37,126 45,134" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Criar Conta</text>
+<text x="36" y="177.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">Nome completo</text>
+<rect x="36" y="187" width="328" height="40" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="48" y="209.4" font-size="13" fill="#222222" text-anchor="start">Maria Oliveira</text>
+<text x="36" y="251.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">E-mail</text>
+<rect x="36" y="261" width="328" height="40" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#C62828" stroke-width="2"/>
+<text x="48" y="283.4" font-size="13" fill="#222222" text-anchor="start">maria.oliveira@email.com</text>
+<text x="36" y="314.8" font-size="11" fill="#C62828" text-anchor="start">⚠ Este e-mail já está cadastrado. Tente fazer login.</text>
+<text x="36" y="341.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">Telefone  (opcional)</text>
+<rect x="36" y="351" width="328" height="40" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="48" y="373.4" font-size="13" fill="#9E9E9E" text-anchor="start">(11) 98765-4321</text>
+<text x="36" y="415.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">Senha</text>
+<rect x="36" y="425" width="328" height="40" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#C62828" stroke-width="2"/>
+<text x="48" y="447.4" font-size="13" fill="#222222" text-anchor="start">abc123</text>
+<text x="36" y="478.8" font-size="11" fill="#C62828" text-anchor="start">⚠ A senha deve ter pelo menos 8 caracteres, com letras e</text>
+<text x="36" y="493.7" font-size="11" fill="#C62828" text-anchor="start">números.</text>
+<text x="36" y="521.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">Confirmar senha</text>
+<rect x="36" y="531" width="328" height="40" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#C62828" stroke-width="2"/>
+<text x="48" y="553.4" font-size="13" fill="#222222" text-anchor="start">abc1234</text>
+<text x="36" y="584.8" font-size="11" fill="#C62828" text-anchor="start">⚠ As senhas não são iguais.</text>
+<rect x="36" y="606" width="328" height="48" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="632.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Criar conta</text>
+<text x="200.0" y="682.4" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Já tenho conta · Entrar</text>
+</svg>

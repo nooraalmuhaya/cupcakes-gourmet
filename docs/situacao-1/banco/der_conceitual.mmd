@@ -1,0 +1,10 @@
+erDiagram
+  USUARIO ||--o{ ENDERECO : "possui (0..5)"
+  USUARIO ||--o{ PEDIDO : faz
+  CATEGORIA ||--o{ PRODUTO : agrupa
+  PEDIDO ||--|{ ITEM_PEDIDO : contem
+  PRODUTO ||--o{ ITEM_PEDIDO : "aparece em"
+  CUPOM |o--o{ PEDIDO : "aplicado em"
+  PEDIDO ||--|| PAGAMENTO : "pago por"
+  PEDIDO ||--o| AVALIACAO : recebe
+  PEDIDO ||--o{ NOTIFICACAO : gera

@@ -1,0 +1,100 @@
+erDiagram
+  usuario {
+    INT id_usuario PK
+    VARCHAR_100 nome
+    VARCHAR_120 email UK
+    VARCHAR_255 senha_hash
+    VARCHAR_15 telefone
+    VARCHAR_10 perfil
+    DATETIME data_cadastro
+  }
+  endereco {
+    INT id_endereco PK
+    INT id_usuario FK
+    VARCHAR_30 apelido
+    CHAR_8 cep
+    VARCHAR_120 logradouro
+    VARCHAR_10 numero
+    VARCHAR_60 complemento
+    VARCHAR_60 bairro
+    VARCHAR_60 cidade
+    CHAR_2 uf
+    BOOLEAN padrao
+  }
+  categoria {
+    INT id_categoria PK
+    VARCHAR_50 nome UK
+  }
+  produto {
+    INT id_produto PK
+    INT id_categoria FK
+    VARCHAR_80 nome UK
+    VARCHAR_500 descricao
+    VARCHAR_500 ingredientes
+    VARCHAR_255 alergenos
+    DECIMAL_8_2 preco
+    VARCHAR_255 imagem_url
+    BOOLEAN vegano
+    BOOLEAN sem_gluten
+    INT quantidade_estoque
+    BOOLEAN ativo
+  }
+  cupom {
+    INT id_cupom PK
+    VARCHAR_20 codigo UK
+    VARCHAR_12 tipo
+    DECIMAL_8_2 valor
+    DATE data_validade
+    BOOLEAN ativo
+  }
+  pedido {
+    INT id_pedido PK
+    VARCHAR_20 numero_pedido UK
+    INT id_usuario FK
+    INT id_cupom FK
+    VARCHAR_255 endereco_entrega
+    DECIMAL_10_2 subtotal
+    DECIMAL_10_2 valor_desconto
+    DECIMAL_8_2 taxa_entrega
+    DECIMAL_10_2 valor_total
+    VARCHAR_25 status
+    DATETIME data_pedido
+    DATETIME data_atualizacao
+  }
+  item_pedido {
+    INT id_item_pedido PK
+    INT id_pedido FK
+    INT id_produto FK
+    INT quantidade
+    DECIMAL_8_2 preco_unitario
+  }
+  pagamento {
+    INT id_pagamento PK
+    INT id_pedido FK,UK
+    VARCHAR_10 metodo
+    VARCHAR_10 status
+    DATETIME data_pagamento
+  }
+  avaliacao {
+    INT id_avaliacao PK
+    INT id_pedido FK,UK
+    TINYINT nota
+    VARCHAR_500 comentario
+    DATETIME data_avaliacao
+  }
+  notificacao {
+    INT id_notificacao PK
+    INT id_pedido FK
+    VARCHAR_255 mensagem
+    BOOLEAN lida
+    DATETIME data_envio
+  }
+  usuario ||--o{ endereco : ""
+  usuario ||--o{ pedido : ""
+  categoria ||--o{ produto : ""
+  pedido ||--|{ item_pedido : ""
+  produto ||--o{ item_pedido : ""
+  cupom |o--o{ pedido : ""
+  pedido ||--|| pagamento : ""
+  pedido ||--o| avaliacao : ""
+  pedido ||--o{ notificacao : ""

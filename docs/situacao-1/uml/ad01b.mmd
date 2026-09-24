@@ -1,0 +1,18 @@
+flowchart TD
+  H((Parte 2)) --> C[Abrir Carrinho]
+  C --> H1{Tem cupom?}
+  H1 -- Sim --> H2{Cupom válido?}
+  H2 -- Não --> H4[MSG-E08] --> C
+  H2 -- Sim --> J
+  H1 -- Não --> J[Finalizar compra]
+  J --> K{Logado?}
+  K -- Não --> K1[Login ou Cadastro] --> L
+  K -- Sim --> L[Checkout:<br/>escolher endereço]
+  L --> L1{Tem endereço?}
+  L1 -- Não --> L2[Cadastrar endereço] --> M
+  L1 -- Sim --> M[Escolher pagamento<br/>e confirmar]
+  M --> O{Aprovado?}
+  O -- Não --> O1{Tentar de novo?}
+  O1 -- Sim --> M
+  O1 -- Não --> O2[Cancelar pedido] --> Z((Fim))
+  O -- Sim --> P[Confirmação com<br/>número do pedido] --> Z

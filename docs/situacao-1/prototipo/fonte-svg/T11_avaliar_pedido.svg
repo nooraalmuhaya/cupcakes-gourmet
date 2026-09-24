@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T11 – Avaliar Pedido</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado padrão – nota obrigatória, comentário opcional até 500</text>
+<text x="20" y="59.7" font-size="11" fill="#6B6B6B" text-anchor="start">caracteres</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<polyline points="45,118 37,126 45,134" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Avaliar Pedido</text>
+<rect x="32" y="166" width="336" height="64" rx="10" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="185.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">CUP-20260915-0031 · Entregue em 15/09</text>
+<text x="44" y="206.8" font-size="11" fill="#6B6B6B" text-anchor="start">1x Limão Siciliano · 1x Frutas Vermelhas</text>
+<text x="200.0" y="266.8" font-size="16" fill="#222222" text-anchor="middle" font-weight="bold">Como foi seu pedido?</text>
+<text x="90.0" y="312.8" font-size="36" fill="#E0A100" text-anchor="start">★</text>
+<text x="136.0" y="312.8" font-size="36" fill="#E0A100" text-anchor="start">★</text>
+<text x="182.0" y="312.8" font-size="36" fill="#E0A100" text-anchor="start">★</text>
+<text x="228.0" y="312.8" font-size="36" fill="#E0A100" text-anchor="start">★</text>
+<text x="274.0" y="312.8" font-size="36" fill="#B0B0B0" text-anchor="start">☆</text>
+<text x="200.0" y="343.6" font-size="12" fill="#6B6B6B" text-anchor="middle">4 de 5 estrelas</text>
+<text x="36" y="379.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">Comentário</text>
+<text x="364" y="378.8" font-size="11" fill="#6B6B6B" text-anchor="end">(opcional)</text>
+<rect x="36" y="390" width="328" height="130" rx="8" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="48" y="412.4" font-size="13" fill="#222222" text-anchor="start">Os cupcakes chegaram bonitos e fresquinhos.</text>
+<text x="48" y="429.9" font-size="13" fill="#222222" text-anchor="start">Só demorou um pouco mais que o esperado.</text>
+<text x="364" y="534.8" font-size="11" fill="#6B6B6B" text-anchor="end">86/500</text>
+<text x="36" y="558.8" font-size="11" fill="#6B6B6B" text-anchor="start">A avaliação não pode ser editada depois de enviada.</text>
+<rect x="36" y="734" width="328" height="48" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="760.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Enviar avaliação</text>
+<rect x="36" y="790" width="328" height="40" rx="10" fill="none" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="812.3" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Cancelar</text>
+</svg>

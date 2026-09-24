@@ -1,0 +1,113 @@
+classDiagram
+direction LR
+class Usuario {
+  -idUsuario: int
+  -nome: String
+  -email: String
+  -senhaHash: String
+  -telefone: String [0..1]
+  -perfil: PerfilUsuario
+  -dataCadastro: DateTime
+}
+class Endereco {
+  -idEndereco: int
+  -apelido: String
+  -cep: String
+  -logradouro: String
+  -numero: String
+  -complemento: String [0..1]
+  -bairro: String
+  -cidade: String
+  -uf: String
+  -padrao: boolean
+  +formatarTexto() String
+}
+class Categoria {
+  -idCategoria: int
+  -nome: String
+}
+class Produto {
+  -idProduto: int
+  -nome: String
+  -descricao: String
+  -ingredientes: String
+  -alergenos: String
+  -preco: Decimal
+  -imagemUrl: String
+  -vegano: boolean
+  -semGluten: boolean
+  -quantidadeEstoque: int
+  -ativo: boolean
+  +estaDisponivel(qtd: int) boolean
+}
+class Cupom {
+  -idCupom: int
+  -codigo: String
+  -tipo: TipoCupom
+  -valor: Decimal
+  -dataValidade: Date
+  -ativo: boolean
+  +estaValido(hoje: Date) boolean
+  +calcularDesconto(subtotal: Decimal) Decimal
+}
+class Pedido {
+  -idPedido: int
+  -numeroPedido: String
+  -enderecoEntrega: String
+  -subtotal: Decimal
+  -valorDesconto: Decimal
+  -taxaEntrega: Decimal
+  -valorTotal: Decimal
+  -status: StatusPedido
+  -dataPedido: DateTime
+  -dataAtualizacao: DateTime
+  +calcularTotal() Decimal
+  +alterarStatus(novo: StatusPedido) void
+}
+class ItemPedido {
+  -idItemPedido: int
+  -quantidade: int
+  -precoUnitario: Decimal
+  +calcularSubtotal() Decimal
+}
+class Pagamento {
+  -idPagamento: int
+  -metodo: MetodoPagamento
+  -status: StatusPagamento
+  -dataPagamento: DateTime [0..1]
+}
+class Avaliacao {
+  -idAvaliacao: int
+  -nota: int
+  -comentario: String [0..1]
+  -dataAvaliacao: DateTime
+}
+class Notificacao {
+  -idNotificacao: int
+  -mensagem: String
+  -lida: boolean
+  -dataEnvio: DateTime
+}
+class Carrinho {
+  <<transiente - sessao>>
+  +adicionarItem(p: Produto, qtd: int) void
+  +alterarQuantidade(idProduto: int, qtd: int) void
+  +removerItem(idProduto: int) void
+  +calcularSubtotal() Decimal
+}
+class ItemCarrinho {
+  <<transiente - sessao>>
+  -quantidade: int
+}
+Usuario "1" *-- "0..5" Endereco : possui
+Usuario "1" --> "0..*" Pedido : faz
+Categoria "1" --> "0..*" Produto : agrupa
+Pedido "1" *-- "1..*" ItemPedido : contém
+Produto "1" --> "0..*" ItemPedido : é vendido em
+Cupom "0..1" --> "0..*" Pedido : aplicado em
+Pedido "1" -- "1" Pagamento : pago por
+Pedido "1" -- "0..1" Avaliacao : recebe
+Pedido "1" --> "0..*" Notificacao : gera
+Carrinho "1" *-- "0..*" ItemCarrinho
+ItemCarrinho "0..*" --> "1" Produto
+Carrinho "0..*" --> "0..1" Cupom

@@ -1,0 +1,27 @@
+sequenceDiagram
+autonumber
+actor C as Cliente
+participant V as Tela Carrinho (View)
+participant CC as CarrinhoController
+participant CS as CupomService (Model)
+participant BD as Banco de Dados
+C->>V: Digita código e clica "Aplicar"
+alt Cliente não está logado
+  V-->>C: MSG-E09 "Faça login para usar um cupom"
+else Cliente logado
+  V->>CC: POST /carrinho/cupom (codigo)
+  CC->>CS: validar(codigo, usuario, subtotal)
+  CS->>BD: SELECT cupom WHERE codigo = ?
+  BD-->>CS: cupom ou vazio
+  CS->>BD: SELECT pedidos do usuário com esse cupom (status diferente de CANCELADO)
+  BD-->>CS: quantidade de usos
+  alt Não existe, inativo, vencido ou já usado
+    CS-->>CC: motivo da recusa
+    CC-->>V: MSG-E08 (motivo específico)
+  else Cupom válido
+    CS-->>CC: valorDesconto (limitado ao subtotal)
+    CC->>CC: guarda cupom no Carrinho (sessão)
+    CC-->>V: novos totais
+    V-->>C: MSG-S04 + desconto e total atualizados
+  end
+end

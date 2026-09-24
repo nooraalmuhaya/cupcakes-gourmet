@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T01 – Cardápio – nenhum resultado</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado vazio: busca/filtro sem resultados (MSG-I01)</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<circle cx="42" cy="126" r="12" fill="#F6EDE6" stroke="none" stroke-width="1"/>
+<text x="42" y="128.4" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">C</text>
+<text x="62" y="129.6" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">Cupcake Haven</text>
+<polyline points="305,131 306,122 312,117 318,122 319,131 321,133 303,133 305,131" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="312" cy="136" r="2" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<polyline points="339,117 343,117 346,129 359,129 361,120 344,120" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="348" cy="134" r="2" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<circle cx="357" cy="134" r="2" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<rect x="32" y="164" width="336" height="40" rx="20" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<circle cx="53" cy="183" r="6" fill="none" stroke="#6B6B6B" stroke-width="2"/>
+<line x1="57" y1="187" x2="62" y2="192" stroke="#6B6B6B" stroke-width="2"/>
+<text x="70" y="186.4" font-size="13" fill="#222222" text-anchor="start">morango</text>
+<text x="350" y="185.4" font-size="13" fill="#6B6B6B" text-anchor="middle">✕</text>
+<rect x="32" y="216" width="59.8515625" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="45" y="233.6" font-size="12" fill="#222222" text-anchor="start">Todos</text>
+<rect x="97.8515625" y="216" width="81.109375" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="110.8515625" y="233.6" font-size="12" fill="#222222" text-anchor="start">Clássicos</text>
+<rect x="184.9609375" y="216" width="88.65625" height="30" rx="15" fill="#7A3E1D" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="197.9609375" y="233.6" font-size="12" fill="#FFFFFF" text-anchor="start" font-weight="bold">Especiais</text>
+<rect x="279.6171875" y="216" width="77.84765625" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="292.6171875" y="233.6" font-size="12" fill="#222222" text-anchor="start">Frutados</text>
+<rect x="32" y="254" width="84.5859375" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="45" y="270.8" font-size="11" fill="#6B6B6B" text-anchor="start" font-weight="bold">○</text>
+<text x="59" y="271.6" font-size="12" fill="#222222" text-anchor="start">Vegano</text>
+<rect x="122.5859375" y="254" width="117.13671875" height="30" rx="15" fill="#7A3E1D" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="135.5859375" y="270.8" font-size="11" fill="#FFFFFF" text-anchor="start" font-weight="bold">✓</text>
+<text x="149.5859375" y="271.6" font-size="12" fill="#FFFFFF" text-anchor="start" font-weight="bold">Sem glúten</text>
+<circle cx="200.0" cy="388" r="46" fill="#F6EDE6" stroke="none" stroke-width="1"/>
+<circle cx="191.0" cy="377" r="6" fill="none" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="195.0" y1="381" x2="200.0" y2="386" stroke="#7A3E1D" stroke-width="2"/>
+<text x="200.0" y="462.0" font-size="15" fill="#222222" text-anchor="middle" font-weight="bold">Nenhum cupcake encontrado.</text>
+<text x="200.0" y="484.4" font-size="13" fill="#6B6B6B" text-anchor="middle">Tente outro nome ou limpe os filtros.</text>
+<rect x="110" y="508" width="180" height="44" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.5"/>
+<text x="200.0" y="532.5" font-size="14" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Limpar filtros</text>
+<rect x="20" y="798" width="360" height="60" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<line x1="20" y1="798" x2="380" y2="798" stroke="#CFCFCF" stroke-width="1"/>
+<rect x="35.0" y="802" width="60" height="3" rx="1" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<polyline points="55.0,818 65.0,809 75.0,818" fill="none" stroke="#7A3E1D" stroke-width="2" stroke-linejoin="round"/>
+<rect x="58.0" y="818" width="14" height="11" rx="0" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="2"/>
+<text x="65.0" y="844.8" font-size="11" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Início</text>
+<polyline points="144.0,811 148.0,811 151.0,823 164.0,823 166.0,814 149.0,814" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="153.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<circle cx="162.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<text x="155.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Carrinho</text>
+<rect x="237.0" y="809" width="16" height="21" rx="2" fill="none" fill-opacity="1.0" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="815" x2="249.0" y2="815" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="820" x2="249.0" y2="820" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="825" x2="249.0" y2="825" stroke="#8A8A8A" stroke-width="2"/>
+<text x="245.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Pedidos</text>
+<circle cx="335.0" cy="815" r="5" fill="none" stroke="#8A8A8A" stroke-width="2"/>
+<polyline points="326.0,830 328.0,823 335.0,821 342.0,823 344.0,830" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<text x="335.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Conta</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T15 – Ajuda e Suporte</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado padrão – perguntas frequentes, horário e WhatsApp (sem</text>
+<text x="20" y="59.7" font-size="11" fill="#6B6B6B" text-anchor="start">chat interno)</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<polyline points="45,118 37,126 45,134" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Ajuda e Suporte</text>
+<rect x="32" y="166" width="336" height="58" rx="10" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="185.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Horário de atendimento</text>
+<text x="44" y="205.6" font-size="12" fill="#222222" text-anchor="start">Segunda a sábado, das 9h às 19h</text>
+<text x="36" y="252.0" font-size="15" fill="#222222" text-anchor="start" font-weight="bold">Perguntas frequentes</text>
+<rect x="32" y="268" width="336" height="46" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="292.4" font-size="13" fill="#222222" text-anchor="start">Quanto tempo demora a entrega?</text>
+<text x="354" y="292.8" font-size="16" fill="#7A3E1D" text-anchor="middle" font-weight="bold">+</text>
+<rect x="32" y="322" width="336" height="118" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="346.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">Posso cancelar meu pedido?</text>
+<text x="354" y="346.8" font-size="16" fill="#7A3E1D" text-anchor="middle" font-weight="bold">−</text>
+<text x="44" y="373.6" font-size="12" fill="#6B6B6B" text-anchor="start">Enquanto o pagamento não foi aprovado, você</text>
+<text x="44" y="389.8" font-size="12" fill="#6B6B6B" text-anchor="start">mesmo pode cancelar. Depois disso, fale com a</text>
+<text x="44" y="406.0" font-size="12" fill="#6B6B6B" text-anchor="start">loja: ela pode cancelar enquanto o pedido não</text>
+<text x="44" y="422.2" font-size="12" fill="#6B6B6B" text-anchor="start">saiu para entrega.</text>
+<rect x="32" y="448" width="336" height="46" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="472.4" font-size="13" fill="#222222" text-anchor="start">Quais formas de pagamento são aceitas?</text>
+<text x="354" y="472.8" font-size="16" fill="#7A3E1D" text-anchor="middle" font-weight="bold">+</text>
+<rect x="32" y="502" width="336" height="46" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="526.4" font-size="13" fill="#222222" text-anchor="start">Como uso um cupom de desconto?</text>
+<text x="354" y="526.8" font-size="16" fill="#7A3E1D" text-anchor="middle" font-weight="bold">+</text>
+<rect x="32" y="556" width="336" height="46" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="580.4" font-size="13" fill="#222222" text-anchor="start">Onde vejo os alérgenos?</text>
+<text x="354" y="580.8" font-size="16" fill="#7A3E1D" text-anchor="middle" font-weight="bold">+</text>
+<rect x="36" y="618" width="328" height="48" rx="10" fill="#25A244" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="644.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Falar no WhatsApp</text>
+<text x="200.0" y="684.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Abre a conversa com a loja no WhatsApp.</text>
+<rect x="20" y="798" width="360" height="60" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<line x1="20" y1="798" x2="380" y2="798" stroke="#CFCFCF" stroke-width="1"/>
+<polyline points="55.0,818 65.0,809 75.0,818" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<rect x="58.0" y="818" width="14" height="11" rx="0" fill="none" fill-opacity="1.0" stroke="#8A8A8A" stroke-width="2"/>
+<text x="65.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Início</text>
+<polyline points="144.0,811 148.0,811 151.0,823 164.0,823 166.0,814 149.0,814" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="153.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<circle cx="162.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<text x="155.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Carrinho</text>
+<rect x="237.0" y="809" width="16" height="21" rx="2" fill="none" fill-opacity="1.0" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="815" x2="249.0" y2="815" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="820" x2="249.0" y2="820" stroke="#8A8A8A" stroke-width="2"/>
+<line x1="241.0" y1="825" x2="249.0" y2="825" stroke="#8A8A8A" stroke-width="2"/>
+<text x="245.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Pedidos</text>
+<rect x="305.0" y="802" width="60" height="3" rx="1" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<circle cx="335.0" cy="815" r="5" fill="none" stroke="#7A3E1D" stroke-width="2"/>
+<polyline points="326.0,830 328.0,823 335.0,821 342.0,823 344.0,830" fill="none" stroke="#7A3E1D" stroke-width="2" stroke-linejoin="round"/>
+<text x="335.0" y="844.8" font-size="11" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Conta</text>
+</svg>

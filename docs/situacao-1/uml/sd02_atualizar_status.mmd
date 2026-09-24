@@ -1,0 +1,32 @@
+sequenceDiagram
+autonumber
+actor A as Administrador
+participant VA as Painel de Pedidos (View)
+participant AC as AdminPedidoController
+participant PS as PedidoService (Model)
+participant BD as Banco de Dados
+actor C as Cliente
+participant VC as Tela Acompanhamento (View)
+A->>VA: Seleciona pedido e escolhe próximo status
+VA->>AC: PUT /admin/pedidos/{id}/status (novoStatus)
+AC->>PS: alterarStatus(idPedido, novoStatus)
+PS->>BD: SELECT pedido
+BD-->>PS: status atual
+alt Transição permitida (diagrama de estados)
+  PS->>BD: [transação] UPDATE pedido.status + INSERT notificação
+  opt novoStatus = CANCELADO e estoque já baixado
+    PS->>BD: devolve quantidades ao estoque
+  end
+  PS-->>AC: ok
+  AC-->>VA: MSG-S08 "Status atualizado"
+else Transição inválida
+  PS-->>AC: erro
+  AC-->>VA: MSG-E14
+end
+loop A cada 30 segundos (polling)
+  VC->>PS: GET /pedidos/{id}/status
+  PS->>BD: SELECT status, data_atualizacao
+  BD-->>PS: status atual
+  PS-->>VC: status
+end
+VC-->>C: Linha do tempo atualizada + ícone de notificação

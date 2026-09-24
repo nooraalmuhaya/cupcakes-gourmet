@@ -1,0 +1,32 @@
+sequenceDiagram
+autonumber
+actor C as Cliente
+participant V as Tela Pagamento (View)
+participant PC as PedidoController
+participant PS as PedidoService (Model)
+participant PG as PagamentoSimulado
+participant BD as Banco de Dados
+C->>V: Escolhe endereço, método e clica "Confirmar pagamento"
+V->>PC: POST /pedidos (idEndereco, metodo)
+PC->>PS: criarPedido(usuario, carrinho, endereco, metodo)
+PS->>BD: SELECT produtos do carrinho (preço, estoque, ativo)
+BD-->>PS: dados atuais dos produtos
+alt Produto inativo ou estoque insuficiente
+  PS-->>PC: erro de disponibilidade
+  PC-->>V: volta ao Carrinho com MSG-E07
+else Tudo disponível
+  PS->>BD: revalida cupom (se houver)
+  PS->>BD: [transação] INSERT pedido (AGUARDANDO_PAGAMENTO), itens e pagamento (PENDENTE)
+  PS->>PG: processar(metodo, valorTotal)
+  PG-->>PS: resultado (APROVADO / RECUSADO)
+  alt Pagamento aprovado
+    PS->>BD: [transação] pagamento = APROVADO, pedido = RECEBIDO, baixa estoque, INSERT notificação
+    PS-->>PC: pedido confirmado (numeroPedido)
+    PC-->>V: redireciona para Confirmação do Pedido
+    V-->>C: Mostra número do pedido e resumo
+  else Pagamento recusado
+    PS->>BD: pagamento = RECUSADO
+    PS-->>PC: pagamento recusado
+    PC-->>V: MSG-E10 com opções: tentar de novo, trocar método ou cancelar
+  end
+end

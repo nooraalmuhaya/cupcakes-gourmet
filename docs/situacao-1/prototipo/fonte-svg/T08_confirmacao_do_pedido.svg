@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T08 – Confirmação do Pedido</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado de sucesso – pedido criado, número único (RN-13)</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Pedido Confirmado</text>
+<circle cx="200.0" cy="228" r="44" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<polyline points="184.0,222 190.0,228 201.0,214" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linejoin="round"/>
+<text x="200.0" y="301.6" font-size="17" fill="#222222" text-anchor="middle" font-weight="bold">Pedido realizado com sucesso!</text>
+<text x="200.0" y="324.4" font-size="13" fill="#6B6B6B" text-anchor="middle">A loja já recebeu seu pedido.</text>
+<rect x="36" y="348" width="328" height="62" rx="10" fill="#F6EDE6" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1"/>
+<text x="200.0" y="366.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Número do pedido</text>
+<text x="200.0" y="391.6" font-size="17" fill="#5A2C13" text-anchor="middle" font-weight="bold">CUP-20260923-0042</text>
+<text x="36" y="437.6" font-size="12" fill="#6B6B6B" text-anchor="start">Itens</text>
+<text x="130" y="437.6" font-size="12" fill="#222222" text-anchor="start">2x Red Velvet, 1x Chocolate Belga</text>
+<text x="36" y="467.6" font-size="12" fill="#6B6B6B" text-anchor="start">Entrega</text>
+<text x="130" y="467.6" font-size="12" fill="#222222" text-anchor="start">Casa – Rua das Flores, 123, apto 12</text>
+<text x="36" y="497.6" font-size="12" fill="#6B6B6B" text-anchor="start">Pagamento</text>
+<text x="130" y="497.6" font-size="12" fill="#222222" text-anchor="start">Cartão de crédito · Aprovado</text>
+<text x="36" y="527.6" font-size="12" fill="#6B6B6B" text-anchor="start">Total</text>
+<text x="130" y="527.6" font-size="12" fill="#222222" text-anchor="start" font-weight="bold">R$ 43,10</text>
+<text x="36" y="562.8" font-size="11" fill="#6B6B6B" text-anchor="start">Você vai receber uma notificação a cada mudança de</text>
+<text x="36" y="577.6" font-size="11" fill="#6B6B6B" text-anchor="start">status.</text>
+<rect x="36" y="726" width="328" height="48" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="752.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Acompanhar pedido</text>
+<rect x="36" y="784" width="328" height="44" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.5"/>
+<text x="200.0" y="808.3" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Voltar ao início</text>
+</svg>

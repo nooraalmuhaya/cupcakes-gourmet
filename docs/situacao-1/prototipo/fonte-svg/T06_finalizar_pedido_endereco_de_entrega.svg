@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T06 – Finalizar Pedido – Endereço de</text>
+<text x="20" y="44.2" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">Entrega</text>
+<text x="20" y="64.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado padrão – endereço padrão já selecionado</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<polyline points="45,118 37,126 45,134" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Finalizar Pedido</text>
+<line x1="80" y1="178" x2="320" y2="178" stroke="#CFCFCF" stroke-width="2"/>
+<circle cx="80" cy="178" r="12" fill="#7A3E1D" stroke="#7A3E1D" stroke-width="2"/>
+<text x="80" y="180.6" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1</text>
+<text x="80" y="204.8" font-size="11" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Endereço</text>
+<circle cx="320" cy="178" r="12" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"/>
+<text x="320" y="180.6" font-size="12" fill="#6B6B6B" text-anchor="middle" font-weight="bold">2</text>
+<text x="320" y="204.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Pagamento</text>
+<text x="36" y="240.0" font-size="15" fill="#222222" text-anchor="start" font-weight="bold">Onde vamos entregar?</text>
+<rect x="32" y="258" width="336" height="84" rx="10" fill="#F6EDE6" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="2"/>
+<circle cx="53" cy="281" r="9" fill="#FFFFFF" stroke="#7A3E1D" stroke-width="2"/>
+<circle cx="53" cy="281" r="5" fill="#7A3E1D" stroke="none" stroke-width="1"/>
+<text x="74" y="281.2" font-size="14" fill="#222222" text-anchor="start" font-weight="bold">Casa</text>
+<rect x="119.50390625" y="270" width="53.5234375" height="20" rx="10.0" fill="#F6EDE6" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="0.8"/>
+<text x="126.50390625" y="282.0" font-size="10" fill="#7A3E1D" text-anchor="start" font-weight="bold">Padrão</text>
+<text x="74" y="303.6" font-size="12" fill="#222222" text-anchor="start">Rua das Flores, 123, apto 12</text>
+<text x="74" y="322.8" font-size="11" fill="#6B6B6B" text-anchor="start">Jardim Paulista · São Paulo – SP · 01415-000</text>
+<rect x="32" y="352" width="336" height="84" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1"/>
+<circle cx="53" cy="375" r="9" fill="#FFFFFF" stroke="#9E9E9E" stroke-width="2"/>
+<text x="74" y="375.2" font-size="14" fill="#222222" text-anchor="start" font-weight="bold">Trabalho</text>
+<text x="74" y="397.6" font-size="12" fill="#222222" text-anchor="start">Av. Paulista, 1000, 5º andar</text>
+<text x="74" y="416.8" font-size="11" fill="#6B6B6B" text-anchor="start">Bela Vista · São Paulo – SP · 01310-100</text>
+<rect x="32" y="446" width="336" height="44" rx="10" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="200.0" y="469.4" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">+ Cadastrar novo endereço</text>
+<text x="36" y="508.8" font-size="11" fill="#6B6B6B" text-anchor="start">Nome e telefone vêm da sua conta – não é preciso digitar</text>
+<text x="36" y="523.6" font-size="11" fill="#6B6B6B" text-anchor="start">de novo.</text>
+<rect x="32" y="540" width="336" height="74" rx="10" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="559.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Resumo do pedido</text>
+<text x="44" y="578.8" font-size="11" fill="#6B6B6B" text-anchor="start">2x Red Velvet · 1x Chocolate Belga</text>
+<text x="44" y="596.8" font-size="11" fill="#6B6B6B" text-anchor="start">Cupom BEMVINDO10 · Taxa de entrega R$ 8,00</text>
+<text x="356" y="561.2" font-size="14" fill="#5A2C13" text-anchor="end" font-weight="bold">R$ 43,10</text>
+<rect x="36" y="734" width="328" height="48" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="760.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Continuar para pagamento</text>
+<rect x="36" y="790" width="328" height="40" rx="10" fill="none" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="812.3" font-size="13" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Voltar ao carrinho</text>
+</svg>

@@ -1,0 +1,12 @@
+stateDiagram-v2
+  [*] --> AGUARDANDO_PAGAMENTO : Cliente confirma o checkout
+  AGUARDANDO_PAGAMENTO --> AGUARDANDO_PAGAMENTO : Pagamento recusado / nova tentativa
+  AGUARDANDO_PAGAMENTO --> RECEBIDO : Pagamento aprovado / baixa estoque
+  AGUARDANDO_PAGAMENTO --> CANCELADO : Cliente desiste
+  RECEBIDO --> EM_PREPARO : Admin inicia preparo
+  RECEBIDO --> CANCELADO : Admin cancela / devolve estoque
+  EM_PREPARO --> SAIU_PARA_ENTREGA : Admin despacha
+  EM_PREPARO --> CANCELADO : Admin cancela / devolve estoque
+  SAIU_PARA_ENTREGA --> ENTREGUE : Admin confirma entrega
+  ENTREGUE --> [*]
+  CANCELADO --> [*]

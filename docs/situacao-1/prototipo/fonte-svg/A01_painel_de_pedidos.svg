@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="810" viewBox="0 0 1140 810" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1140" height="810" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.8" font-size="16" fill="#5A2C13" text-anchor="start" font-weight="bold">A01 – Painel de Pedidos</text>
+<text x="20" y="47.6" font-size="12" fill="#6B6B6B" text-anchor="start">Estado padrão – lista de pedidos, filtro por status (US17, UC-16)</text>
+<rect x="14" y="70" width="1112" height="728" rx="12" fill="#E9E9E9" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<circle cx="36" cy="94" r="6" fill="#E57373" stroke="none" stroke-width="1"/>
+<circle cx="56" cy="94" r="6" fill="#FFD54F" stroke="none" stroke-width="1"/>
+<circle cx="76" cy="94" r="6" fill="#81C784" stroke="none" stroke-width="1"/>
+<text x="570.0" y="94.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Cupcake Haven – Painel do Administrador (tela de computador)</text>
+<rect x="20" y="112" width="1100" height="680" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="112" width="1100" height="58" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<circle cx="50" cy="141" r="14" fill="#F6EDE6" stroke="none" stroke-width="1"/>
+<text x="50" y="144.2" font-size="14" fill="#7A3E1D" text-anchor="middle" font-weight="bold">C</text>
+<text x="74" y="137.6" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">Cupcake Haven</text>
+<text x="74" y="154.8" font-size="11" fill="#F0DCCF" text-anchor="start">Painel do Administrador</text>
+<rect x="336" y="124" width="90.5546875" height="34" rx="8" fill="#5A2C13" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="350" y="143.2" font-size="14" fill="#FFFFFF" text-anchor="start" font-weight="bold">Pedidos</text>
+<text x="462.5546875" y="143.2" font-size="14" fill="#FFFFFF" text-anchor="start">Produtos</text>
+<text x="1010" y="142.4" font-size="13" fill="#FFFFFF" text-anchor="end">Olá, Administrador</text>
+<rect x="1028" y="126" width="76" height="30" rx="8" fill="none" fill-opacity="1.0" stroke="#FFFFFF" stroke-width="1.2"/>
+<text x="1066" y="143.4" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sair</text>
+<text x="52" y="209.6" font-size="22" fill="#222222" text-anchor="start" font-weight="bold">Pedidos</text>
+<text x="52" y="234.4" font-size="13" fill="#6B6B6B" text-anchor="start">Filtrar por status:</text>
+<rect x="190" y="216" width="64.8203125" height="30" rx="15" fill="#7A3E1D" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="203" y="233.6" font-size="12" fill="#FFFFFF" text-anchor="start" font-weight="bold">Todos</text>
+<rect x="262.8203125" y="216" width="171.54296875" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="275.8203125" y="233.6" font-size="12" fill="#222222" text-anchor="start">Aguardando pagamento</text>
+<rect x="442.36328125" y="216" width="121.875" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="455.36328125" y="233.6" font-size="12" fill="#222222" text-anchor="start">Pedido recebido</text>
+<rect x="572.23828125" y="216" width="95.75" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="585.23828125" y="233.6" font-size="12" fill="#222222" text-anchor="start">Em preparo</text>
+<rect x="675.98828125" y="216" width="133.53125" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="688.98828125" y="233.6" font-size="12" fill="#222222" text-anchor="start">Saiu para entrega</text>
+<rect x="817.51953125" y="216" width="80.5546875" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="830.51953125" y="233.6" font-size="12" fill="#222222" text-anchor="start">Entregue</text>
+<rect x="906.07421875" y="216" width="88.97265625" height="30" rx="15" fill="#FFFFFF" fill-opacity="1.0" stroke="#CFCFCF" stroke-width="1.2"/>
+<text x="919.07421875" y="233.6" font-size="12" fill="#222222" text-anchor="start">Cancelado</text>
+<rect x="52" y="264" width="1036" height="40" rx="6" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="66" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Número</text>
+<text x="276" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Cliente</text>
+<text x="456" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Data</text>
+<text x="596" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Total</text>
+<text x="716" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Status</text>
+<text x="966" y="286.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Ações</text>
+<line x1="52" y1="350" x2="1088" y2="350" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="329.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260923-0045</text>
+<text x="276" y="329.4" font-size="13" fill="#222222" text-anchor="start">João Pereira</text>
+<text x="456" y="329.4" font-size="13" fill="#222222" text-anchor="start">23/09 14:40</text>
+<text x="596" y="329.4" font-size="13" fill="#222222" text-anchor="start">R$ 27,00</text>
+<rect x="716" y="315" width="179.046875" height="23" rx="11.5" fill="#EEEEEE" fill-opacity="1.0" stroke="#555555" stroke-width="0.8"/>
+<text x="724" y="328.8" font-size="11" fill="#555555" text-anchor="start" font-weight="bold">○ Aguardando pagamento</text>
+<rect x="966" y="313" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="328.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="396" x2="1088" y2="396" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="375.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260923-0044</text>
+<text x="276" y="375.4" font-size="13" fill="#222222" text-anchor="start">Ana Costa</text>
+<text x="456" y="375.4" font-size="13" fill="#222222" text-anchor="start">23/09 14:31</text>
+<text x="596" y="375.4" font-size="13" fill="#222222" text-anchor="start">R$ 52,50</text>
+<rect x="716" y="361" width="129.80078125" height="23" rx="11.5" fill="#E3F2FD" fill-opacity="1.0" stroke="#1565C0" stroke-width="0.8"/>
+<text x="724" y="374.8" font-size="11" fill="#1565C0" text-anchor="start" font-weight="bold">● Pedido recebido</text>
+<rect x="966" y="359" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="374.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="442" x2="1088" y2="442" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="421.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260923-0043</text>
+<text x="276" y="421.4" font-size="13" fill="#222222" text-anchor="start">Carlos Lima</text>
+<text x="456" y="421.4" font-size="13" fill="#222222" text-anchor="start">23/09 14:20</text>
+<text x="596" y="421.4" font-size="13" fill="#222222" text-anchor="start">R$ 34,00</text>
+<rect x="716" y="407" width="129.80078125" height="23" rx="11.5" fill="#E3F2FD" fill-opacity="1.0" stroke="#1565C0" stroke-width="0.8"/>
+<text x="724" y="420.8" font-size="11" fill="#1565C0" text-anchor="start" font-weight="bold">● Pedido recebido</text>
+<rect x="966" y="405" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="420.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="488" x2="1088" y2="488" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="467.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260923-0042</text>
+<text x="276" y="467.4" font-size="13" fill="#222222" text-anchor="start">Maria Oliveira</text>
+<text x="456" y="467.4" font-size="13" fill="#222222" text-anchor="start">23/09 14:05</text>
+<text x="596" y="467.4" font-size="13" fill="#222222" text-anchor="start">R$ 43,10</text>
+<rect x="716" y="453" width="101.2734375" height="23" rx="11.5" fill="#FFF4E0" fill-opacity="1.0" stroke="#8A5300" stroke-width="0.8"/>
+<text x="724" y="466.8" font-size="11" fill="#8A5300" text-anchor="start" font-weight="bold">● Em preparo</text>
+<rect x="966" y="451" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="466.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="534" x2="1088" y2="534" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="513.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260923-0040</text>
+<text x="276" y="513.4" font-size="13" fill="#222222" text-anchor="start">Fernanda Souza</text>
+<text x="456" y="513.4" font-size="13" fill="#222222" text-anchor="start">23/09 13:10</text>
+<text x="596" y="513.4" font-size="13" fill="#222222" text-anchor="start">R$ 29,00</text>
+<rect x="716" y="499" width="140.90625" height="23" rx="11.5" fill="#EDE7F6" fill-opacity="1.0" stroke="#5E35B1" stroke-width="0.8"/>
+<text x="724" y="512.8" font-size="11" fill="#5E35B1" text-anchor="start" font-weight="bold">● Saiu para entrega</text>
+<rect x="966" y="497" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="512.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="580" x2="1088" y2="580" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="559.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260922-0038</text>
+<text x="276" y="559.4" font-size="13" fill="#222222" text-anchor="start">Paulo Mendes</text>
+<text x="456" y="559.4" font-size="13" fill="#222222" text-anchor="start">22/09 18:45</text>
+<text x="596" y="559.4" font-size="13" fill="#222222" text-anchor="start">R$ 61,00</text>
+<rect x="716" y="545" width="85.70703125" height="23" rx="11.5" fill="#E8F5E9" fill-opacity="1.0" stroke="#2E7D32" stroke-width="0.8"/>
+<text x="724" y="558.8" font-size="11" fill="#2E7D32" text-anchor="start" font-weight="bold">✓ Entregue</text>
+<rect x="966" y="543" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="558.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<line x1="52" y1="626" x2="1088" y2="626" stroke="#EAEAEA" stroke-width="1"/>
+<text x="66" y="605.4" font-size="13" fill="#222222" text-anchor="start">CUP-20260922-0035</text>
+<text x="276" y="605.4" font-size="13" fill="#222222" text-anchor="start">Juliana Rocha</text>
+<text x="456" y="605.4" font-size="13" fill="#222222" text-anchor="start">22/09 16:02</text>
+<text x="596" y="605.4" font-size="13" fill="#222222" text-anchor="start">R$ 21,00</text>
+<rect x="716" y="591" width="92.98046875" height="23" rx="11.5" fill="#FDECEA" fill-opacity="1.0" stroke="#C62828" stroke-width="0.8"/>
+<text x="724" y="604.8" font-size="11" fill="#C62828" text-anchor="start" font-weight="bold">✕ Cancelado</text>
+<rect x="966" y="589" width="70" height="28" rx="6" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="1.2"/>
+<text x="1001" y="604.6" font-size="12" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Abrir</text>
+<text x="52" y="651.6" font-size="12" fill="#6B6B6B" text-anchor="start">Mais recentes primeiro · 7 pedidos</text>
+</svg>

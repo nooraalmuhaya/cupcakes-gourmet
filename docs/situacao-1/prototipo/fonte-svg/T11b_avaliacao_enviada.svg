@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T11 – Avaliação enviada</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado de sucesso (MSG-S07) – de volta em Meus Pedidos, a nota</text>
+<text x="20" y="59.7" font-size="11" fill="#6B6B6B" text-anchor="start">aparece no pedido</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Meus Pedidos</text>
+<rect x="32" y="166" width="336" height="84" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="186.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">CUP-20260923-0042</text>
+<text x="44" y="205.6" font-size="12" fill="#6B6B6B" text-anchor="start">23/09/2026 · R$ 43,10</text>
+<rect x="254.7265625" y="174" width="101.2734375" height="23" rx="11.5" fill="#FFF4E0" fill-opacity="1.0" stroke="#8A5300" stroke-width="0.8"/>
+<text x="262.7265625" y="187.8" font-size="11" fill="#8A5300" text-anchor="start" font-weight="bold">● Em preparo</text>
+<text x="44" y="231.6" font-size="12" fill="#7A3E1D" text-anchor="start" font-weight="bold">Ver detalhes ›</text>
+<rect x="32" y="260" width="336" height="112" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="280.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">CUP-20260915-0031</text>
+<text x="44" y="299.6" font-size="12" fill="#6B6B6B" text-anchor="start">15/09/2026 · R$ 34,50</text>
+<rect x="270.29296875" y="268" width="85.70703125" height="23" rx="11.5" fill="#E8F5E9" fill-opacity="1.0" stroke="#2E7D32" stroke-width="0.8"/>
+<text x="278.29296875" y="281.8" font-size="11" fill="#2E7D32" text-anchor="start" font-weight="bold">✓ Entregue</text>
+<text x="44" y="325.6" font-size="12" fill="#7A3E1D" text-anchor="start" font-weight="bold">Ver detalhes ›</text>
+<text x="356" y="325.6" font-size="12" fill="#7A3E1D" text-anchor="end" font-weight="bold">Repetir pedido</text>
+<text x="44" y="351.6" font-size="12" fill="#6B6B6B" text-anchor="start">Sua nota:</text>
+<text x="110" y="351.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="128" y="351.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="146" y="351.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="164" y="351.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="182" y="351.0" font-size="15" fill="#B0B0B0" text-anchor="start">☆</text>
+<rect x="32" y="382" width="336" height="112" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="402.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">CUP-20260902-0017</text>
+<text x="44" y="421.6" font-size="12" fill="#6B6B6B" text-anchor="start">02/09/2026 · R$ 35,50</text>
+<rect x="270.29296875" y="390" width="85.70703125" height="23" rx="11.5" fill="#E8F5E9" fill-opacity="1.0" stroke="#2E7D32" stroke-width="0.8"/>
+<text x="278.29296875" y="403.8" font-size="11" fill="#2E7D32" text-anchor="start" font-weight="bold">✓ Entregue</text>
+<text x="44" y="447.6" font-size="12" fill="#7A3E1D" text-anchor="start" font-weight="bold">Ver detalhes ›</text>
+<text x="356" y="447.6" font-size="12" fill="#7A3E1D" text-anchor="end" font-weight="bold">Repetir pedido</text>
+<text x="44" y="473.6" font-size="12" fill="#6B6B6B" text-anchor="start">Sua nota:</text>
+<text x="110" y="473.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="128" y="473.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="146" y="473.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="164" y="473.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<text x="182" y="473.0" font-size="15" fill="#E0A100" text-anchor="start">★</text>
+<rect x="32" y="504" width="336" height="84" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="44" y="524.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">CUP-20260820-0009</text>
+<text x="44" y="543.6" font-size="12" fill="#6B6B6B" text-anchor="start">20/08/2026 · R$ 21,00</text>
+<rect x="263.01953125" y="512" width="92.98046875" height="23" rx="11.5" fill="#FDECEA" fill-opacity="1.0" stroke="#C62828" stroke-width="0.8"/>
+<text x="271.01953125" y="525.8" font-size="11" fill="#C62828" text-anchor="start" font-weight="bold">✕ Cancelado</text>
+<text x="44" y="569.6" font-size="12" fill="#7A3E1D" text-anchor="start" font-weight="bold">Ver detalhes ›</text>
+<text x="200.0" y="610.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Página 1 de 1</text>
+<rect x="20" y="798" width="360" height="60" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<line x1="20" y1="798" x2="380" y2="798" stroke="#CFCFCF" stroke-width="1"/>
+<polyline points="55.0,818 65.0,809 75.0,818" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<rect x="58.0" y="818" width="14" height="11" rx="0" fill="none" fill-opacity="1.0" stroke="#8A8A8A" stroke-width="2"/>
+<text x="65.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Início</text>
+<polyline points="144.0,811 148.0,811 151.0,823 164.0,823 166.0,814 149.0,814" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="153.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<circle cx="162.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<text x="155.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Carrinho</text>
+<rect x="215.0" y="802" width="60" height="3" rx="1" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="237.0" y="809" width="16" height="21" rx="2" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="815" x2="249.0" y2="815" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="820" x2="249.0" y2="820" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="825" x2="249.0" y2="825" stroke="#7A3E1D" stroke-width="2"/>
+<text x="245.0" y="844.8" font-size="11" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Pedidos</text>
+<circle cx="335.0" cy="815" r="5" fill="none" stroke="#8A8A8A" stroke-width="2"/>
+<polyline points="326.0,830 328.0,823 335.0,821 342.0,823 344.0,830" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<text x="335.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Conta</text>
+<rect x="36" y="740" width="328" height="42" rx="10" fill="#323232" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="54" y="763.4" font-size="13" fill="#7CD67F" text-anchor="start" font-weight="bold">✓</text>
+<text x="74" y="762.6" font-size="12" fill="#FFFFFF" text-anchor="start">Obrigado pela avaliação!</text>
+</svg>

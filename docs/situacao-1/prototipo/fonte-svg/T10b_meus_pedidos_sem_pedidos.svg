@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="880" viewBox="0 0 400 880" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="400" height="880" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">T10 – Meus Pedidos – sem pedidos</text>
+<text x="20" y="44.8" font-size="11" fill="#6B6B6B" text-anchor="start">Estado vazio (MSG-I04)</text>
+<rect x="14" y="92" width="372" height="772" rx="22" fill="#FFFFFF" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<rect x="20" y="98" width="360" height="760" rx="16" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="98" width="360" height="56" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="200.0" y="128.8" font-size="16" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Meus Pedidos</text>
+<circle cx="200.0" cy="348" r="56" fill="#F6EDE6" stroke="none" stroke-width="1"/>
+<rect x="192.0" y="337" width="16" height="21" rx="2" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="196.0" y1="343" x2="204.0" y2="343" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="196.0" y1="348" x2="204.0" y2="348" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="196.0" y1="353" x2="204.0" y2="353" stroke="#7A3E1D" stroke-width="2"/>
+<text x="200.0" y="440.0" font-size="15" fill="#222222" text-anchor="middle" font-weight="bold">Você ainda não fez nenhum pedido.</text>
+<text x="200.0" y="464.4" font-size="13" fill="#6B6B6B" text-anchor="middle">Seus pedidos aparecem aqui.</text>
+<rect x="110" y="490" width="180" height="44" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="200.0" y="514.5" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Ver cardápio</text>
+<rect x="20" y="798" width="360" height="60" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<line x1="20" y1="798" x2="380" y2="798" stroke="#CFCFCF" stroke-width="1"/>
+<polyline points="55.0,818 65.0,809 75.0,818" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<rect x="58.0" y="818" width="14" height="11" rx="0" fill="none" fill-opacity="1.0" stroke="#8A8A8A" stroke-width="2"/>
+<text x="65.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Início</text>
+<polyline points="144.0,811 148.0,811 151.0,823 164.0,823 166.0,814 149.0,814" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="153.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<circle cx="162.0" cy="828" r="2" fill="#8A8A8A" stroke="none" stroke-width="1"/>
+<text x="155.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Carrinho</text>
+<rect x="215.0" y="802" width="60" height="3" rx="1" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="237.0" y="809" width="16" height="21" rx="2" fill="none" fill-opacity="1.0" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="815" x2="249.0" y2="815" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="820" x2="249.0" y2="820" stroke="#7A3E1D" stroke-width="2"/>
+<line x1="241.0" y1="825" x2="249.0" y2="825" stroke="#7A3E1D" stroke-width="2"/>
+<text x="245.0" y="844.8" font-size="11" fill="#7A3E1D" text-anchor="middle" font-weight="bold">Pedidos</text>
+<circle cx="335.0" cy="815" r="5" fill="none" stroke="#8A8A8A" stroke-width="2"/>
+<polyline points="326.0,830 328.0,823 335.0,821 342.0,823 344.0,830" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linejoin="round"/>
+<text x="335.0" y="844.8" font-size="11" fill="#8A8A8A" text-anchor="middle">Conta</text>
+</svg>

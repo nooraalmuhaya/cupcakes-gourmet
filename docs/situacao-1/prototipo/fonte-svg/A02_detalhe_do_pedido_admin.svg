@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="810" viewBox="0 0 1140 810" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1140" height="810" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="20" y="24.8" font-size="16" fill="#5A2C13" text-anchor="start" font-weight="bold">A02 – Detalhe do Pedido (admin)</text>
+<text x="20" y="47.6" font-size="12" fill="#6B6B6B" text-anchor="start">Estado de sucesso – status alterado (MSG-S08); botão só do próximo status</text>
+<rect x="14" y="70" width="1112" height="728" rx="12" fill="#E9E9E9" fill-opacity="1.0" stroke="#333333" stroke-width="3"/>
+<circle cx="36" cy="94" r="6" fill="#E57373" stroke="none" stroke-width="1"/>
+<circle cx="56" cy="94" r="6" fill="#FFD54F" stroke="none" stroke-width="1"/>
+<circle cx="76" cy="94" r="6" fill="#81C784" stroke="none" stroke-width="1"/>
+<text x="570.0" y="94.8" font-size="11" fill="#6B6B6B" text-anchor="middle">Cupcake Haven – Painel do Administrador (tela de computador)</text>
+<rect x="20" y="112" width="1100" height="680" rx="0" fill="#FFFFFF" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<rect x="20" y="112" width="1100" height="58" rx="0" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<circle cx="50" cy="141" r="14" fill="#F6EDE6" stroke="none" stroke-width="1"/>
+<text x="50" y="144.2" font-size="14" fill="#7A3E1D" text-anchor="middle" font-weight="bold">C</text>
+<text x="74" y="137.6" font-size="17" fill="#FFFFFF" text-anchor="start" font-weight="bold">Cupcake Haven</text>
+<text x="74" y="154.8" font-size="11" fill="#F0DCCF" text-anchor="start">Painel do Administrador</text>
+<rect x="336" y="124" width="90.5546875" height="34" rx="8" fill="#5A2C13" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="350" y="143.2" font-size="14" fill="#FFFFFF" text-anchor="start" font-weight="bold">Pedidos</text>
+<text x="462.5546875" y="143.2" font-size="14" fill="#FFFFFF" text-anchor="start">Produtos</text>
+<text x="1010" y="142.4" font-size="13" fill="#FFFFFF" text-anchor="end">Olá, Administrador</text>
+<rect x="1028" y="126" width="76" height="30" rx="8" fill="none" fill-opacity="1.0" stroke="#FFFFFF" stroke-width="1.2"/>
+<text x="1066" y="143.4" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sair</text>
+<text x="52" y="198.4" font-size="13" fill="#6B6B6B" text-anchor="start">Pedidos  ›  CUP-20260923-0042</text>
+<text x="52" y="229.6" font-size="22" fill="#222222" text-anchor="start" font-weight="bold">Pedido CUP-20260923-0042</text>
+<rect x="412.578125" y="216" width="109.03515625" height="24" rx="12.0" fill="#FFF4E0" fill-opacity="1.0" stroke="#8A5300" stroke-width="0.8"/>
+<text x="420.578125" y="230.6" font-size="12" fill="#8A5300" text-anchor="start" font-weight="bold">● Em preparo</text>
+<rect x="52" y="256" width="640" height="500" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="72" y="282.4" font-size="13" fill="#5A2C13" text-anchor="start" font-weight="bold">Cliente</text>
+<text x="72" y="304.4" font-size="13" fill="#222222" text-anchor="start">Maria Oliveira · maria.oliveira@email.com · (11) 98765-4321</text>
+<text x="72" y="338.4" font-size="13" fill="#5A2C13" text-anchor="start" font-weight="bold">Endereço de entrega</text>
+<text x="72" y="360.4" font-size="13" fill="#222222" text-anchor="start">Rua das Flores, 123, apto 12 – Jardim Paulista – São Paulo – SP – 01415-000</text>
+<text x="72" y="396.4" font-size="13" fill="#5A2C13" text-anchor="start" font-weight="bold">Itens</text>
+<rect x="72" y="408" width="600" height="40" rx="6" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="86" y="430.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Produto</text>
+<text x="346" y="430.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Qtd.</text>
+<text x="416" y="430.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Preço unit.</text>
+<text x="556" y="430.6" font-size="12" fill="#5A2C13" text-anchor="start" font-weight="bold">Subtotal</text>
+<line x1="72" y1="488" x2="672" y2="488" stroke="#EAEAEA" stroke-width="1"/>
+<text x="86" y="473.4" font-size="13" fill="#222222" text-anchor="start">Red Velvet</text>
+<text x="346" y="473.4" font-size="13" fill="#222222" text-anchor="start">2</text>
+<text x="416" y="473.4" font-size="13" fill="#222222" text-anchor="start">R$ 12,50</text>
+<text x="556" y="473.4" font-size="13" fill="#222222" text-anchor="start">R$ 25,00</text>
+<line x1="72" y1="528" x2="672" y2="528" stroke="#EAEAEA" stroke-width="1"/>
+<text x="86" y="513.4" font-size="13" fill="#222222" text-anchor="start">Chocolate Belga</text>
+<text x="346" y="513.4" font-size="13" fill="#222222" text-anchor="start">1</text>
+<text x="416" y="513.4" font-size="13" fill="#222222" text-anchor="start">R$ 14,00</text>
+<text x="556" y="513.4" font-size="13" fill="#222222" text-anchor="start">R$ 14,00</text>
+<text x="392" y="551.6" font-size="12" fill="#6B6B6B" text-anchor="start">Subtotal</text>
+<text x="672" y="551.6" font-size="12" fill="#222222" text-anchor="end">R$ 39,00</text>
+<text x="392" y="573.6" font-size="12" fill="#6B6B6B" text-anchor="start">Desconto (cupom BEMVINDO10)</text>
+<text x="672" y="573.6" font-size="12" fill="#222222" text-anchor="end">− R$ 3,90</text>
+<text x="392" y="595.6" font-size="12" fill="#6B6B6B" text-anchor="start">Taxa de entrega</text>
+<text x="672" y="595.6" font-size="12" fill="#222222" text-anchor="end">R$ 8,00</text>
+<text x="392" y="624.0" font-size="15" fill="#222222" text-anchor="start" font-weight="bold">Total</text>
+<text x="672" y="624.0" font-size="15" fill="#222222" text-anchor="end" font-weight="bold">R$ 43,10</text>
+<text x="72" y="558.4" font-size="13" fill="#5A2C13" text-anchor="start" font-weight="bold">Pagamento</text>
+<text x="72" y="579.6" font-size="12" fill="#222222" text-anchor="start">Cartão de crédito</text>
+<rect x="72" y="592" width="79.86328125" height="20" rx="10.0" fill="#E8F5E9" fill-opacity="1.0" stroke="#2E7D32" stroke-width="0.8"/>
+<text x="79" y="604.0" font-size="10" fill="#2E7D32" text-anchor="start" font-weight="bold">✓ Aprovado</text>
+<rect x="712" y="256" width="376" height="300" rx="10" fill="#FAF7F4" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="732" y="284.0" font-size="15" fill="#5A2C13" text-anchor="start" font-weight="bold">Atualizar status</text>
+<circle cx="746" cy="315" r="9" fill="#7A3E1D" stroke="#7A3E1D" stroke-width="2"/>
+<text x="766" y="317.4" font-size="13" fill="#222222" text-anchor="start">Pedido recebido</text>
+<circle cx="746" cy="345" r="9" fill="#7A3E1D" stroke="#7A3E1D" stroke-width="2"/>
+<text x="766" y="347.4" font-size="13" fill="#222222" text-anchor="start" font-weight="bold">Em preparo</text>
+<text x="1068" y="345.8" font-size="11" fill="#7A3E1D" text-anchor="end">atual</text>
+<circle cx="746" cy="375" r="9" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"/>
+<text x="766" y="377.4" font-size="13" fill="#9E9E9E" text-anchor="start">Saiu para entrega</text>
+<circle cx="746" cy="405" r="9" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"/>
+<text x="766" y="407.4" font-size="13" fill="#9E9E9E" text-anchor="start">Entregue</text>
+<rect x="732" y="436" width="336" height="46" rx="10" fill="#7A3E1D" fill-opacity="1.0" stroke="none" stroke-width="1.5"/>
+<text x="900.0" y="461.3" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Marcar como "Saiu para entrega"</text>
+<rect x="732" y="492" width="336" height="40" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#C62828" stroke-width="1.5"/>
+<text x="900.0" y="514.3" font-size="13" fill="#C62828" text-anchor="middle" font-weight="bold">Cancelar pedido</text>
+<text x="732" y="550.8" font-size="11" fill="#6B6B6B" text-anchor="start">Só o próximo status permitido aparece (RN-14).</text>
+<rect x="712" y="570" width="376" height="110" rx="10" fill="#FFFFFF" fill-opacity="1.0" stroke="#E3D8CF" stroke-width="1"/>
+<text x="732" y="596.4" font-size="13" fill="#5A2C13" text-anchor="start" font-weight="bold">Avaliação do cliente</text>
+<text x="732" y="621.6" font-size="12" fill="#6B6B6B" text-anchor="start">Ainda não avaliado. A avaliação aparece aqui depois</text>
+<text x="732" y="637.8" font-size="12" fill="#6B6B6B" text-anchor="start">que o pedido for entregue e o cliente avaliar.</text>
+<rect x="728" y="722" width="360" height="46" rx="10" fill="#323232" fill-opacity="1.0" stroke="none" stroke-width="1"/>
+<text x="748" y="748.2" font-size="14" fill="#7CD67F" text-anchor="start" font-weight="bold">✓</text>
+<text x="770" y="746.6" font-size="12" fill="#FFFFFF" text-anchor="start">Status do pedido atualizado para Em preparo.</text>
+</svg>

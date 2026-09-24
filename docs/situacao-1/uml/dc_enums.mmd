@@ -1,0 +1,7 @@
+classDiagram
+direction LR
+class PerfilUsuario { <<enumeration>> CLIENTE ADMIN }
+class StatusPedido { <<enumeration>> AGUARDANDO_PAGAMENTO RECEBIDO EM_PREPARO SAIU_PARA_ENTREGA ENTREGUE CANCELADO }
+class MetodoPagamento { <<enumeration>> CREDITO DEBITO PIX }
+class StatusPagamento { <<enumeration>> PENDENTE APROVADO RECUSADO }
+class TipoCupom { <<enumeration>> PERCENTUAL VALOR_FIXO }
