@@ -1,0 +1,26 @@
+# Back-end – App de Cupcakes Gourmet (Situação 2)
+# Versões testadas com Python 3.11 e MySQL 8.0.46
+
+# Framework web (Controller) e servidor
+fastapi==0.141.1
+uvicorn==0.53.0
+
+# ORM (Model) e driver do MySQL
+SQLAlchemy==2.0.54
+PyMySQL==1.2.3
+cryptography==50.0.1   # exigido pelo PyMySQL para a autenticação padrão do MySQL 8
+
+# Validação de dados (schemas)
+pydantic==2.13.5
+email-validator==2.3.0
+
+# Sessão (cookie assinado) e hash de senha
+itsdangerous==2.2.0
+bcrypt==5.0.0
+
+# Leitura do arquivo .env
+python-dotenv==1.2.3
+
+# Testes automatizados
+pytest==9.1.1
+httpx==0.28.1
