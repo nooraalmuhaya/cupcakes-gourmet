@@ -38,8 +38,9 @@ dados de teste.
 3. A primeira tela é o **Cardápio**. Não é preciso entrar na conta para ver os
    cupcakes e montar o carrinho.
 
-No celular, a barra de baixo tem **Início**, **Carrinho**, **Pedidos** e **Conta**.
-No computador, essa barra aparece no topo. No cabeçalho ficam o **sino**
+A barra de baixo tem **Início**, **Carrinho**, **Pedidos** e **Conta** e fica sempre
+embaixo, no celular, no tablet e no computador (no computador o conteúdo aparece em uma
+coluna central). No cabeçalho ficam o **sino**
 (notificações) e o **carrinho**, com a quantidade em um círculo vermelho.
 
 ## 2. Criar conta

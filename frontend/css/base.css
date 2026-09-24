@@ -83,7 +83,7 @@ p { margin: 0 0 .75rem; }
 .negrito { font-weight: 700; }
 
 @media (min-width: 900px) {
-  .conteudo { padding-top: 24px; padding-bottom: 48px; }
+  .conteudo { padding-top: 24px; }
 }
 
 .pular-conteudo {

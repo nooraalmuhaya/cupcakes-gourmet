@@ -66,5 +66,13 @@ Data de todo o trabalho: 24/09/2026.
 - Script `tests/e2e/fluxos.mjs` com os 6 fluxos pedidos (48 passos) em Chromium:
   48/48 nos dois modos de execução. Capturas de tela reais em `docs/imagens/`.
 
-## 12. Documentação
+## 12. Responsividade conforme o protótipo
+- A barra inferior do protótipo (Início, Carrinho, Pedidos, Conta) deixou de virar menu
+  no topo em telas largas: fica embaixo em todas as larguras (decisão D31).
+- Auditoria em 390, 768 e 1366 px (`tests/e2e/responsivo.mjs`). Ajustes só de CSS:
+  itens do cabeçalho e da barra alinhados à coluna de conteúdo em telas largas; item do
+  carrinho sempre empilhado; área de toque de 44 px nos links do cabeçalho; cabeçalho do
+  administrador sem rolagem lateral no celular. Resultado: 63/63 verificações OK.
+
+## 13. Documentação
 - README, manual do usuário, arquitetura, rastreabilidade, testes, status e situação do Git.

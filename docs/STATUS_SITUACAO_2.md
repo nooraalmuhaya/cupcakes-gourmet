@@ -10,7 +10,7 @@ NÃO APLICÁVEL.
 |------|--------|-----------|
 | Git | IMPLEMENTADO | 14 commits com mensagens descritivas; `.gitignore` sem `.env`, venv e caches; varredura do histórico sem credenciais locais ([git-status](git-status-situacao-2.md)) |
 | GitHub | IMPLEMENTADO (branch) / PENDENTE (`main`) | Push do branch `claude/situacao-2-cupcakes-app-p46qpy` confirmado pela API do GitHub. O branch `main` ainda precisa ser criado pela aluna |
-| Front-end | IMPLEMENTADO | 19 telas (T01–T15, A01–A04) em HTML/CSS/JS puro; 48/48 passos no navegador, 0 erros de JavaScript; sem rolagem horizontal em 360 px e 1280 px ([testes](testes-situacao-2.md#4-testes-funcionais-do-front-end-6-fluxos)) |
+| Front-end | IMPLEMENTADO | 19 telas (T01–T15, A01–A04) em HTML/CSS/JS puro seguindo o protótipo (barra inferior em todas as larguras); 48/48 passos no navegador, 0 erros de JavaScript; auditoria de responsividade 63/63 em 390, 768 e 1366 px ([testes](testes-situacao-2.md#4-testes-funcionais-do-front-end-6-fluxos)) |
 | Back-end | IMPLEMENTADO | FastAPI em MVC (`models/`, `services/`, `routers/`, `schemas/`); 42 rotas documentadas em `/api/docs` |
 | Database | IMPLEMENTADO | Script da Situação 1 executado sem alterações no MySQL 8.0.46 (10 tabelas, 16 CHECKs); `test_banco.py` confirma as restrições; dados iniciais idempotentes |
 | Authentication | IMPLEMENTADO | bcrypt, cookie de sessão assinado e HttpOnly, perfis CLIENTE/ADMIN; `test_auth.py` (16), `test_admin.py` (acesso negado) e fluxo 1 no navegador |
@@ -38,7 +38,7 @@ NÃO APLICÁVEL.
 | Perfil / configurações, ajuda e suporte | OK |
 | Administração de produtos e pedidos, mudança de status | OK |
 | Tratamento de erros e estados vazios | OK (mensagens do catálogo 10.4 conferidas nos testes) |
-| Interface responsiva | OK em Chromium (360 px e 1280 px) |
+| Interface responsiva | OK em Chromium (360, 390, 768 e 1366 px) – adaptação do desenho mobile, sem desenho novo |
 | Testes existem e foram executados | OK |
 | README, manual, documentação técnica, rastreabilidade | OK |
 | `.env.example` e `.gitignore` | OK |

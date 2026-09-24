@@ -346,15 +346,21 @@ await passo(7, 'Cliente novo sem pedidos (MSG-I04) e sem notificações (MSG-I05
   await d.goto(B + '/pages/notificacoes.html'); await d.locator('text=Você não tem notificações.').waitFor();
   await d.context().close();
 });
-await passo(7, 'Sem rolagem horizontal em 360 px e em 1280 px', async () => {
-  for (const [w, h] of [[360, 740], [1280, 800]]) {
+await passo(7, 'Sem rolagem horizontal e barra inferior do protótipo em 360, 390, 768 e 1366 px', async () => {
+  for (const [w, h] of [[360, 740], [390, 844], [768, 1024], [1366, 768]]) {
     const p = await nova(w, h);
-    for (const url of ['/', '/pages/produto.html?id=1', '/pages/ajuda.html', '/pages/login.html']) {
+    for (const url of ['/', '/pages/produto.html?id=1', '/pages/carrinho.html', '/pages/ajuda.html', '/pages/login.html']) {
       await p.goto(B + url); await pronto(p);
-      const larg = await p.evaluate(() => document.documentElement.scrollWidth);
-      if (larg > w) throw new Error(`${url} em ${w}px tem largura ${larg}`);
+      const m = await p.evaluate(() => {
+        const nav = document.querySelector('.barra-inferior').getBoundingClientRect();
+        return { larg: document.documentElement.scrollWidth, navFundo: Math.round(nav.bottom) === innerHeight,
+          textos: [...document.querySelectorAll('.barra-inferior a span')].map((s) => s.textContent).join('|') };
+      });
+      if (m.larg > w) throw new Error(`${url} em ${w}px tem largura ${m.larg}`);
+      if (!m.navFundo || m.textos !== 'Início|Carrinho|Pedidos|Conta') throw new Error(`${url} em ${w}px: barra inferior ${JSON.stringify(m)}`);
     }
-    if (w === 1280) { await p.goto(B + '/'); await pronto(p); await shot(p, 'desktop_cardapio'); }
+    if (w === 768) { await p.goto(B + '/'); await pronto(p); await shot(p, 'tablet_cardapio'); }
+    if (w === 1366) { await p.goto(B + '/'); await pronto(p); await shot(p, 'desktop_cardapio'); }
     await p.context().close();
   }
 });
