@@ -9,6 +9,7 @@ import secrets
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.config.settings import settings
@@ -26,6 +27,18 @@ API REST do **App de Cupcakes Gourmet** (loja *Cupcake Haven*).
 * Todas as mensagens seguem o catálogo da seção 10.4 da Situação 1 (campo `codigo`).
 * O pagamento é **simulado**: nenhum valor real é cobrado.
 """
+
+
+class FrontendFiles(StaticFiles):
+    """Arquivos do front-end. Caminhos /api/... que não existem respondem em JSON
+    (tratador de erros da API), e não com a página HTML de "não encontrada"."""
+
+    async def get_response(self, path: str, scope):
+        if path == "api" or path.startswith("api/"):
+            if scope["method"] not in ("GET", "HEAD"):
+                raise StarletteHTTPException(status_code=405)
+            raise StarletteHTTPException(status_code=404)
+        return await super().get_response(path, scope)
 
 
 def criar_app() -> FastAPI:
@@ -68,7 +81,7 @@ def criar_app() -> FastAPI:
 
     # View (MVC): o próprio servidor entrega o front-end, na mesma origem da API.
     if settings.frontend_dir.exists():
-        app.mount("/", StaticFiles(directory=settings.frontend_dir, html=True), name="frontend")
+        app.mount("/", FrontendFiles(directory=settings.frontend_dir, html=True), name="frontend")
 
     return app
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Ilustração de cupcake">
+  <rect width="200" height="200" rx="24" fill="#E9F2D8"/>
+  <path d="M52 110 L148 110 L136 172 Q134 178 128 178 L72 178 Q66 178 64 172 Z" fill="#E7C9A9" stroke="#B98B62" stroke-width="3"/>
+  <path d="M70 112 L78 176 M90 112 L94 176 M110 112 L106 176 M130 112 L122 176" stroke="#C99E75" stroke-width="3"/>
+  <path d="M46 112 Q40 92 60 84 Q56 60 82 58 Q88 34 112 42 Q136 40 138 64 Q162 70 154 92 Q162 108 150 112 Z" fill="#8DB255" stroke="rgba(0,0,0,.18)" stroke-width="3"/>
+  <circle cx="100" cy="38" r="9" fill="#5E7F32"/>
+  <circle cx="78" cy="80" r="3" fill="#5E7F32"/><circle cx="118" cy="72" r="3" fill="#5E7F32"/><circle cx="130" cy="94" r="3" fill="#5E7F32"/><circle cx="68" cy="100" r="3" fill="#5E7F32"/>
+</svg>

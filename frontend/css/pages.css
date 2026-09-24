@@ -1,0 +1,173 @@
+/* =====================================================================
+   Estilos específicos das telas (T01–T15, A01–A04)
+   ===================================================================== */
+
+/* ---------- T01 Cardápio ---------- */
+.busca { position: relative; }
+.busca input {
+  width: 100%; min-height: 52px; padding: 12px 48px 12px 46px;
+  border: 1.5px solid #cbbfb5; border-radius: 999px; font: inherit;
+}
+.busca input:focus { border-color: var(--marrom); outline: none; box-shadow: 0 0 0 3px rgba(123, 63, 30, .15); }
+.busca .lupa { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: #777; }
+.busca .limpar-busca { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); color: #666; }
+.dica-busca { font-size: .85rem; color: var(--texto-suave); margin: 4px 0 12px 16px; }
+.filtros { display: grid; gap: 8px; margin-bottom: 8px; }
+.resumo-filtro { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 8px 0; font-size: .92rem; color: var(--texto-suave); }
+
+.grupo-categoria h2 { margin: 20px 0 10px; }
+.lista-produtos { display: grid; gap: 12px; }
+@media (min-width: 700px) { .lista-produtos { grid-template-columns: 1fr 1fr; } }
+
+.card-produto {
+  display: grid; grid-template-columns: 96px 1fr; gap: 14px;
+  padding: 12px; border: 1px solid var(--borda); border-radius: var(--raio); background: var(--branco);
+  text-decoration: none; color: inherit; position: relative;
+}
+.card-produto:hover { box-shadow: var(--sombra); }
+.card-produto img { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; background: var(--creme); }
+.card-produto .info { display: grid; gap: 4px; align-content: start; min-width: 0; }
+.card-produto .topo { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.card-produto h3 { margin: 0; font-size: 1.02rem; }
+.card-produto .preco { font-weight: 800; color: var(--marrom-escuro); white-space: nowrap; }
+.card-produto p { margin: 0; color: var(--texto-suave); font-size: .9rem; }
+.card-produto .rodape-card { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: space-between; margin-top: 4px; }
+.card-produto .selos { display: flex; flex-wrap: wrap; gap: 6px; }
+.card-produto a.cobre { position: absolute; inset: 0; border-radius: var(--raio); }
+.card-produto .botao { position: relative; z-index: 1; }
+
+/* ---------- T02 Detalhes ---------- */
+.foto-produto { width: 100%; max-height: 320px; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 18px; background: var(--creme); }
+@media (min-width: 900px) {
+  .detalhe-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+}
+.titulo-preco { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 14px; }
+.titulo-preco .preco { font-size: 1.3rem; font-weight: 800; color: var(--marrom-escuro); }
+.alergenos { background: var(--aviso-fundo); border: 1px solid #f0cf8e; border-radius: 12px; padding: 12px 14px; }
+.alergenos strong { color: var(--aviso); }
+
+/* ---------- T03 Carrinho ---------- */
+.item-carrinho {
+  display: grid; grid-template-columns: 72px 1fr auto; gap: 12px; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--borda);
+}
+.item-carrinho img { width: 72px; height: 72px; border-radius: 12px; background: var(--creme); }
+.item-carrinho .nome { font-weight: 700; }
+.item-carrinho .direita { display: grid; justify-items: end; gap: 10px; }
+.item-carrinho.indisponivel { background: var(--erro-fundo); border-radius: 12px; padding: 12px; border: 1px solid #f2b8b5; }
+.resumo-valores { display: grid; gap: 8px; }
+.resumo-valores .linha-entre span:first-child { color: var(--texto-suave); }
+.resumo-valores .desconto { color: var(--sucesso); }
+.resumo-valores .linha-entre span:last-child { white-space: nowrap; }
+.resumo-valores .total { border-top: 1px solid var(--borda); padding-top: 10px; font-size: 1.15rem; font-weight: 800; }
+.resumo-valores .total span:first-child { color: var(--texto); }
+.cupom-aplicado { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #a5d6a7; background: var(--sucesso-fundo); color: var(--sucesso); border-radius: 12px; font-weight: 700; }
+.form-cupom { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
+.form-cupom .campo { margin: 0; }
+
+/* ---------- T06 Checkout ---------- */
+.opcao-endereco {
+  display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start;
+  padding: 14px; border: 1.5px solid var(--borda); border-radius: var(--raio); cursor: pointer;
+}
+.opcao-endereco:has(input:checked) { border-color: var(--marrom); background: var(--marrom-claro); }
+.opcao-endereco input { width: 22px; height: 22px; accent-color: var(--marrom); margin-top: 2px; }
+
+/* ---------- T07 Pagamento ---------- */
+.total-destaque { display: flex; justify-content: space-between; align-items: baseline; }
+.total-destaque strong { font-size: 1.6rem; color: var(--marrom-escuro); }
+.metodos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.metodo {
+  display: grid; justify-items: center; gap: 4px; padding: 14px 6px; min-height: 64px;
+  border: 1.5px solid #cbbfb5; border-radius: var(--raio); background: var(--branco); cursor: pointer; font: inherit;
+}
+.metodo[aria-pressed="true"] { border: 2.5px solid var(--marrom); background: var(--marrom-claro); color: var(--marrom); font-weight: 700; }
+.qr-code { width: 180px; height: 180px; margin: 8px auto; border: 1px solid var(--borda); border-radius: 12px; padding: 10px; background: #fff; }
+.recusa { border: 1.5px solid #f2b8b5; background: var(--erro-fundo); border-radius: var(--raio); padding: 16px; }
+.recusa h2 { color: var(--erro); }
+
+/* ---------- T08 Confirmação ---------- */
+.sucesso-icone { width: 76px; height: 76px; border-radius: 50%; border: 4px solid var(--sucesso); color: var(--sucesso); display: grid; place-items: center; font-size: 2.3rem; margin: 12px auto; background: var(--sucesso-fundo); }
+.numero-pedido { background: var(--marrom-claro); border-radius: var(--raio); padding: 12px; text-align: center; }
+.numero-pedido strong { display: block; font-size: 1.25rem; color: var(--marrom-escuro); letter-spacing: .5px; }
+.lista-dados { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0; }
+.lista-dados dt { color: var(--texto-suave); }
+.lista-dados dd { margin: 0; font-weight: 600; }
+
+/* ---------- T09 Acompanhar ---------- */
+.linha-tempo { list-style: none; margin: 0; padding: 0; }
+.linha-tempo li { display: grid; grid-template-columns: 32px 1fr auto; gap: 12px; position: relative; padding-bottom: 22px; }
+.linha-tempo li:not(:last-child)::after { content: ""; position: absolute; left: 14px; top: 30px; bottom: 0; width: 3px; background: var(--borda); }
+.linha-tempo li.concluida:not(:last-child)::after { background: var(--marrom); }
+.linha-tempo .bolinha { width: 30px; height: 30px; border-radius: 50%; border: 3px solid #cbbfb5; background: #fff; display: grid; place-items: center; color: #fff; font-size: .9rem; }
+.linha-tempo li.concluida .bolinha { background: var(--marrom); border-color: var(--marrom); }
+.linha-tempo li.atual .bolinha { box-shadow: 0 0 0 5px rgba(123, 63, 30, .2); }
+.linha-tempo .texto-etapa { padding-top: 3px; }
+.linha-tempo li:not(.concluida) .texto-etapa { color: #999; }
+.linha-tempo li.atual .texto-etapa strong { color: var(--marrom-escuro); }
+.linha-tempo.cancelado li .texto-etapa { color: #aaa; text-decoration: line-through; }
+.caixa-cancelado { border: 1.5px solid #f2b8b5; background: var(--erro-fundo); color: var(--erro); border-radius: var(--raio); padding: 14px; }
+
+/* ---------- T10 Meus pedidos ---------- */
+.card-pedido { display: grid; gap: 8px; }
+.card-pedido .acoes-pedido { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.estrelas-leitura { color: #f2a900; letter-spacing: 2px; }
+.paginacao { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; }
+
+/* ---------- T11 Avaliar ---------- */
+.estrelas { display: flex; justify-content: center; gap: 6px; border: 0; padding: 0; margin: 8px 0; }
+.estrelas legend { width: 100%; text-align: center; font-weight: 700; margin-bottom: 8px; }
+.estrelas button { font-size: 2.4rem; line-height: 1; background: none; border: 0; cursor: pointer; color: #d6ccc4; width: 52px; height: 52px; }
+.estrelas button[aria-pressed="true"], .estrelas button.acesa { color: #f2a900; }
+.contador-caracteres { text-align: right; font-size: .85rem; color: var(--texto-suave); }
+
+/* ---------- T12 Minha conta ---------- */
+.perfil-topo { display: flex; gap: 14px; align-items: center; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--marrom-claro); color: var(--marrom); display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; }
+.menu-conta { list-style: none; margin: 0; padding: 0; border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; }
+.menu-conta li + li { border-top: 1px solid var(--borda); }
+.menu-conta a { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 16px; min-height: 56px; color: var(--texto); text-decoration: none; }
+.menu-conta a:hover { background: var(--creme); }
+.menu-conta .detalhe { color: var(--texto-suave); font-size: .9rem; display: flex; gap: 8px; align-items: center; }
+
+/* ---------- T13 Endereços ---------- */
+.card-endereco .acoes-endereco { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; }
+
+/* ---------- T14 Notificações ---------- */
+.lista-notificacoes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.notificacao {
+  width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: start;
+  padding: 14px; border: 1px solid var(--borda); border-radius: var(--raio); background: var(--branco);
+}
+.notificacao.nao-lida { background: var(--marrom-claro); border-color: #dcc3b2; }
+.notificacao .ponto { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; }
+.notificacao.nao-lida .ponto { background: var(--marrom); }
+.notificacao.nao-lida strong::after { content: " (não lida)"; position: absolute; left: -9999px; }
+
+/* ---------- T15 Ajuda ---------- */
+.faq details { border: 1px solid var(--borda); border-radius: var(--raio); padding: 0 16px; background: #fff; }
+.faq details + details { margin-top: 10px; }
+.faq summary { list-style: none; cursor: pointer; min-height: 56px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-weight: 600; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--marrom); font-size: 1.5rem; font-weight: 700; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { color: var(--texto-suave); }
+
+/* ---------- Área administrativa ---------- */
+.cabecalho-pagina { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.migalhas { font-size: .9rem; color: var(--texto-suave); margin-bottom: 8px; }
+.migalhas a { color: var(--texto-suave); }
+.grade-admin { display: grid; gap: 16px; }
+@media (min-width: 960px) { .grade-admin { grid-template-columns: 1.6fr 1fr; align-items: start; } }
+.form-produto { display: grid; gap: 4px 20px; }
+@media (min-width: 900px) { .form-produto { grid-template-columns: 1.4fr 1fr; } .form-produto .largo { grid-column: 1 / -1; } }
+.previa-imagem { width: 140px; height: 140px; border-radius: 12px; border: 1px solid var(--borda); object-fit: cover; background: var(--creme); }
+.situacao-ativo { color: var(--sucesso); font-weight: 700; }
+.situacao-inativo { color: #777; font-weight: 700; }
+.passos-status { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.passos-status li { display: flex; gap: 10px; align-items: center; color: #999; }
+.passos-status li .bolinha { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid #cbbfb5; }
+.passos-status li.feito { color: var(--texto); }
+.passos-status li.feito .bolinha { background: var(--marrom); border-color: var(--marrom); }
+.passos-status li.atual { font-weight: 700; }

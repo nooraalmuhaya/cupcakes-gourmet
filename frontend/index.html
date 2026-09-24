@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cupcake Haven – Cardápio</title>
+  <meta name="description" content="Cardápio de cupcakes gourmet">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <!-- T01 – Cardápio (Início) -->
+  <main id="conteudo" class="conteudo" tabindex="-1">
+    <h1 class="visualmente-oculto">Cardápio</h1>
+    <form id="form-busca" class="busca" role="search">
+      <label for="busca" class="visualmente-oculto">Buscar cupcakes pelo nome</label>
+      <svg class="lupa" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <input id="busca" name="busca" type="search" maxlength="80" autocomplete="off" placeholder="Buscar cupcakes pelo nome..." aria-describedby="dica-busca">
+      <button type="button" id="limpar-busca" class="botao-icone limpar-busca" aria-label="Limpar busca" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    </form>
+    <p id="dica-busca" class="dica-busca">Digite pelo menos 2 letras para buscar</p>
+    <div class="filtros">
+      <div class="chips" id="chips-categoria" role="group" aria-label="Categoria"></div>
+      <div class="chips" id="chips-restricao" role="group" aria-label="Restrição alimentar"></div>
+    </div>
+    <div id="resumo-filtro" class="resumo-filtro" aria-live="polite" hidden></div>
+    <div id="lista" aria-live="polite"></div>
+  </main>
+  <noscript><p class="alerta alerta-erro">Ative o JavaScript do navegador para usar o sistema.</p></noscript>
+  <script type="module" src="/js/pages/cardapio.js"></script>
+</body>
+</html>

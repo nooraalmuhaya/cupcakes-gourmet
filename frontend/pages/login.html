@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar – Cupcake Haven</title>
+  <meta name="description" content="Entrar na conta">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <!-- T04 – Login -->
+  <main id="conteudo" class="conteudo" tabindex="-1">
+    <div class="pilha centro" style="margin:8px 0 20px">
+      <div class="marca-logo" style="width:64px;height:64px;font-size:1.8rem;margin:0 auto;background:var(--marrom-claro)" aria-hidden="true">C</div>
+      <h2 style="margin:0">Cupcake Haven</h2>
+      <p class="texto-suave" style="margin:0">Entre para finalizar seu pedido</p>
+    </div>
+    <div id="alerta" class="alerta" role="alert" hidden></div>
+    <form id="form-login" novalidate>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="seu@email.com">
+        <div class="erro-campo"></div>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <div class="campo-senha">
+          <input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha">
+          <button type="button" id="mostrar-senha" aria-pressed="false" aria-controls="senha">Mostrar</button>
+        </div>
+        <div class="erro-campo"></div>
+      </div>
+      <button class="botao botao-bloco" type="submit">Entrar</button>
+    </form>
+    <p class="centro" style="margin-top:20px">Não tem conta?<br><a id="link-cadastro" class="negrito" href="/pages/cadastro.html">Criar conta</a></p>
+    <p class="centro texto-suave texto-pequeno">Recuperação de senha por e-mail não faz parte desta versão (seção 3.3 do planejamento).
+      Se esqueceu a senha, fale com a loja em <a href="/pages/ajuda.html">Ajuda e Suporte</a>.</p>
+  </main>
+  <noscript><p class="alerta alerta-erro">Ative o JavaScript do navegador para usar o sistema.</p></noscript>
+  <script type="module" src="/js/pages/login.js"></script>
+</body>
+</html>
