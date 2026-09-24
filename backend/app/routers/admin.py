@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from app.database.connection import get_db
 from app.models import Usuario
 from app.schemas.pedido import PaginaPedidosAdmin, RespostaPedidoAdmin, StatusEntrada
-from app.schemas.produto import ProdutoAdmin, ProdutoEntrada, SituacaoEntrada
+from app.schemas.produto import ProdutoAdmin, ProdutoEntrada, RespostaProdutoAdmin, SituacaoEntrada
 from app.security.auth import admin_logado
 from app.services import pedido_service, produto_service
 from app.utils.mensagens import TEXTO_STATUS, msg
@@ -32,19 +32,22 @@ def obter_produto(id_produto: int, db: Session = Depends(get_db)):
     return produto_service.para_dict(produto_service.obter_produto(db, id_produto), admin=True)
 
 
-@router.post("/produtos", status_code=status.HTTP_201_CREATED, summary="Cadastra produto (A04)")
+@router.post("/produtos", status_code=status.HTTP_201_CREATED, response_model=RespostaProdutoAdmin,
+             summary="Cadastra produto (A04)")
 def criar_produto(dados: ProdutoEntrada, db: Session = Depends(get_db)):
     produto = produto_service.criar_produto(db, dados)
     return {"mensagem": msg("MSG-S10"), "codigo": "MSG-S10", "produto": produto_service.para_dict(produto, True)}
 
 
-@router.put("/produtos/{id_produto}", summary="Edita produto, inclusive preço e estoque (A04)")
+@router.put("/produtos/{id_produto}", response_model=RespostaProdutoAdmin,
+            summary="Edita produto, inclusive preço e estoque (A04)")
 def atualizar_produto(id_produto: int, dados: ProdutoEntrada, db: Session = Depends(get_db)):
     produto = produto_service.atualizar_produto(db, id_produto, dados)
     return {"mensagem": msg("MSG-S10"), "codigo": "MSG-S10", "produto": produto_service.para_dict(produto, True)}
 
 
-@router.patch("/produtos/{id_produto}/situacao", summary="Desativa ou reativa produto (RN-23: não há exclusão)")
+@router.patch("/produtos/{id_produto}/situacao", response_model=RespostaProdutoAdmin,
+              summary="Desativa ou reativa produto (RN-23: não há exclusão)")
 def alterar_situacao(id_produto: int, dados: SituacaoEntrada, db: Session = Depends(get_db)):
     produto = produto_service.alterar_situacao(db, id_produto, dados.ativo)
     texto = "Produto reativado." if produto.ativo else "Produto desativado. Ele não aparece mais no cardápio."

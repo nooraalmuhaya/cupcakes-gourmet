@@ -20,8 +20,10 @@ def avaliar(db: Session, usuario: Usuario, id_pedido: int, nota: int, comentario
     db.add(avaliacao)
     try:
         db.commit()
-    except IntegrityError as exc:  # UNIQUE(id_pedido): envio duplicado ao mesmo tempo
+    except IntegrityError as exc:
         db.rollback()
-        raise AppError(409, "MSG-E20") from exc
+        if "uq_avaliacao_id_pedido" in str(exc.orig):  # envio duplicado ao mesmo tempo
+            raise AppError(409, "MSG-E20") from exc
+        raise
     db.refresh(avaliacao)
     return avaliacao

@@ -43,15 +43,15 @@ class ProdutoAdmin(ProdutoDetalhe):
 class ProdutoEntrada(BaseModel):
     """Formulário de produto (A04) – validações de US16 CA2."""
     nome: str = Field(max_length=80)
-    id_categoria: int | None = None
+    id_categoria: int | None = Field(None, validate_default=True)
     descricao: str = Field(max_length=500)
     ingredientes: str = Field(max_length=500)
-    alergenos: str | None = Field(default=None, max_length=255)
-    preco: Decimal | None = None
+    alergenos: str | None = Field(default=None, max_length=255, validate_default=True)
+    preco: Decimal | None = Field(None, validate_default=True)
     imagem_url: str = Field(max_length=255)
     vegano: bool = False
     sem_gluten: bool = False
-    quantidade_estoque: int | None = None
+    quantidade_estoque: int | None = Field(None, validate_default=True)
     ativo: bool = True
 
     _obrigatorios = field_validator("nome", "descricao", "ingredientes", "imagem_url", mode="before")(obrigatorio)
@@ -104,3 +104,9 @@ class ProdutoEntrada(BaseModel):
 
 class SituacaoEntrada(BaseModel):
     ativo: bool
+
+
+class RespostaProdutoAdmin(BaseModel):
+    mensagem: str
+    codigo: str | None = None
+    produto: ProdutoAdmin

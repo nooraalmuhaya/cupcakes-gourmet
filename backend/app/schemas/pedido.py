@@ -13,7 +13,7 @@ Status = Literal["AGUARDANDO_PAGAMENTO", "RECEBIDO", "EM_PREPARO", "SAIU_PARA_EN
 
 class PedidoEntrada(BaseModel):
     """Checkout (T06 + T07): endereço escolhido e forma de pagamento (SD-01)."""
-    id_endereco: int | None = None
+    id_endereco: int | None = Field(None, validate_default=True)
     metodo: Metodo
 
     @field_validator("id_endereco", mode="before")
@@ -44,7 +44,7 @@ class StatusEntrada(BaseModel):
 
 
 class AvaliacaoEntrada(BaseModel):
-    nota: int | None = None
+    nota: int | None = Field(None, validate_default=True)
     comentario: str | None = Field(None, max_length=500)
 
     @field_validator("nota", mode="before")

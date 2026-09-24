@@ -46,7 +46,7 @@ class Settings:
     def database_url(self, db_name: str | None = None) -> str:
         from urllib.parse import quote_plus
 
-        name = db_name or self.db_name
+        name = self.db_name if db_name is None else db_name
         return (
             f"mysql+pymysql://{quote_plus(self.db_user)}:{quote_plus(self.db_password)}"
             f"@{self.db_host}:{self.db_port}/{name}?charset=utf8mb4"
