@@ -33,9 +33,12 @@ Informações conferidas em 24/09/2026, depois do envio (push) para o GitHub.
 | `a0e1dff` | test | Testes funcionais dos 6 fluxos no navegador + capturas de tela |
 | `18604fe` | docs | README e manual do usuário |
 | `06330af` | docs | Arquitetura, rastreabilidade e registro de mudanças |
-| (seguinte) | docs | Este arquivo e `STATUS_SITUACAO_2.md` |
+| `636ad71` | docs | Este arquivo e `STATUS_SITUACAO_2.md` |
+| `0547232` | fix | Barra inferior do protótipo mantida em todas as larguras |
+| `d57b7b3` | feat | Acabamento visual (UI/UX) e nome oficial App de Cupcakes Gourmet |
+| (seguinte) | docs | Atualização deste arquivo |
 
-Total: 14 commits com mensagens no padrão `tipo: descrição` (feat, test, docs, chore).
+Total: 17 commits com mensagens no padrão `tipo: descrição` (feat, test, docs, chore).
 
 ## O que a aluna precisa fazer
 

@@ -8,7 +8,7 @@ NÃO APLICÁVEL.
 
 | Item | Status | Evidência |
 |------|--------|-----------|
-| Git | IMPLEMENTADO | 14 commits com mensagens descritivas; `.gitignore` sem `.env`, venv e caches; varredura do histórico sem credenciais locais ([git-status](git-status-situacao-2.md)) |
+| Git | IMPLEMENTADO | 17 commits com mensagens descritivas; `.gitignore` sem `.env`, venv e caches; varredura do histórico sem credenciais locais ([git-status](git-status-situacao-2.md)) |
 | GitHub | IMPLEMENTADO (branch) / PENDENTE (`main`) | Push do branch `claude/situacao-2-cupcakes-app-p46qpy` confirmado pela API do GitHub. O branch `main` ainda precisa ser criado pela aluna |
 | Front-end | IMPLEMENTADO | 19 telas (T01–T15, A01–A04) em HTML/CSS/JS puro seguindo o protótipo (barra inferior em todas as larguras); 48/48 passos no navegador, 0 erros de JavaScript; auditoria de responsividade 63/63 em 390, 768 e 1366 px; acabamento visual com nome oficial, fotos, ícones SVG e 8/8 checagens visuais ([testes](testes-situacao-2.md#4-testes-funcionais-do-front-end-6-fluxos), [ui-ux-polish](ui-ux-polish.md)) |
 | Back-end | IMPLEMENTADO | FastAPI em MVC (`models/`, `services/`, `routers/`, `schemas/`); 42 rotas documentadas em `/api/docs` |
