@@ -34,8 +34,8 @@ function desenhar(p, categorias) {
               <span class="dica">Zero = Indisponível</span></div>
           </div>
           <div class="campo"><label for="imagem_url">Caminho da imagem</label>
-            <input id="imagem_url" name="imagem_url" required maxlength="255" placeholder="assets/images/produtos/nome.svg" value="${v("imagem_url")}">
-            <span class="dica">Coloque o arquivo na pasta frontend/assets/images/produtos e informe o caminho.</span></div>
+            <input id="imagem_url" name="imagem_url" required maxlength="255" placeholder="assets/images/produtos/nome-do-produto.jpg" value="${v("imagem_url")}">
+            <span class="dica">Coloque a foto (JPG) na pasta frontend/assets/images/produtos e informe o caminho. Opcional: uma miniatura com o mesmo nome terminado em "-thumb.jpg" deixa o cardápio mais leve.</span></div>
           <img id="previa" class="previa-imagem" src="${esc(imagem(p.imagem_url))}" alt="Prévia da imagem"
                onerror="this.onerror=null;this.src='/assets/images/produtos/sem-imagem.svg'">
           <label class="caixa-selecao"><input type="checkbox" name="vegano" ${p.vegano ? "checked" : ""}> Vegano</label>

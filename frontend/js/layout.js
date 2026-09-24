@@ -35,11 +35,17 @@ export async function sair() {
   window.location.href = "/index.html";
 }
 
+/** Nome oficial do projeto: "App de Cupcakes Gourmet" (em telas muito estreitas: "Cupcakes Gourmet"). */
+function marca(subtitulo = "") {
+  return `<span class="marca-logo" aria-hidden="true">${icone("cupcake")}</span>
+    <span class="marca-nome"><span><span class="marca-prefixo">App de </span>Cupcakes Gourmet</span>${subtitulo ? `<small>${esc(subtitulo)}</small>` : ""}</span>`;
+}
+
 function cabecalhoCliente({ titulo, voltar, direita }) {
   const esquerda = titulo
     ? `<a class="botao-icone" href="${esc(voltar || "/index.html")}" data-voltar aria-label="Voltar">${icone("voltar")}</a>
        <h1 class="titulo">${esc(titulo)}</h1>`
-    : `<a class="marca" href="/index.html"><span class="marca-logo" aria-hidden="true">C</span>${esc(CONFIG.nomeLoja)}</a>
+    : `<a class="marca" href="/index.html" aria-label="${esc(CONFIG.nomeLoja)} – início">${marca()}</a>
        <span class="espacador"></span>`;
   return `<header class="barra-topo">
       ${esquerda}
@@ -62,21 +68,20 @@ function barraInferior(ativo) {
   ];
   return `<nav class="barra-inferior" aria-label="Navegação principal">
     ${itens.map(([id, href, texto]) =>
-      `<a href="${href}" ${id === ativo ? 'aria-current="page"' : ""}>${icone(id)}<span>${texto}</span></a>`).join("")}
+      `<a href="${href}" ${id === ativo ? 'aria-current="page"' : ""}><span class="indicador">${icone(id)}</span><span>${texto}</span></a>`).join("")}
   </nav>`;
 }
 
 function cabecalhoAdmin(ativo, usuario) {
   return `<header class="barra-topo">
-      <a class="marca" href="/pages/admin/pedidos.html"><span class="marca-logo" aria-hidden="true">C</span>
-        <span>${esc(CONFIG.nomeLoja)}<small>Painel do Administrador</small></span></a>
+      <a class="marca" href="/pages/admin/pedidos.html" aria-label="${esc(CONFIG.nomeLoja)} – painel">${marca("Painel do Administrador")}</a>
       <nav class="menu-admin" aria-label="Menu do administrador">
         <a href="/pages/admin/pedidos.html" ${ativo === "pedidos" ? 'aria-current="page"' : ""}>Pedidos</a>
         <a href="/pages/admin/produtos.html" ${ativo === "produtos" ? 'aria-current="page"' : ""}>Produtos</a>
       </nav>
       <span class="espacador"></span>
       <span class="saudacao-admin">Olá, ${esc((usuario?.nome || "").split(" ")[0])}</span>
-      <button type="button" class="botao botao-secundario botao-pequeno" data-sair>Sair</button>
+      <button type="button" class="botao botao-secundario botao-pequeno" data-sair>${icone("sair")}Sair</button>
     </header>`;
 }
 
@@ -104,7 +109,7 @@ export async function recarregarContadores() {
 }
 
 function paginaSemPermissao(main) {
-  main.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">🔒</div>
+  main.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">${icone("cadeado")}</div>
     <strong>Você não tem permissão para acessar esta página.</strong>
     <a class="botao" href="/index.html">Voltar ao início</a></div>`; // MSG-E13
 }

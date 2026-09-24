@@ -2,7 +2,7 @@
 import { api } from "../api.js";
 import { iniciarPagina, recarregarContadores } from "../layout.js";
 import { CONFIG } from "../config.js";
-import { esc, moeda, hora, dataRelativa, seloStatus, htmlCarregando, mostrarErroCarregamento, param, toast, confirmar, comCarregamento, avisoProximaTela } from "../ui.js";
+import { esc, moeda, hora, dataRelativa, seloStatus, icone, estrelasLeitura, htmlCarregando, mostrarErroCarregamento, param, toast, confirmar, comCarregamento, avisoProximaTela } from "../ui.js";
 import { NOME_METODO, NOME_STATUS_PAGAMENTO } from "../nomes.js";
 
 const main = document.getElementById("conteudo");
@@ -12,41 +12,42 @@ let ultimaConsulta = null;
 let falhouAgora = false;
 let timer = null;
 
+const ICONE_ETAPA = { RECEBIDO: "recebido", EM_PREPARO: "preparo", SAIU_PARA_ENTREGA: "entrega", ENTREGUE: "entregue" };
+
 function desenhar() {
   const p = pedido;
   const cancelado = p.status === "CANCELADO";
   const aguardando = p.status === "AGUARDANDO_PAGAMENTO";
   const etapas = p.linha_do_tempo.map((e) => `
     <li class="${e.concluida ? "concluida" : ""} ${e.atual ? "atual" : ""}">
-      <span class="bolinha" aria-hidden="true">${e.concluida ? "✓" : ""}</span>
-      <span class="texto-etapa"><strong>${esc(e.texto)}</strong>${e.atual ? '<br><span class="texto-pequeno" style="color:var(--marrom)">Etapa atual</span>' : ""}
+      <span class="bolinha" aria-hidden="true">${icone(e.concluida && !e.atual ? "check" : ICONE_ETAPA[e.status])}</span>
+      <span class="texto-etapa"><strong>${esc(e.texto)}</strong>${e.atual && !cancelado ? '<span class="etapa-atual">Etapa atual</span>' : ""}
         <span class="visualmente-oculto">${e.concluida ? "(concluída)" : "(pendente)"}</span></span>
-      <span class="texto-suave texto-pequeno">${e.data && !cancelado ? hora(e.data) : ""}</span>
+      <span class="hora">${e.data && !cancelado ? hora(e.data) : ""}</span>
     </li>`).join("");
 
   main.innerHTML = `
     <div class="linha-entre" style="flex-wrap:wrap"><h1 style="margin:0">${esc(p.numero_pedido)}</h1>${seloStatus(p.status, p.status_texto)}</div>
     <p class="texto-suave">Feito ${esc(dataRelativa(p.data_pedido).replace("Hoje,", "hoje às"))} · ${moeda(p.valor_total)}</p>
     ${falhouAgora ? '<div class="alerta alerta-aviso" role="alert"><p>Não foi possível atualizar agora. Mostrando o último status.</p></div>' : ""}
-    ${cancelado ? `<div class="caixa-cancelado pilha" role="status"><strong>✕ Pedido cancelado</strong>
-        <p style="margin:0">Este pedido foi cancelado. Se tiver alguma dúvida, fale com a gente em Ajuda e Suporte.</p></div>` : ""}
+    ${cancelado ? `<div class="caixa-cancelado" role="status"><div><strong>Pedido cancelado</strong>
+        <p style="margin:2px 0 0">Este pedido foi cancelado. Se tiver alguma dúvida, fale com a gente em Ajuda e Suporte.</p></div></div>` : ""}
     ${aguardando ? `<div class="alerta alerta-aviso"><p>Este pedido está aguardando pagamento.</p></div>
         <div class="pilha" style="margin-bottom:12px">
-          <a class="botao" href="/pages/pagamento.html?pedido=${p.id_pedido}">Pagar agora</a>
+          <a class="botao" href="/pages/pagamento.html?pedido=${p.id_pedido}">${icone("credito")}Pagar agora</a>
           <button type="button" class="botao botao-perigo" data-cancelar>Cancelar pedido</button></div>` : ""}
     <ol class="linha-tempo ${cancelado ? "cancelado" : ""}" aria-label="Etapas do pedido">${etapas}</ol>
-    <p class="cartao cartao-creme texto-pequeno texto-suave" style="padding:10px 14px">
-      Última atualização: ${hora(p.data_atualizacao)} · atualiza a cada 30 s</p>
+    <p class="atualizacao">${icone("relogio")}Última atualização: ${hora(p.data_atualizacao)} · atualiza a cada 30 s</p>
     <section class="pilha" style="margin-top:12px">
       <div><h2>Itens</h2><p style="margin:0">${p.itens.map((i) => `${i.quantidade}x ${esc(i.nome)}`).join(" · ")}</p></div>
       <div><h2>Entrega</h2><p style="margin:0">${esc(p.endereco_entrega)}</p></div>
       <div><h2>Pagamento</h2><p style="margin:0">${p.pagamento ? `${NOME_METODO[p.pagamento.metodo]} · ${NOME_STATUS_PAGAMENTO[p.pagamento.status]}` : "—"}</p></div>
-      ${p.avaliacao ? `<div><h2>Sua avaliação</h2><p style="margin:0"><span class="estrelas-leitura" aria-label="${p.avaliacao.nota} de 5 estrelas">${"★".repeat(p.avaliacao.nota)}${"☆".repeat(5 - p.avaliacao.nota)}</span> ${esc(p.avaliacao.comentario || "")}</p></div>` : ""}
+      ${p.avaliacao ? `<div><h2>Sua avaliação</h2><p style="margin:0">${estrelasLeitura(p.avaliacao.nota)} ${esc(p.avaliacao.comentario || "")}</p></div>` : ""}
     </section>
     <div class="acoes-rodape">
-      ${p.pode_avaliar ? `<a class="botao" href="/pages/avaliar.html?pedido=${p.id_pedido}">Avaliar pedido</a>` : ""}
-      ${!cancelado && p.status !== "ENTREGUE" ? '<button type="button" class="botao botao-secundario" data-atualizar>↻ Atualizar</button>' : ""}
-      <a class="botao-link centro" href="/pages/ajuda.html">Precisa de ajuda?</a>
+      ${p.pode_avaliar ? `<a class="botao" href="/pages/avaliar.html?pedido=${p.id_pedido}">${icone("estrela")}Avaliar pedido</a>` : ""}
+      ${!cancelado && p.status !== "ENTREGUE" ? `<button type="button" class="botao botao-secundario" data-atualizar>${icone("atualizar")}Atualizar</button>` : ""}
+      <a class="botao-link" style="justify-content:center" href="/pages/ajuda.html">${icone("ajuda")}Precisa de ajuda?</a>
     </div>`;
 }
 

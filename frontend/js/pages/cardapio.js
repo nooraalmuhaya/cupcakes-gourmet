@@ -1,7 +1,7 @@
 // T01 – Cardápio (UC-01): lista, busca (RN-05) e filtros combinados (US03)
 import { api } from "../api.js";
 import { iniciarPagina, atualizarContadorCarrinho } from "../layout.js";
-import { esc, moeda, imagem, IMG_FALLBACK, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento } from "../ui.js";
+import { esc, moeda, atributosImagem, icone, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento } from "../ui.js";
 
 const estado = { busca: "", categoria: null, vegano: false, sem_gluten: false };
 let categorias = [];
@@ -24,24 +24,24 @@ function desenharChips() {
   document.getElementById("chips-categoria").innerHTML = chipsCategoria;
   document.getElementById("chips-restricao").innerHTML = [["vegano", "Vegano"], ["sem_gluten", "Sem glúten"]]
     .map(([chave, texto]) => `<button type="button" class="chip" data-restricao="${chave}" aria-pressed="${estado[chave]}">
-        <span class="marcador" aria-hidden="true">${estado[chave] ? "✓" : ""}</span>${texto}</button>`).join("");
+        <span class="marcador" aria-hidden="true">${estado[chave] ? icone("check") : ""}</span>${texto}</button>`).join("");
 }
 
 function card(p) {
   const selos = [
-    p.vegano ? '<span class="selo selo-vegano">Vegano</span>' : "",
-    p.sem_gluten ? '<span class="selo selo-sem-gluten">Sem glúten</span>' : "",
-    !p.disponivel ? '<span class="selo selo-indisponivel"><span aria-hidden="true">⊘</span> Indisponível</span>' : "",
+    p.vegano ? `<span class="selo selo-vegano">${icone("folha")}Vegano</span>` : "",
+    p.sem_gluten ? `<span class="selo selo-sem-gluten">${icone("sem_gluten")}Sem glúten</span>` : "",
+    !p.disponivel ? `<span class="selo selo-indisponivel">${icone("bloqueado")}Indisponível</span>` : "",
   ].join("");
-  return `<article class="card-produto">
-      <img src="${esc(imagem(p.imagem_url))}" alt="Foto do cupcake ${esc(p.nome)}" loading="lazy" onerror="${IMG_FALLBACK}">
+  return `<article class="card-produto ${p.disponivel ? "" : "esgotado"}">
+      <div class="foto"><img ${atributosImagem(p.imagem_url, { thumb: true })} alt="Cupcake ${esc(p.nome)}" loading="lazy" width="104" height="104"></div>
       <div class="info">
         <div class="topo"><h3><a class="cobre" href="/pages/produto.html?id=${p.id_produto}"></a>${esc(p.nome)}</h3>
           <span class="preco">${moeda(p.preco)}</span></div>
         <p>${esc(p.descricao)}</p>
         <div class="rodape-card"><div class="selos">${selos}</div>
           ${p.disponivel ? `<button type="button" class="botao botao-pequeno" data-adicionar="${p.id_produto}"
-              aria-label="Adicionar ${esc(p.nome)} ao carrinho">Adicionar</button>` : ""}
+              aria-label="Adicionar ${esc(p.nome)} ao carrinho">${icone("mais")}Adicionar</button>` : ""}
         </div>
       </div>
     </article>`;
@@ -74,7 +74,7 @@ async function carregar() {
     desenharResumo(produtos.length);
     if (!produtos.length) {
       lista.innerHTML = filtrosAtivos()
-        ? htmlVazio({ icone: "🔍", titulo: "Nenhum cupcake encontrado.", texto: "Tente outro nome ou limpe os filtros.",
+        ? htmlVazio({ icone: "lupa", titulo: "Nenhum cupcake encontrado.", texto: "Tente outro nome ou limpe os filtros.",
             acao: '<button type="button" class="botao botao-secundario" data-limpar>Limpar filtros</button>' }) // MSG-I01
         : htmlVazio({ titulo: "Nenhum cupcake disponível no momento. Volte mais tarde!" }); // MSG-I02
       return;

@@ -1,7 +1,7 @@
 // T03 – Carrinho (UC-03) e cupom (UC-04)
 import { api } from "../api.js";
 import { iniciarPagina, atualizarContadorCarrinho } from "../layout.js";
-import { esc, moeda, imagem, IMG_FALLBACK, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento, icone } from "../ui.js";
+import { esc, moeda, atributosImagem, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento, icone } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 let carrinho = null;
@@ -15,7 +15,7 @@ function desenhar() {
   if (contagem) contagem.textContent = c.quantidade_itens ? `${c.quantidade_itens} ${c.quantidade_itens === 1 ? "item" : "itens"}` : "";
 
   if (c.vazio) {
-    main.innerHTML = htmlVazio({ icone: "🛒", titulo: "Seu carrinho está vazio.", texto: "Que tal escolher um cupcake?",
+    main.innerHTML = htmlVazio({ icone: "carrinho", titulo: "Seu carrinho está vazio.", texto: "Que tal escolher um cupcake?",
       acao: '<a class="botao" href="/index.html">Ver cardápio</a>' }) + // MSG-I03
       '<button type="button" class="botao botao-bloco" disabled>Finalizar compra</button>';
     return;
@@ -23,14 +23,14 @@ function desenhar() {
 
   const itens = c.itens.map((i) => `
     <li class="item-carrinho ${i.disponivel ? "" : "indisponivel"}">
-      <img src="${esc(imagem(i.imagem_url))}" alt="" onerror="${IMG_FALLBACK}">
-      <div class="pilha" style="gap:4px">
+      <img ${atributosImagem(i.imagem_url, { thumb: true })} alt="Cupcake ${esc(i.nome)}" width="76" height="76">
+      <div class="pilha">
         <span class="nome">${esc(i.nome)}</span>
         <span class="texto-suave texto-pequeno">${moeda(i.preco)} cada${i.preco_alterado ? " · <strong>preço atualizado</strong>" : ""}</span>
         ${i.disponivel ? `<div class="quantidade" role="group" aria-label="Quantidade de ${esc(i.nome)}">
-            <button type="button" data-alterar="${i.id_produto}" data-nova="${i.quantidade - 1}" aria-label="Diminuir" ${i.quantidade <= 1 ? "disabled" : ""}>−</button>
+            <button type="button" data-alterar="${i.id_produto}" data-nova="${i.quantidade - 1}" aria-label="Diminuir" ${i.quantidade <= 1 ? "disabled" : ""}>${icone("menos")}</button>
             <span>${i.quantidade}</span>
-            <button type="button" data-alterar="${i.id_produto}" data-nova="${i.quantidade + 1}" aria-label="Aumentar" ${i.quantidade >= i.quantidade_estoque ? "disabled" : ""}>+</button>
+            <button type="button" data-alterar="${i.id_produto}" data-nova="${i.quantidade + 1}" aria-label="Aumentar" ${i.quantidade >= i.quantidade_estoque ? "disabled" : ""}>${icone("mais")}</button>
           </div>`
           : `<span class="erro-campo">${i.quantidade_estoque > 0
               ? `Só temos ${i.quantidade_estoque} unidades deste cupcake no momento.`
@@ -38,13 +38,13 @@ function desenhar() {
              ${i.quantidade_estoque > 0 ? `<button type="button" class="botao-link" data-alterar="${i.id_produto}" data-nova="${i.quantidade_estoque}">Ajustar para ${i.quantidade_estoque}</button>` : ""}`}
       </div>
       <div class="direita">
-        <button type="button" class="botao-icone" style="color:var(--erro)" data-remover="${i.id_produto}" aria-label="Remover ${esc(i.nome)}">${icone("lixeira")}</button>
+        <button type="button" class="botao-icone remover" data-remover="${i.id_produto}" aria-label="Remover ${esc(i.nome)}">${icone("lixeira")}</button>
         <strong>${moeda(i.subtotal)}</strong>
       </div>
     </li>`).join("");
 
   const cupom = c.cupom
-    ? `<div class="cupom-aplicado"><span>✓ ${esc(c.cupom.codigo)} aplicado</span>
+    ? `<div class="cupom-aplicado"><span>${esc(c.cupom.codigo)} aplicado</span>
          <button type="button" class="botao-link perigo" data-remover-cupom>Remover</button></div>`
     : `<form class="form-cupom" id="form-cupom" novalidate>
          <div class="campo ${erroCupom ? "com-erro" : ""}">
@@ -59,9 +59,9 @@ function desenhar() {
   main.innerHTML = `
     ${c.aviso ? `<div class="alerta alerta-aviso" role="alert"><p>${esc(c.aviso)}</p></div>` : ""}
     ${c.aviso_cupom ? `<div class="alerta alerta-aviso" role="alert"><p>${esc(c.aviso_cupom)} O cupom foi removido.</p></div>` : ""}
-    <ul style="list-style:none;margin:0;padding:0">${itens}</ul>
+    <ul class="lista-carrinho">${itens}</ul>
     <section class="pilha" style="margin-top:16px" aria-labelledby="titulo-cupom">
-      <h2 id="titulo-cupom" style="color:var(--texto)">Cupom de desconto</h2>
+      <h2 id="titulo-cupom">Cupom de desconto</h2>
       ${cupom}
     </section>
     <section class="cartao cartao-creme resumo-valores" style="margin-top:16px" aria-label="Resumo dos valores">
@@ -71,7 +71,7 @@ function desenhar() {
       <div class="linha-entre total"><span>Total</span><span>${moeda(c.total)}</span></div>
     </section>
     <div class="acoes-rodape">
-      <button type="button" class="botao botao-bloco" id="finalizar" ${c.pode_finalizar ? "" : "disabled"}>Finalizar compra</button>
+      <button type="button" class="botao botao-bloco" id="finalizar" ${c.pode_finalizar ? "" : "disabled"}>Finalizar compra ${icone("seta")}</button>
       <a class="botao botao-secundario botao-bloco" href="/index.html">Continuar comprando</a>
     </div>`;
 }

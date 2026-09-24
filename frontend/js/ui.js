@@ -1,3 +1,7 @@
+import { icone } from "./icones.js";
+
+export { icone };
+
 /**
  * Utilitários de interface usados por todas as telas (seção 10.1 do relatório):
  * formatação, ícones, aviso rápido (toast), confirmação em modal, carregando,
@@ -38,38 +42,42 @@ export function formatarTelefone(t) {
   return t;
 }
 
+export const IMG_PADRAO = "/assets/images/produtos/sem-imagem.svg";
+
 export function imagem(url) {
-  if (!url) return "/assets/images/produtos/sem-imagem.svg";
+  if (!url) return IMG_PADRAO;
   return /^(https?:)?\//.test(url) ? url : `/${url}`;
 }
-export const IMG_FALLBACK = "this.onerror=null;this.src='/assets/images/produtos/sem-imagem.svg'";
+
+/** Miniatura (arquivo "-thumb.jpg" ao lado da foto). Usada em cards, carrinho e tabelas. */
+export function miniatura(url) {
+  const completa = imagem(url);
+  return /\.jpe?g$/i.test(completa) ? completa.replace(/\.(jpe?g)$/i, "-thumb.$1") : completa;
+}
+
+/** Se a miniatura faltar, tenta a foto completa; se ela também faltar, usa a imagem padrão. */
+export function atributosImagem(url, { thumb = false } = {}) {
+  const completa = imagem(url);
+  const src = thumb ? miniatura(url) : completa;
+  const reserva = src !== completa ? completa : IMG_PADRAO;
+  return `src="${esc(src)}" data-reserva="${esc(reserva)}" onerror="${IMG_FALLBACK}"`;
+}
+export const IMG_FALLBACK =
+  "if(this.dataset.reserva&&this.src.indexOf(this.dataset.reserva)<0){this.src=this.dataset.reserva;this.dataset.reserva='';}" +
+  "else{this.onerror=null;this.src='/assets/images/produtos/sem-imagem.svg';}";
 
 export const param = (nome) => new URLSearchParams(window.location.search).get(nome);
 
-// ---------------------------------------------------------------- ícones (SVG em linha)
-const ICONES = {
-  voltar: '<path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>',
-  sino: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4l2-2z M10 20a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
-  carrinho: '<path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19" r="1.6" fill="currentColor"/><circle cx="17" cy="19" r="1.6" fill="currentColor"/>',
-  inicio: '<path d="M3 11l9-7 9 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
-  pedidos: '<rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-  conta: '<circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1-4.5 4.5-6 8-6s7 1.5 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-  lupa: '<circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
-  lixeira: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
-  fechar: '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>',
-  seta: '<path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
-};
-export function icone(nome, rotulo = "") {
-  const aria = rotulo ? `role="img" aria-label="${esc(rotulo)}"` : 'aria-hidden="true"';
-  return `<svg viewBox="0 0 24 24" ${aria} focusable="false">${ICONES[nome] || ""}</svg>`;
+// ---------------------------------------------------------------- status do pedido
+// Selo com cor + marcador + texto (o texto garante que a informação não depende só da cor – RNF-15)
+export function seloStatus(status, texto) {
+  return `<span class="status status-${esc(status)}">${esc(texto)}</span>`;
 }
 
-// ---------------------------------------------------------------- status do pedido
-const ICONE_STATUS = {
-  AGUARDANDO_PAGAMENTO: "○", RECEBIDO: "●", EM_PREPARO: "●", SAIU_PARA_ENTREGA: "●", ENTREGUE: "✓", CANCELADO: "✕",
-};
-export function seloStatus(status, texto) {
-  return `<span class="status status-${esc(status)}"><span aria-hidden="true">${ICONE_STATUS[status] || "●"}</span>${esc(texto)}</span>`;
+/** Estrelas somente leitura (nota de 1 a 5). */
+export function estrelasLeitura(nota) {
+  return `<span class="estrelas-leitura" role="img" aria-label="${nota} de 5 estrelas">${[1, 2, 3, 4, 5]
+    .map((n) => icone("estrela", "", n <= nota ? "" : "apagada")).join("")}</span>`;
 }
 
 // ---------------------------------------------------------------- toast (3 segundos)
@@ -90,7 +98,10 @@ export function toast(mensagem, tipo = "sucesso") {
   item.className = `toast toast-${tipo}`;
   item.textContent = mensagem;
   areaToast().appendChild(item);
-  setTimeout(() => item.remove(), 3000);
+  setTimeout(() => {
+    item.classList.add("saindo");
+    setTimeout(() => item.remove(), 220);
+  }, 3000);
 }
 
 /** Guarda um aviso para aparecer na próxima tela (ex.: depois de um redirecionamento). */
@@ -145,16 +156,16 @@ export function confirmar({ titulo, texto, confirmar: rotuloOk = "Confirmar", ca
 export const htmlCarregando = (texto = "Carregando...") =>
   `<div class="carregando" role="status"><div class="girando" aria-hidden="true"></div><span>${esc(texto)}</span></div>`;
 
-export function htmlVazio({ icone: simbolo = "🧁", titulo, texto = "", acao = "" }) {
-  return `<div class="estado"><div class="icone-estado" aria-hidden="true">${simbolo}</div>
+export function htmlVazio({ icone: nomeIcone = "cupcake", titulo, texto = "", acao = "" }) {
+  return `<div class="estado"><div class="icone-estado" aria-hidden="true">${icone(nomeIcone)}</div>
     <strong>${esc(titulo)}</strong>${texto ? `<p>${esc(texto)}</p>` : ""}${acao}</div>`;
 }
 
 /** Mostra MSG-E18 com botão "Tentar novamente" (UC-01 E3). */
 export function mostrarErroCarregamento(container, erro, tentarDeNovo) {
-  container.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">⚠️</div>
+  container.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">${icone("alerta")}</div>
     <strong>${esc(erro?.message || "Algo deu errado. Tente novamente em instantes.")}</strong>
-    ${tentarDeNovo ? '<button type="button" class="botao botao-secundario" data-tentar>Tentar novamente</button>' : ""}
+    ${tentarDeNovo ? `<button type="button" class="botao botao-secundario" data-tentar>${icone("atualizar")}Tentar novamente</button>` : ""}
     <a href="/index.html" class="botao-link">Voltar ao início</a></div>`;
   const botao = container.querySelector("[data-tentar]");
   if (botao) botao.addEventListener("click", tentarDeNovo);
@@ -178,6 +189,8 @@ export async function comCarregamento(botao, acao) {
 
 // ---------------------------------------------------------------- erros de formulário
 export function limparErros(form) {
+  // Campos que tinham erro e foram corrigidos ficam com a borda de "válido"
+  form.querySelectorAll(".campo[data-corrigido]").forEach((c) => { c.classList.add("valido"); delete c.dataset.corrigido; });
   form.querySelectorAll(".campo.com-erro").forEach((c) => c.classList.remove("com-erro"));
   form.querySelectorAll(".erro-campo").forEach((e) => { e.textContent = ""; });
   form.querySelectorAll("[aria-invalid]").forEach((e) => e.removeAttribute("aria-invalid"));
@@ -187,6 +200,7 @@ export function erroNoCampo(form, nome, mensagem) {
   const entrada = form.querySelector(`[name="${nome}"]`);
   const caixa = entrada ? entrada.closest(".campo") : null;
   if (!caixa) return false;
+  caixa.classList.remove("valido");
   caixa.classList.add("com-erro");
   let alvo = caixa.querySelector(".erro-campo");
   if (!alvo) {
@@ -233,3 +247,14 @@ export function validarObrigatorios(form) {
 
 export const emailValido = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 export const senhaValida = (senha) => /^(?=.*[A-Za-zÀ-ÿ])(?=.*\d).{8,}$/.test(senha); // RN-06
+
+// Ao digitar em um campo com erro, a mensagem some (o usuário está corrigindo).
+document.addEventListener("input", (e) => {
+  const caixa = e.target.closest && e.target.closest(".campo.com-erro");
+  if (!caixa) return;
+  caixa.classList.remove("com-erro");
+  caixa.dataset.corrigido = "1";
+  const msg = caixa.querySelector(".erro-campo");
+  if (msg) msg.textContent = "";
+  e.target.removeAttribute("aria-invalid");
+});

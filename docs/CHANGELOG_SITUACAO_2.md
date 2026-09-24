@@ -76,3 +76,26 @@ Data de todo o trabalho: 24/09/2026.
 
 ## 13. Documentação
 - README, manual do usuário, arquitetura, rastreabilidade, testes, status e situação do Git.
+
+## 14. Acabamento visual (UI/UX) e nome oficial
+- Nome oficial em todas as telas e títulos: **App de Cupcakes Gourmet** ("Cupcakes Gourmet"
+  no cabeçalho de celulares com até 400 px). Documentos históricos não foram alterados.
+- Paleta suave (terracota, creme, blush, sálvia) em variáveis `--color-*`; fonte Poppins
+  guardada no projeto (`frontend/assets/fonts/`, licença OFL 1.1).
+- Conjunto único de ícones SVG (`frontend/js/icones.js`), incluindo Crédito, Débito e PIX;
+  nenhum símbolo Unicode ou emoji como ícone.
+- Fotos reais para 5 produtos (enviadas pela aluna, recortadas 1:1, com miniaturas 320 px);
+  imagem padrão `sem-imagem.svg` e troca automática quando uma imagem não carrega.
+  Script opcional `database/03_imagens_produtos.sql` atualiza só `imagem_url` de bancos
+  já criados (sem mudar tabelas).
+- Barra inferior mantida (mesmos 4 itens, embaixo em todas as larguras), com indicador do
+  item ativo e estados de toque, passar o mouse e foco.
+- Transições rápidas entre páginas (View Transitions, 180 ms) e animações desligadas com
+  `prefers-reduced-motion`. Sem atrasos artificiais.
+- Refinos em cards, detalhes, carrinho, checkout, pagamento, linha do tempo, notificações,
+  avisos, formulários, estrelas da avaliação e telas do administrador.
+- Novo teste `tests/e2e/visual.mjs` (8 verificações). Documentação em
+  [`ui-ux-polish.md`](ui-ux-polish.md), [`product-images-map.md`](product-images-map.md) e
+  [`product-images-sources.md`](product-images-sources.md).
+- Pendente: fotos de Chocolate Belga, Baunilha Clássico e Pistache Especial (os sites de
+  imagens livres foram bloqueados neste ambiente; usam a imagem padrão).

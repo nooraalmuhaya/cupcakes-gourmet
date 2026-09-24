@@ -2,7 +2,7 @@
 import { api } from "../api.js";
 import { iniciarPagina, caminhoSeguro } from "../layout.js";
 import { esc, formatarCep, htmlCarregando, htmlVazio, mostrarErroCarregamento, comCarregamento, confirmar, toast,
-  limparErros, erroNoCampo, mostrarErrosApi, validarObrigatorios, param, avisoProximaTela } from "../ui.js";
+  limparErros, erroNoCampo, mostrarErrosApi, validarObrigatorios, param, avisoProximaTela, icone } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 const UFS = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
@@ -13,7 +13,7 @@ let editando = null; // null = lista; {} = novo; objeto = edição
 function htmlLista() {
   const cheio = enderecos.length >= 5;
   const cards = enderecos.map((e) => `
-    <li class="cartao card-endereco">
+    <li class="cartao card-endereco"><span class="icone-endereco" aria-hidden="true">${icone("mapa")}</span><div>
       <div class="linha" style="flex-wrap:wrap"><strong>${esc(e.apelido)}</strong>${e.padrao ? '<span class="selo selo-padrao">Padrão</span>' : ""}</div>
       <p style="margin:4px 0 0">${esc(e.logradouro)}, ${esc(e.numero)}${e.complemento ? `, ${esc(e.complemento)}` : ""}</p>
       <p class="texto-suave texto-pequeno" style="margin:0">${esc(e.bairro)} · ${esc(e.cidade)} – ${esc(e.uf)} · ${formatarCep(e.cep)}</p>
@@ -22,12 +22,12 @@ function htmlLista() {
         <button type="button" class="botao-link perigo" data-excluir="${e.id_endereco}">Excluir</button>
         ${e.padrao ? "" : `<button type="button" class="botao-link" data-padrao="${e.id_endereco}">Tornar padrão</button>`}
       </div>
-    </li>`).join("");
+    </div></li>`).join("");
   return `
     ${enderecos.length ? `<ul class="pilha" style="list-style:none;margin:0;padding:0">${cards}</ul>`
-      : htmlVazio({ icone: "📍", titulo: "Você ainda não tem endereços." })}
+      : htmlVazio({ icone: "mapa", titulo: "Você ainda não tem endereços." })}
     <div class="acoes-rodape">
-      <button type="button" class="botao botao-bloco" data-novo ${cheio ? 'disabled aria-describedby="msg-limite"' : ""}>+ Adicionar endereço</button>
+      <button type="button" class="botao botao-bloco" data-novo ${cheio ? 'disabled aria-describedby="msg-limite"' : ""}>${icone("mais")}Adicionar endereço</button>
       ${cheio ? '<p id="msg-limite" class="erro-campo">Você já tem 5 endereços salvos. Exclua um para adicionar outro.</p>' : ""}
       <p class="centro texto-suave texto-pequeno" style="margin:0">${enderecos.length} de 5 endereços salvos</p>
       <p class="centro texto-suave texto-pequeno" style="margin:0">Excluir um endereço não altera pedidos já feitos.</p>

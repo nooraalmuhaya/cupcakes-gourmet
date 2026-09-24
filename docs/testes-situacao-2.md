@@ -229,7 +229,7 @@ Total: **63/63 verificações OK**, 0 erros de JavaScript. Largura do conteúdo:
 390 px, 728 px em 768 px e 728 px (coluna central) em 1366 px; área do administrador
 1148 px em 1366 px. Nenhum controle das telas ficou abaixo de 40 px de altura depois
 dos ajustes. Capturas em `docs/imagens/responsivo/`
-(ex.: `T01_390.png`, `T01_768.png`, `T01_1366.png`, `T03_1366.png`, `A02_390.png`).
+(ex.: `T01_390.png`, `T01_768.png`, `T01_1366.png`, `T03_1366.png`, `A01_390.png`, `A02_1366.png`).
 
 Depois dos ajustes, os 6 fluxos foram executados de novo: **48/48 PASS** nos dois modos
 (porta 8000 e `http.server` 5500), 0 erros de JavaScript.
@@ -251,3 +251,42 @@ node responsivo.mjs ../../docs/imagens/responsivo
 | Medição formal de desempenho (RNF-04/RNF-05) | Não foi feita medição formal. |
 | Leitor de tela (acessibilidade) | Não testado com leitor de tela; só foram usados rótulos, textos alternativos e selos com texto. |
 | Testes com colegas/usuários | **Não fazem parte da Situação 2** (Situação 3). |
+
+## 7. Acabamento visual (UI/UX)
+
+Depois do acabamento visual e da troca do nome para **App de Cupcakes Gourmet**
+([ui-ux-polish.md](ui-ux-polish.md)), todos os testes foram executados de novo em 24/09/2026:
+
+| Teste | Resultado |
+|-------|-----------|
+| pytest (MySQL `cupcakes_gourmet_test`) | **156 passed** |
+| `fluxos.mjs` com o back-end servindo o front-end (porta 8000, banco recriado com os dados iniciais) | **48/48 PASS**, 0 erros de JavaScript; capturas de `docs/imagens/` refeitas |
+| `fluxos.mjs` com o front-end em `http.server` (porta 5500) | **48/48 PASS**, 0 erros de JavaScript |
+| `responsivo.mjs` (390, 768 e 1366 px) | **63/63 OK**; capturas de `docs/imagens/responsivo/` refeitas |
+| `visual.mjs` (novo) | **8/8 PASS**, 0 erros de JavaScript |
+
+O `visual.mjs` confere: nome oficial em 16 telas e ausência de "Cupcake Haven"; fonte
+Poppins carregada; todas as imagens de produto carregam (5 com foto, as demais com a
+imagem padrão); ícones de Crédito, Débito e PIX são SVG visíveis; nenhum símbolo
+Unicode/emoji usado como ícone; View Transitions ativas; `prefers-reduced-motion`
+desliga as animações; item ativo da barra inferior com indicador e foco visível.
+A largura mínima de 360 px também foi conferida pelo `fluxos.mjs` (sem rolagem lateral).
+
+Problemas encontrados durante o acabamento (e corrigidos antes do resultado acima):
+
+| Problema | Correção |
+|----------|----------|
+| Símbolo do PIX desenhado com formas irregulares | Geometria refeita (4 losangos simétricos) |
+| Auditoria da barra lia o `span` do indicador como rótulo | Seletor do rótulo trocado para `a > span:last-child` |
+| Textos com menos de 12 px (selos, hora das notificações, cabeçalho de tabela, rótulos da barra) | Tamanhos aumentados |
+| Barra inferior semitransparente deixava o conteúdo aparecer por trás | Fundo opaco |
+| Coluna de ações da tabela A03 com `display:flex` quebrava as bordas da linha | Botões dentro de um `div` |
+| Links de texto perderam a centralização | Classe `.botao-link.centro` |
+| `fluxos.mjs` falhou ao procurar `.alerta-aviso` (aviso virou `.alerta-info`) | Seletor passou a ser `.alerta` com o texto "Ambiente de demonstração" |
+
+Como repetir:
+
+```bash
+cd tests/e2e
+node visual.mjs http://127.0.0.1:8000
+```

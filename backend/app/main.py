@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 logger = logging.getLogger("cupcakes")
 
 DESCRICAO = """
-API REST do **App de Cupcakes Gourmet** (loja *Cupcake Haven*).
+API REST do **App de Cupcakes Gourmet**.
 
 * Autenticação por sessão (cookie). Use `POST /api/auth/login` antes das rotas protegidas.
 * Rotas `/api/admin/...` exigem perfil **ADMIN**.

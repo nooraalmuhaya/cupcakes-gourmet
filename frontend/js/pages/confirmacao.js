@@ -1,7 +1,7 @@
 // T08 – Confirmação do pedido
 import { api } from "../api.js";
 import { iniciarPagina } from "../layout.js";
-import { esc, moeda, htmlCarregando, mostrarErroCarregamento, param } from "../ui.js";
+import { esc, moeda, htmlCarregando, mostrarErroCarregamento, param, icone } from "../ui.js";
 import { NOME_METODO, NOME_STATUS_PAGAMENTO } from "../nomes.js";
 
 const main = document.getElementById("conteudo");
@@ -11,7 +11,7 @@ async function carregar() {
   try {
     const { pedido: p } = await api(`/api/pedidos/${Number(param("pedido"))}`);
     main.innerHTML = `<div class="pilha centro">
-        <div class="sucesso-icone" aria-hidden="true">✓</div>
+        <div class="sucesso-icone" aria-hidden="true">${icone("check")}</div>
         <h1>Pedido realizado com sucesso!</h1>
         <p class="texto-suave">A loja já recebeu seu pedido.</p>
       </div>
@@ -26,7 +26,7 @@ async function carregar() {
       </dl>
       <p class="texto-suave texto-pequeno" style="margin-top:14px">Você vai receber uma notificação a cada mudança de status.</p>
       <div class="acoes-rodape">
-        <a class="botao botao-bloco" href="/pages/acompanhar.html?pedido=${p.id_pedido}">Acompanhar pedido</a>
+        <a class="botao botao-bloco" href="/pages/acompanhar.html?pedido=${p.id_pedido}">${icone("entrega")}Acompanhar pedido</a>
         <a class="botao botao-secundario botao-bloco" href="/index.html">Voltar ao início</a>
       </div>`;
   } catch (erro) {

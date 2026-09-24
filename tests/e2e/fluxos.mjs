@@ -139,7 +139,7 @@ await passo(2, 'Endereço válido é salvo (MSG-S03) e volta ao checkout com ele
 });
 await passo(2, 'Pagamento: aviso de demonstração e validação do cartão (MSG-E11)', async () => {
   await c.click('#form-endereco button[type=submit]'); await c.waitForURL(/pagamento\.html/); await pronto(c);
-  await c.locator('.alerta-aviso', { hasText: 'Ambiente de demonstração: nenhum valor real é cobrado.' }).waitFor();
+  await c.locator('.alerta', { hasText: 'Ambiente de demonstração: nenhum valor real é cobrado.' }).waitFor();
   igual(await texto(c, '.total-destaque strong'), 'R$ 43,10', 'total a pagar');
   await c.click('#confirmar');
   await c.locator('.campo:has(#numero) .erro-campo', { hasText: 'Confira os dados do cartão: número do cartão (16 dígitos).' }).waitFor();
@@ -178,7 +178,7 @@ await passo(3, 'Meus Pedidos lista o pedido e "Ver detalhes" abre o acompanhamen
   await c.locator('.card-pedido .status', { hasText: 'Pedido recebido' }).waitFor();
   await c.locator('.card-pedido', { hasText: '2x Red Velvet · 1x Chocolate Belga' }).waitFor();
   await shot(c, 'T10_meus_pedidos');
-  await c.click('text=Ver detalhes ›'); await c.waitForURL(/acompanhar\.html/);
+  await c.click('text=Ver detalhes'); await c.waitForURL(/acompanhar\.html/);
 });
 await passo(3, 'Notificação: tocar marca como lida e abre o acompanhamento', async () => {
   await c.goto(B + '/pages/notificacoes.html'); await pronto(c);
@@ -245,10 +245,10 @@ await passo(5, 'Produtos (A03) lista ativos e inativos', async () => {
   await shot(a, 'A03_produtos');
 });
 await passo(5, 'Formulário (A04): preço zero (MSG-E21) e nome repetido (MSG-E17)', async () => {
-  await a.click('text=+ Novo produto'); await a.waitForURL(/admin\/produto\.html/); await pronto(a);
+  await a.click('text=Novo produto'); await a.waitForURL(/admin\/produto\.html/); await pronto(a);
   await a.fill('#nome', 'Red Velvet'); await a.selectOption('#id_categoria', { label: 'Especiais' });
   await a.fill('#descricao', 'Massa de coco com calda queimada.'); await a.fill('#ingredientes', 'Farinha, coco, açúcar.');
-  await a.fill('#preco', '0'); await a.fill('#quantidade_estoque', '6'); await a.fill('#imagem_url', 'assets/images/produtos/doce-de-leite.svg');
+  await a.fill('#preco', '0'); await a.fill('#quantidade_estoque', '6'); await a.fill('#imagem_url', 'assets/images/produtos/sem-imagem.svg');
   await a.click('button[type=submit]');
   await a.locator('.campo:has(#preco) .erro-campo', { hasText: 'O preço deve ser maior que zero.' }).waitFor();
   await shot(a, 'A04_formulario_preco_invalido');
@@ -316,20 +316,20 @@ await passo(6, 'Administrador vê a avaliação no detalhe do pedido', async () 
 });
 await passo(6, 'Cancelamento pelo admin com confirmação devolve o estoque (RN-15)', async () => {
   // novo pedido do cliente de teste
-  await c.goto(B + '/pages/produto.html?id=4'); await pronto(c); const antes = Number((await texto(c, '.pilha .texto-pequeno')).split(' ')[0]);
+  await c.goto(B + '/pages/produto.html?id=4'); await pronto(c); const antes = Number((await texto(c, '#estoque')).split(' ')[0]);
   await c.click('#adicionar'); await toast(c, 'adicionado');
   await c.goto(B + '/pages/checkout.html'); await pronto(c); await c.click('#form-endereco button[type=submit]');
   await c.waitForURL(/pagamento/); await pronto(c); await c.click('[data-metodo=PIX]'); await c.click('#confirmar'); await c.waitForURL(/confirmacao/);
   await c.goto(B + '/pages/produto.html?id=4'); await pronto(c);
-  igual(Number((await texto(c, '.pilha .texto-pequeno')).split(' ')[0]), antes - 1, 'estoque baixado');
+  igual(Number((await texto(c, '#estoque')).split(' ')[0]), antes - 1, 'estoque baixado');
   await a.goto(B + '/pages/admin/pedidos.html'); await pronto(a); await a.locator('tbody tr').first().locator('text=Abrir').click(); await pronto(a);
   await a.click('[data-cancelar]'); await a.locator('.modal', { hasText: 'As quantidades voltam para o estoque' }).waitFor();
   await shot(a, 'A02b_confirmar_cancelamento');
   await a.click('.modal [data-r=sim]'); await toast(a, 'Status do pedido atualizado para Cancelado.');
-  await c.reload(); await pronto(c); igual(Number((await texto(c, '.pilha .texto-pequeno')).split(' ')[0]), antes, 'estoque devolvido');
+  await c.reload(); await pronto(c); igual(Number((await texto(c, '#estoque')).split(' ')[0]), antes, 'estoque devolvido');
 });
 await passo(6, 'Cliente vê o pedido cancelado (cor + ícone + texto)', async () => {
-  await c.goto(B + '/pages/pedidos.html'); await pronto(c); await c.locator('.card-pedido').first().locator('text=Ver detalhes ›').click();
+  await c.goto(B + '/pages/pedidos.html'); await pronto(c); await c.locator('.card-pedido').first().locator('text=Ver detalhes').click();
   await pronto(c); await c.locator('.caixa-cancelado', { hasText: 'Pedido cancelado' }).waitFor(); await shot(c, 'T09b_pedido_cancelado');
 });
 
@@ -354,7 +354,7 @@ await passo(7, 'Sem rolagem horizontal e barra inferior do protótipo em 360, 39
       const m = await p.evaluate(() => {
         const nav = document.querySelector('.barra-inferior').getBoundingClientRect();
         return { larg: document.documentElement.scrollWidth, navFundo: Math.round(nav.bottom) === innerHeight,
-          textos: [...document.querySelectorAll('.barra-inferior a span')].map((s) => s.textContent).join('|') };
+          textos: [...document.querySelectorAll('.barra-inferior a > span:last-child')].map((s) => s.textContent).join('|') };
       });
       if (m.larg > w) throw new Error(`${url} em ${w}px tem largura ${m.larg}`);
       if (!m.navFundo || m.textos !== 'Início|Carrinho|Pedidos|Conta') throw new Error(`${url} em ${w}px: barra inferior ${JSON.stringify(m)}`);

@@ -1,6 +1,6 @@
 # Arquitetura – Situação 2
 
-Documento técnico da implementação do App de Cupcakes Gourmet (Cupcake Haven).
+Documento técnico da implementação do App de Cupcakes Gourmet.
 Descreve como o que foi planejado na Situação 1 virou código.
 
 ## 1. Visão geral
@@ -60,6 +60,10 @@ ambiente) e `utils/` (catálogo de mensagens, erros e formatação).
   - `js/ui.js` – formatação (R$, datas, CEP, telefone), toast de 3 s, modal de
     confirmação, estados de carregando/vazio/erro, erros abaixo dos campos, escape de HTML.
   - `js/config.js` – nome da loja, WhatsApp, horário de atendimento, intervalo de 30 s.
+  - `js/icones.js` – conjunto único de ícones SVG desenhados para o projeto (mesma grade e traço).
+  - `assets/fonts/` – fonte Poppins em arquivos locais (licença OFL); `assets/images/produtos/` – fotos
+    dos produtos (`nome.jpg` e miniatura `nome-thumb.jpg`) e a imagem padrão `sem-imagem.svg`.
+  - Sistema de design (cores em variáveis `--color-*`, tipografia, transições): [`ui-ux-polish.md`](ui-ux-polish.md).
   - `js/nomes.js` – textos dos enums (status, forma de pagamento).
   - `js/pages/*.js` – um script por tela.
 - Componentes comuns da seção 10.1 implementados: cabeçalho com sino e carrinho com
@@ -172,6 +176,7 @@ front-end mostrar cada mensagem abaixo do campo certo.
 - Script `database/01_schema_mysql.sql` = seção 14.5 do relatório da Situação 1,
   **sem alterações** de tabelas, colunas, chaves, CHECKs ou índices.
 - Os modelos SQLAlchemy **não criam** tabelas; eles apenas mapeiam as existentes.
+- `database/03_imagens_produtos.sql`: atualiza só a coluna `produto.imagem_url` (fotos novas) em bancos já populados.
 - `database/02_dados_iniciais.sql`: categorias, produtos, cupons e as contas de teste
   (senhas só em hash bcrypt). Pode ser executado mais de uma vez.
 - Carrinho e ItemCarrinho continuam **fora do banco** (classes transientes da seção

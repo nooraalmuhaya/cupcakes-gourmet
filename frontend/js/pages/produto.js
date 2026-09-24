@@ -1,7 +1,7 @@
 // T02 – Detalhes do produto (UC-02, US02)
 import { api } from "../api.js";
 import { iniciarPagina, atualizarContadorCarrinho } from "../layout.js";
-import { esc, moeda, imagem, IMG_FALLBACK, htmlCarregando, mostrarErroCarregamento, toast, comCarregamento, param, avisoProximaTela } from "../ui.js";
+import { esc, moeda, atributosImagem, icone, htmlCarregando, mostrarErroCarregamento, toast, comCarregamento, param, avisoProximaTela } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 let produto = null;
@@ -11,32 +11,32 @@ function desenhar() {
   const p = produto;
   const selos = [
     `<span class="selo selo-categoria">${esc(p.categoria)}</span>`,
-    p.vegano ? '<span class="selo selo-vegano">Vegano</span>' : "",
-    p.sem_gluten ? '<span class="selo selo-sem-gluten">Sem glúten</span>' : "",
-    !p.disponivel ? '<span class="selo selo-indisponivel"><span aria-hidden="true">⊘</span> Indisponível</span>' : "",
+    p.vegano ? `<span class="selo selo-vegano">${icone("folha")}Vegano</span>` : "",
+    p.sem_gluten ? `<span class="selo selo-sem-gluten">${icone("sem_gluten")}Sem glúten</span>` : "",
+    !p.disponivel ? `<span class="selo selo-indisponivel">${icone("bloqueado")}Indisponível</span>` : "",
   ].join(" ");
   main.innerHTML = `<div class="detalhe-grade">
-      <img class="foto-produto" src="${esc(imagem(p.imagem_url))}" alt="Foto do cupcake ${esc(p.nome)}" onerror="${IMG_FALLBACK}">
+      <div class="moldura-foto">
+        <img class="foto-produto" ${atributosImagem(p.imagem_url)} alt="Cupcake ${esc(p.nome)}" width="720" height="720">
+      </div>
       <div class="pilha">
         <div class="titulo-preco"><h1>${esc(p.nome)}</h1><span class="preco">${moeda(p.preco)}</span></div>
-        <div class="linha" style="flex-wrap:wrap">${selos}</div>
-        <section><h2>Descrição</h2><p>${esc(p.descricao)}</p></section>
-        <section><h2>Ingredientes</h2><p>${esc(p.ingredientes)}</p></section>
-        <section class="alergenos" aria-label="Alérgenos"><strong>⚠ Alérgenos</strong><p style="margin:4px 0 0">${esc(p.alergenos)}</p></section>
-        <div class="linha-entre">
-          <span class="rotulo" id="rotulo-qtd">Quantidade</span>
-          <div class="pilha" style="justify-items:end">
-            <div class="quantidade" role="group" aria-labelledby="rotulo-qtd">
-              <button type="button" data-qtd="-1" aria-label="Diminuir quantidade" ${!p.disponivel || quantidade <= 1 ? "disabled" : ""}>−</button>
-              <output aria-live="polite">${quantidade}</output>
-              <button type="button" data-qtd="1" aria-label="Aumentar quantidade" ${!p.disponivel || quantidade >= p.quantidade_estoque ? "disabled" : ""}>+</button>
-            </div>
-            <span class="texto-suave texto-pequeno">${p.disponivel ? `${p.quantidade_estoque} disponíveis` : "Sem estoque"}</span>
+        <div class="linha" style="flex-wrap:wrap;gap:6px">${selos}</div>
+        <section class="detalhe-secao"><h2>Descrição</h2><p>${esc(p.descricao)}</p></section>
+        <section class="detalhe-secao"><h2>Ingredientes</h2><p>${esc(p.ingredientes)}</p></section>
+        <section class="alergenos" aria-label="Alérgenos"><div><strong>Alérgenos</strong><p style="margin:2px 0 0">${esc(p.alergenos)}</p></div></section>
+        <div class="caixa-quantidade">
+          <div><span class="rotulo" id="rotulo-qtd">Quantidade</span><br>
+            <span id="estoque" class="texto-suave texto-pequeno">${p.disponivel ? `${p.quantidade_estoque} disponíveis` : "Sem estoque"}</span></div>
+          <div class="quantidade" role="group" aria-labelledby="rotulo-qtd">
+            <button type="button" data-qtd="-1" aria-label="Diminuir quantidade" ${!p.disponivel || quantidade <= 1 ? "disabled" : ""}>${icone("menos")}</button>
+            <output aria-live="polite">${quantidade}</output>
+            <button type="button" data-qtd="1" aria-label="Aumentar quantidade" ${!p.disponivel || quantidade >= p.quantidade_estoque ? "disabled" : ""}>${icone("mais")}</button>
           </div>
         </div>
         <div id="erro-qtd" class="erro-campo" role="alert"></div>
         <button type="button" class="botao botao-bloco" id="adicionar" ${p.disponivel ? "" : "disabled"}>
-          ${p.disponivel ? "Adicionar ao carrinho" : "Indisponível"}</button>
+          ${p.disponivel ? `${icone("carrinho")}Adicionar ao carrinho · ${moeda(p.preco * quantidade)}` : "Indisponível"}</button>
         <a class="botao botao-secundario botao-bloco" href="/index.html">Voltar ao cardápio</a>
       </div>
     </div>`;
@@ -72,7 +72,7 @@ async function carregar() {
   try {
     if (!id) throw Object.assign(new Error("Produto não encontrado."), { status: 404 });
     produto = await api(`/api/produtos/${id}`);
-    document.title = `${produto.nome} – Cupcake Haven`;
+    document.title = `${produto.nome} – App de Cupcakes Gourmet`;
     desenhar();
   } catch (erro) {
     if (erro.status === 404) {

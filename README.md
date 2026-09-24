@@ -1,4 +1,4 @@
-# App de Cupcakes Gourmet – Cupcake Haven
+# App de Cupcakes Gourmet
 
 Projeto Integrador Transdisciplinar em Engenharia de Software II – Cruzeiro do Sul Virtual
 Aluna: Noora Gamil Al Muhaya
@@ -52,7 +52,7 @@ Veja o que ficou fora do escopo na seção 17 (Observações).
 
 | Camada | Tecnologia |
 |--------|------------|
-| Front-end (View) | HTML5, CSS3, JavaScript puro (módulos ES e Fetch API) – sem framework |
+| Front-end (View) | HTML5, CSS3, JavaScript puro (módulos ES e Fetch API) – sem framework; fonte Poppins (arquivos locais, licença OFL); ícones SVG próprios |
 | Back-end (Controller + Model) | Python 3.11, FastAPI, SQLAlchemy 2, Pydantic 2, Uvicorn |
 | Banco de dados | MySQL 8.0 (8.0.16 ou superior), driver PyMySQL |
 | Segurança | bcrypt (hash de senha), cookie de sessão assinado (itsdangerous) |
@@ -82,12 +82,13 @@ cupcakes-gourmet/
 │   ├── pages/                T02–T15 e pages/admin/ (A01–A04)
 │   ├── css/                  base.css, components.css, pages.css
 │   ├── js/                   api.js, ui.js, layout.js, config.js e js/pages/*
-│   └── assets/               Ilustrações dos produtos e ícone
+│   └── assets/               Fotos dos produtos, fonte Poppins e ícone
 ├── database/
 │   ├── 01_schema_mysql.sql   Script da Situação 1 (sem alterações)
-│   └── 02_dados_iniciais.sql Categorias, produtos, cupons e contas de teste
+│   ├── 02_dados_iniciais.sql Categorias, produtos, cupons e contas de teste
+│   └── 03_imagens_produtos.sql Atualiza os caminhos das fotos (bancos já populados)
 ├── docs/                     Documentação (Situação 1 e Situação 2)
-├── tests/e2e/                Script dos testes funcionais no navegador (opcional)
+├── tests/e2e/                Testes no navegador: fluxos.mjs, responsivo.mjs, visual.mjs (opcional)
 ├── .env.example
 └── README.md
 ```
@@ -109,6 +110,11 @@ cupcakes-gourmet/
 2. Insira os dados iniciais (pode rodar mais de uma vez sem duplicar nada):
    ```bash
    mysql -u root -p < database/02_dados_iniciais.sql
+   ```
+   Se o banco já tinha recebido o `02_dados_iniciais.sql` de uma versão anterior,
+   rode também o `03_imagens_produtos.sql` (só atualiza o caminho das fotos):
+   ```bash
+   mysql -u root -p < database/03_imagens_produtos.sql
    ```
 3. (Opcional, recomendado) Crie um usuário só para a aplicação:
    ```sql
@@ -241,7 +247,10 @@ diagramas estão em [`docs/situacao-1/`](docs/situacao-1/).
 - **Busca de CEP por API**: era opcional e não foi implementada; o endereço é digitado.
 - O número do WhatsApp em `frontend/js/config.js` é **fictício** e deve ser trocado pelo
   número real da loja.
-- As imagens dos produtos são ilustrações simples em SVG, não fotos.
+- Fotos dos produtos: 5 produtos usam fotos fornecidas pela aluna; **Chocolate Belga, Baunilha Clássico e
+  Pistache Especial ainda não têm foto** e mostram a imagem padrão (ver
+  [`docs/product-images-map.md`](docs/product-images-map.md)).
+- Identidade visual (cores, fonte, ícones, transições): [`docs/ui-ux-polish.md`](docs/ui-ux-polish.md).
 - Decisões de implementação: [`DEVELOPMENT_NOTES.md`](DEVELOPMENT_NOTES.md).
 - Status de cada item: [`docs/STATUS_SITUACAO_2.md`](docs/STATUS_SITUACAO_2.md).
 

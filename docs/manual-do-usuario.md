@@ -1,4 +1,4 @@
-# Manual do Usuário – Cupcake Haven
+# Manual do Usuário – App de Cupcakes Gourmet
 
 App de Cupcakes Gourmet – Situação 2. As imagens deste manual são **capturas de tela
 reais** do sistema em funcionamento (tela de celular de 390 px e, na administração,
@@ -311,7 +311,9 @@ No formulário, preencha nome, categoria, descrição, ingredientes, alérgenos,
 estoque, caminho da imagem e as opções Vegano / Sem glúten / Ativo. A **prévia** mostra
 a imagem. Para usar uma imagem nova, coloque o arquivo em
 `frontend/assets/images/produtos/` e informe o caminho (ex.:
-`assets/images/produtos/coco.svg`). Se o campo alérgenos ficar vazio, o sistema grava
+`assets/images/produtos/coco-queimado.jpg`). Se quiser, crie também uma miniatura
+quadrada com o mesmo nome terminado em `-thumb.jpg` (ex.: `coco-queimado-thumb.jpg`), que
+deixa o cardápio mais leve; sem ela, o sistema usa a foto completa. Se o campo alérgenos ficar vazio, o sistema grava
 "Não contém alérgenos declarados". Mudar o preço não altera pedidos já feitos.
 
 ![Formulário de produto](imagens/A04_formulario_preco_invalido.png)

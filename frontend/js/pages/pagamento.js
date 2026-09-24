@@ -2,7 +2,7 @@
 import { api } from "../api.js";
 import { iniciarPagina } from "../layout.js";
 import { NOME_METODO } from "../nomes.js";
-import { esc, moeda, htmlCarregando, mostrarErroCarregamento, comCarregamento, limparErros, erroNoCampo, confirmar, param, avisoProximaTela, toast } from "../ui.js";
+import { esc, moeda, htmlCarregando, mostrarErroCarregamento, comCarregamento, limparErros, erroNoCampo, confirmar, param, avisoProximaTela, toast, icone } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 let metodo = "CREDITO";
@@ -11,6 +11,7 @@ let idEndereco = null;
 let total = 0;
 
 const NOMES = { CREDITO: "Crédito", DEBITO: "Débito", PIX: "PIX" };
+const ICONE_METODO = { CREDITO: "credito", DEBITO: "debito", PIX: "pix" };
 
 function qrIlustrativo() {
   // Desenho fixo só para ilustrar (não é um QR Code de verdade)
@@ -28,16 +29,17 @@ function qrIlustrativo() {
 
 function desenhar() {
   main.innerHTML = `
-    <div class="etapas etapa-2" aria-label="Etapa 2 de 2"><div class="etapa feita"><span>1</span>Endereço</div><div class="etapa ativa"><span>2</span>Pagamento</div></div>
+    <div class="etapas etapa-2" aria-label="Etapa 2 de 2"><div class="etapa feita"><span>${icone("check")}</span>Endereço</div><div class="etapa ativa"><span>2</span>Pagamento</div></div>
     <div class="total-destaque"><span class="texto-suave">Total a pagar</span><strong>${moeda(total)}</strong></div>
-    <div class="alerta alerta-aviso" style="margin-top:12px"><p>Ambiente de demonstração: nenhum valor real é cobrado.</p></div>
+    <div class="alerta alerta-info" style="margin-top:12px"><p>Ambiente de demonstração: nenhum valor real é cobrado.</p></div>
     <div id="area-resultado"></div>
     <form id="form-pagamento" novalidate>
       <fieldset style="border:0;padding:0;margin:0 0 16px">
         <legend class="rotulo" style="margin-bottom:8px">Forma de pagamento</legend>
         <div class="metodos">
           ${["CREDITO", "DEBITO", "PIX"].map((m) => `<button type="button" class="metodo" data-metodo="${m}" aria-pressed="${m === metodo}">
-              <span aria-hidden="true">${m === "PIX" ? "◆" : "▭"}</span>${NOMES[m]}</button>`).join("")}
+              <span class="marca-selecao" aria-hidden="true">${icone("check")}</span>
+              ${icone(ICONE_METODO[m])}${NOMES[m]}</button>`).join("")}
         </div>
       </fieldset>
       <div id="campos-cartao" ${metodo === "PIX" ? "hidden" : ""}>
@@ -51,7 +53,7 @@ function desenhar() {
           <div class="campo"><label for="cvv">CVV</label>
             <input id="cvv" name="cvv" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="3 dígitos"></div>
         </div>
-        <p class="texto-suave texto-pequeno">Os dados do cartão não são salvos. Cartão de teste: final 0000 é sempre recusado.</p>
+        <p class="nota-segura">${icone("cadeado")}Os dados do cartão não são salvos. Cartão de teste: final 0000 é sempre recusado.</p>
       </div>
       <div id="area-pix" class="centro" ${metodo === "PIX" ? "" : "hidden"}>
         ${qrIlustrativo()}
@@ -84,7 +86,7 @@ function validarCartao(form) {
 function mostrarRecusa(finalCartao) {
   const area = document.getElementById("area-resultado");
   area.innerHTML = `<section class="recusa pilha" role="alert">
-      <h2>✕ Não foi possível pagar</h2>
+      <h2>${icone("erro")}Não foi possível pagar</h2>
       <p style="margin:0">Pagamento recusado. Tente novamente ou escolha outra forma de pagamento.</p>
       ${finalCartao ? `<p class="texto-suave texto-pequeno" style="margin:0">${NOME_METODO[metodo]} •••• ${esc(finalCartao)}</p>` : ""}
       <div class="pilha">

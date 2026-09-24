@@ -1,7 +1,7 @@
 // T11 – Avaliar pedido (UC-13, RN-17)
 import { api } from "../api.js";
 import { iniciarPagina } from "../layout.js";
-import { esc, data, htmlCarregando, mostrarErroCarregamento, comCarregamento, param, avisoProximaTela } from "../ui.js";
+import { esc, data, htmlCarregando, mostrarErroCarregamento, comCarregamento, param, avisoProximaTela, icone } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 const idPedido = Number(param("pedido"));
@@ -21,7 +21,7 @@ async function carregar() {
   try {
     const { pedido: p } = await api(`/api/pedidos/${idPedido}`);
     if (!p.pode_avaliar) {
-      main.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">⚠️</div>
+      main.innerHTML = `<div class="estado"><div class="icone-estado" aria-hidden="true">${icone("alerta")}</div>
         <strong>Este pedido não pode ser avaliado.</strong>
         <p>${p.avaliacao ? "Você já avaliou este pedido." : "Só pedidos entregues podem ser avaliados."}</p>
         <a class="botao" href="/pages/pedidos.html">Voltar para Meus Pedidos</a></div>`; // MSG-E20
@@ -34,7 +34,7 @@ async function carregar() {
       <form id="form-avaliacao" novalidate>
         <fieldset class="estrelas" style="flex-wrap:wrap">
           <legend>Como foi seu pedido?</legend>
-          ${[1, 2, 3, 4, 5].map((n) => `<button type="button" data-nota="${n}" aria-label="${n} estrela${n > 1 ? "s" : ""}" aria-pressed="false">★</button>`).join("")}
+          ${[1, 2, 3, 4, 5].map((n) => `<button type="button" data-nota="${n}" aria-label="${n} estrela${n > 1 ? "s" : ""}" aria-pressed="false">${icone("estrela")}</button>`).join("")}
         </fieldset>
         <p id="texto-nota" class="centro texto-suave" aria-live="polite"></p>
         <div id="erro-nota" class="erro-campo centro" role="alert" style="justify-content:center"></div>
@@ -62,6 +62,15 @@ main.addEventListener("click", (e) => {
   document.getElementById("erro-nota").textContent = "";
   desenharEstrelas();
 });
+
+// Prévia: ao passar o mouse (ou focar pelo teclado) acende as estrelas até aquela
+function previa(ate) {
+  main.querySelectorAll("[data-nota]").forEach((b) => b.classList.toggle("previa", Number(b.dataset.nota) <= ate));
+}
+main.addEventListener("pointerover", (e) => { const b = e.target.closest("[data-nota]"); if (b) previa(Number(b.dataset.nota)); });
+main.addEventListener("pointerout", (e) => { if (e.target.closest("[data-nota]")) previa(0); });
+main.addEventListener("focusin", (e) => { const b = e.target.closest("[data-nota]"); if (b) previa(Number(b.dataset.nota)); });
+main.addEventListener("focusout", (e) => { if (e.target.closest("[data-nota]")) previa(0); });
 
 main.addEventListener("input", (e) => {
   if (e.target.id === "comentario") document.getElementById("contador").textContent = `${e.target.value.length}/500`;

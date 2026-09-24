@@ -24,12 +24,12 @@ function desenhar(usuario, quantidadeEnderecos, naoLidas) {
       <div class="linha" style="justify-content:flex-end"><button class="botao botao-secundario botao-pequeno" type="submit">Salvar dados</button></div>
     </form>
     <ul class="menu-conta">
-      <li><a href="/pages/pedidos.html"><span>Meus Pedidos</span><span class="detalhe">${icone("seta")}</span></a></li>
-      <li><a href="/pages/enderecos.html"><span>Meus Endereços</span><span class="detalhe">${quantidadeEnderecos} de 5 ${icone("seta")}</span></a></li>
-      <li><a href="/pages/notificacoes.html"><span>Notificações</span><span class="detalhe">${naoLidas ? `<span class="selo selo-indisponivel">${naoLidas} não lida${naoLidas > 1 ? "s" : ""}</span>` : ""} ${icone("seta")}</span></a></li>
-      <li><a href="/pages/ajuda.html"><span>Ajuda e Suporte</span><span class="detalhe">${icone("seta")}</span></a></li>
+      <li><a href="/pages/pedidos.html"><span class="rotulo-menu">${icone("pedidos")}Meus Pedidos</span><span class="detalhe">${icone("seta")}</span></a></li>
+      <li><a href="/pages/enderecos.html"><span class="rotulo-menu">${icone("mapa")}Meus Endereços</span><span class="detalhe">${quantidadeEnderecos} de 5 ${icone("seta")}</span></a></li>
+      <li><a href="/pages/notificacoes.html"><span class="rotulo-menu">${icone("sino")}Notificações</span><span class="detalhe">${naoLidas ? `<span class="selo selo-categoria">${naoLidas} não lida${naoLidas > 1 ? "s" : ""}</span>` : ""} ${icone("seta")}</span></a></li>
+      <li><a href="/pages/ajuda.html"><span class="rotulo-menu">${icone("ajuda")}Ajuda e Suporte</span><span class="detalhe">${icone("seta")}</span></a></li>
     </ul>
-    <div class="acoes-rodape"><button type="button" class="botao botao-perigo botao-bloco" data-sair>Sair</button></div>`;
+    <div class="acoes-rodape"><button type="button" class="botao botao-perigo botao-bloco" data-sair>${icone("sair")}Sair</button></div>`;
 }
 
 main.addEventListener("click", (e) => { if (e.target.closest("[data-sair]")) sair(); });
@@ -45,6 +45,14 @@ main.addEventListener("submit", async (e) => {
       document.getElementById("nome-topo").textContent = r.usuario.nome;
       form.telefone.value = formatarTelefone(r.usuario.telefone);
       toast("Dados salvos.");
+      // Confirmação no próprio botão, só depois da resposta real da API
+      const botao = form.querySelector("button[type=submit]");
+      setTimeout(() => {
+        const original = botao.innerHTML;
+        botao.innerHTML = `${icone("check")}Dados salvos`;
+        botao.classList.add("salvo");
+        setTimeout(() => { botao.innerHTML = original; botao.classList.remove("salvo"); }, 1600);
+      }, 0);
     } catch (erro) {
       mostrarErrosApi(form, erro, document.getElementById("alerta-perfil"));
     }

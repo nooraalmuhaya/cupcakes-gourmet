@@ -1,7 +1,7 @@
 // A01 – Painel de pedidos (UC-16): lista com filtro por status
 import { api } from "../../api.js";
 import { iniciarPagina } from "../../layout.js";
-import { esc, moeda, dataHora, seloStatus, htmlCarregando, htmlVazio, mostrarErroCarregamento } from "../../ui.js";
+import { esc, moeda, dataHora, seloStatus, htmlCarregando, htmlVazio, mostrarErroCarregamento, icone } from "../../ui.js";
 import { NOME_STATUS } from "../../nomes.js";
 
 const main = document.getElementById("conteudo");
@@ -20,7 +20,7 @@ async function carregar() {
   try {
     const r = await api("/api/admin/pedidos", { params: { status: filtro, pagina } });
     if (!r.pedidos.length) {
-      lista().innerHTML = htmlVazio({ icone: "📋", titulo: filtro ? "Nenhum pedido com este status." : "Nenhum pedido ainda." });
+      lista().innerHTML = htmlVazio({ icone: "pedidos", titulo: filtro ? "Nenhum pedido com este status." : "Nenhum pedido ainda." });
       return;
     }
     lista().innerHTML = `<div class="tabela-rolagem"><table class="tabela">
@@ -53,7 +53,7 @@ main.addEventListener("click", (e) => {
 (async () => {
   if (!(await iniciarPagina({ area: "admin", nav: "pedidos" }))) return;
   main.innerHTML = `<div class="cabecalho-pagina"><h1 style="margin:0">Pedidos</h1>
-      <button type="button" class="botao botao-secundario botao-pequeno" data-recarregar>↻ Atualizar</button></div>
+      <button type="button" class="botao botao-secundario botao-pequeno" data-recarregar>${icone("atualizar")}Atualizar</button></div>
     <p class="rotulo" style="margin-bottom:6px">Filtrar por status:</p>
     <div class="chips" id="filtros" style="margin-bottom:16px"></div>
     <div id="lista-pedidos"></div>`;

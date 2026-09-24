@@ -1,14 +1,13 @@
 // T10 – Meus pedidos (UC-12): 10 por página, repetir pedido e avaliar
 import { api } from "../api.js";
 import { iniciarPagina } from "../layout.js";
-import { esc, moeda, data, seloStatus, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento, avisoProximaTela } from "../ui.js";
+import { esc, moeda, data, seloStatus, htmlCarregando, htmlVazio, mostrarErroCarregamento, toast, comCarregamento, avisoProximaTela, icone, estrelasLeitura } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 let pagina = 1;
 
 function estrelas(nota) {
-  return `<span class="texto-suave texto-pequeno">Sua nota:</span>
-    <span class="estrelas-leitura" role="img" aria-label="${nota} de 5 estrelas">${"★".repeat(nota)}${"☆".repeat(5 - nota)}</span>`;
+  return `<span class="texto-suave texto-pequeno">Sua nota:</span> ${estrelasLeitura(nota)}`;
 }
 
 async function carregar() {
@@ -16,7 +15,7 @@ async function carregar() {
   try {
     const r = await api("/api/pedidos", { params: { pagina } });
     if (!r.total) {
-      main.innerHTML = htmlVazio({ icone: "🧾", titulo: "Você ainda não fez nenhum pedido.", texto: "Seus pedidos aparecem aqui.",
+      main.innerHTML = htmlVazio({ icone: "pedidos", titulo: "Você ainda não fez nenhum pedido.", texto: "Seus pedidos aparecem aqui.",
         acao: '<a class="botao" href="/index.html">Ver cardápio</a>' }); // MSG-I04
       return;
     }
@@ -26,9 +25,9 @@ async function carregar() {
           <span class="texto-suave texto-pequeno">${data(p.data_pedido)} · ${moeda(p.valor_total)}</span>
           <span class="texto-pequeno">${esc(p.itens_texto)}</span>
           <div class="acoes-pedido">
-            <a class="botao-link" href="/pages/acompanhar.html?pedido=${p.id_pedido}">Ver detalhes ›</a>
-            ${p.status === "ENTREGUE" ? `<button type="button" class="botao-link" data-repetir="${p.id_pedido}">Repetir pedido</button>` : ""}
-            ${p.pode_avaliar ? `<a class="botao botao-pequeno" href="/pages/avaliar.html?pedido=${p.id_pedido}">Avaliar</a>` : ""}
+            <a class="botao-link" href="/pages/acompanhar.html?pedido=${p.id_pedido}">Ver detalhes ${icone("seta")}</a>
+            ${p.status === "ENTREGUE" ? `<button type="button" class="botao-link" data-repetir="${p.id_pedido}">${icone("atualizar")}Repetir pedido</button>` : ""}
+            ${p.pode_avaliar ? `<a class="botao botao-pequeno" href="/pages/avaliar.html?pedido=${p.id_pedido}">${icone("estrela")}Avaliar</a>` : ""}
             ${p.nota ? estrelas(p.nota) : ""}
           </div>
         </li>`).join("")}

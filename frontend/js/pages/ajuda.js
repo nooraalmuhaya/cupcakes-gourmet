@@ -1,7 +1,7 @@
 // T15 – Ajuda e suporte (UC-14, RN-20): conteúdo fixo no front-end (RF-26)
 import { iniciarPagina } from "../layout.js";
 import { CONFIG } from "../config.js";
-import { esc } from "../ui.js";
+import { esc, icone } from "../ui.js";
 
 const PERGUNTAS = [
   ["Quanto tempo demora a entrega?",
@@ -25,13 +25,14 @@ export function dentroDoHorario(agora = new Date(), cfg = CONFIG.atendimento) {
   if (!(await iniciarPagina({ area: "publica", titulo: "Ajuda e Suporte", nav: "conta" }))) return;
   const link = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagemWhatsapp)}`;
   document.getElementById("conteudo").innerHTML = `
-    <section class="cartao cartao-creme"><h2>Horário de atendimento</h2><p style="margin:0">${esc(CONFIG.atendimento.texto)}</p></section>
+    <section class="cartao cartao-creme horario"><span class="icone-grande" aria-hidden="true">${icone("relogio")}</span>
+      <div><h2>Horário de atendimento</h2><p style="margin:0">${esc(CONFIG.atendimento.texto)}</p></div></section>
     ${dentroDoHorario() ? "" : `<div class="alerta alerta-aviso" style="margin-top:12px" role="status">
         <p>Estamos fora do horário de atendimento. Você pode mandar sua mensagem: a resposta virá no próximo horário.</p></div>`}
-    <h2 style="margin-top:20px;color:var(--texto)">Perguntas frequentes</h2>
-    <div class="faq">${PERGUNTAS.map(([p, r]) => `<details><summary>${esc(p)}</summary><p>${esc(r)}</p></details>`).join("")}</div>
+    <h2 style="margin-top:22px">Perguntas frequentes</h2>
+    <div class="faq">${PERGUNTAS.map(([p, r]) => `<details><summary>${esc(p)}${icone("mais")}</summary><p>${esc(r)}</p></details>`).join("")}</div>
     <div class="acoes-rodape">
-      <a class="botao botao-whatsapp botao-bloco" href="${esc(link)}" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      <a class="botao botao-whatsapp botao-bloco" href="${esc(link)}" target="_blank" rel="noopener noreferrer">${icone("whatsapp")}Falar no WhatsApp</a>
       <p class="centro texto-suave texto-pequeno" style="margin:0">Abre a conversa com a loja no WhatsApp.</p>
     </div>`;
 })();

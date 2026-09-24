@@ -20,7 +20,9 @@ INSERT INTO categoria (nome) VALUES ('Clássicos'), ('Especiais'), ('Frutados')
   ON DUPLICATE KEY UPDATE nome = VALUES(nome);
 
 -- ---------------------------------------------------------------------
--- Produtos (dados de exemplo do protótipo; imagens em frontend/assets/images/produtos)
+-- Produtos (dados de exemplo do protótipo; fotos em frontend/assets/images/produtos).
+-- Chocolate Belga, Baunilha Clássico e Pistache Especial ainda não têm foto:
+-- usam a imagem padrão sem-imagem.svg (ver docs/product-images-map.md).
 -- ---------------------------------------------------------------------
 INSERT INTO produto (id_categoria, nome, descricao, ingredientes, alergenos, preco, imagem_url,
                      vegano, sem_gluten, quantidade_estoque, ativo)
@@ -28,43 +30,43 @@ VALUES
   ((SELECT id_categoria FROM categoria WHERE nome = 'Clássicos'), 'Red Velvet',
    'Massa aveludada com cobertura de cream cheese. Feito diariamente com ingredientes selecionados.',
    'Farinha de trigo, açúcar, ovos, manteiga, cacau, cream cheese, corante natural de beterraba.',
-   'Leite, ovos e trigo.', 12.50, 'assets/images/produtos/red-velvet.svg', FALSE, FALSE, 8, TRUE),
+   'Leite, ovos e trigo.', 12.50, 'assets/images/produtos/red-velvet.jpg', FALSE, FALSE, 8, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Clássicos'), 'Chocolate Belga',
    'Massa de cacau com ganache de chocolate belga.',
    'Farinha de trigo, açúcar, ovos, manteiga, cacau, chocolate belga 54%, creme de leite.',
-   'Leite, ovos, trigo e soja.', 14.00, 'assets/images/produtos/chocolate-belga.svg', FALSE, FALSE, 12, TRUE),
+   'Leite, ovos, trigo e soja.', 14.00, 'assets/images/produtos/sem-imagem.svg', FALSE, FALSE, 12, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Clássicos'), 'Baunilha Clássico',
    'Massa de baunilha com buttercream suave. Feito diariamente com ingredientes selecionados.',
    'Farinha de arroz, açúcar, ovos, manteiga, fava de baunilha.',
-   'Leite e ovos.', 10.00, 'assets/images/produtos/baunilha-classico.svg', FALSE, TRUE, 0, TRUE),
+   'Leite e ovos.', 10.00, 'assets/images/produtos/sem-imagem.svg', FALSE, TRUE, 0, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Frutados'), 'Limão Siciliano',
    'Massa cítrica com cobertura de merengue.',
    'Farinha de trigo, açúcar, suco e raspas de limão siciliano, óleo vegetal, aquafaba.',
-   'Trigo.', 13.00, 'assets/images/produtos/limao-siciliano.svg', TRUE, FALSE, 5, TRUE),
+   'Trigo.', 13.00, 'assets/images/produtos/limao-siciliano.jpg', TRUE, FALSE, 5, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Frutados'), 'Frutas Vermelhas',
    'Recheio de geleia de frutas vermelhas.',
    'Farinha de arroz, açúcar, frutas vermelhas, óleo de coco, bebida vegetal de aveia sem glúten.',
-   'Não contém alérgenos declarados', 13.50, 'assets/images/produtos/frutas-vermelhas.svg', TRUE, TRUE, 9, TRUE),
+   'Não contém alérgenos declarados', 13.50, 'assets/images/produtos/frutas-vermelhas.jpg', TRUE, TRUE, 9, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Especiais'), 'Doce de Leite com Nozes',
    'Massa amanteigada recheada com doce de leite e cobertura de nozes caramelizadas.',
    'Farinha de trigo, açúcar, ovos, manteiga, doce de leite, nozes.',
-   'Leite, ovos, trigo e nozes.', 15.00, 'assets/images/produtos/doce-de-leite.svg', FALSE, FALSE, 10, TRUE),
+   'Leite, ovos, trigo e nozes.', 15.00, 'assets/images/produtos/doce-de-leite-nozes.jpg', FALSE, FALSE, 10, TRUE),
 
   ((SELECT id_categoria FROM categoria WHERE nome = 'Especiais'), 'Café Cremoso',
    'Massa de café com cobertura de creme de mascarpone.',
    'Farinha de trigo, açúcar, ovos, manteiga, café espresso, mascarpone.',
-   'Leite, ovos e trigo.', 14.50, 'assets/images/produtos/cafe-cremoso.svg', FALSE, FALSE, 7, TRUE),
+   'Leite, ovos e trigo.', 14.50, 'assets/images/produtos/cafe-cremoso.jpg', FALSE, FALSE, 7, TRUE),
 
   -- Produto inativo (não aparece no cardápio – RN-01), como no protótipo A03
   ((SELECT id_categoria FROM categoria WHERE nome = 'Especiais'), 'Pistache Especial',
    'Massa de pistache com cobertura de ganache branca e pistache triturado.',
    'Farinha de trigo, açúcar, ovos, manteiga, pistache, chocolate branco.',
-   'Leite, ovos, trigo e pistache.', 16.00, 'assets/images/produtos/pistache.svg', FALSE, FALSE, 0, FALSE)
+   'Leite, ovos, trigo e pistache.', 16.00, 'assets/images/produtos/sem-imagem.svg', FALSE, FALSE, 0, FALSE)
 ON DUPLICATE KEY UPDATE nome = VALUES(nome);
 
 -- ---------------------------------------------------------------------

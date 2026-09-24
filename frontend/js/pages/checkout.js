@@ -1,7 +1,7 @@
 // T06 – Finalizar pedido: endereço de entrega (UC-08)
 import { api } from "../api.js";
 import { iniciarPagina } from "../layout.js";
-import { esc, moeda, formatarCep, htmlCarregando, mostrarErroCarregamento, avisoProximaTela } from "../ui.js";
+import { esc, moeda, formatarCep, htmlCarregando, mostrarErroCarregamento, avisoProximaTela, icone } from "../ui.js";
 
 const main = document.getElementById("conteudo");
 
@@ -31,14 +31,14 @@ async function carregar() {
       ${!podeSeguir ? `<div class="alerta alerta-erro" role="alert"><p>${esc(carrinho.aviso || carrinho.aviso_cupom || "Alguns itens do carrinho mudaram de preço ou ficaram indisponíveis. Revise antes de continuar.")}</p></div>` : ""}
       <form id="form-endereco" class="pilha">
         <fieldset style="border:0;padding:0;margin:0" class="pilha">
-          <legend><h2 style="color:var(--texto)">Onde vamos entregar?</h2></legend>
+          <legend><h2>Onde vamos entregar?</h2></legend>
           ${enderecos.map((e) => `
             <label class="opcao-endereco">
               <input type="radio" name="endereco" value="${e.id_endereco}" ${e.id_endereco === escolhido ? "checked" : ""}>
               <span><strong>${esc(e.apelido)}</strong> ${e.padrao ? '<span class="selo selo-padrao">Padrão</span>' : ""}<br>${textoEndereco(e)}</span>
             </label>`).join("")}
         </fieldset>
-        ${enderecos.length < 5 ? '<a class="botao botao-secundario" href="/pages/enderecos.html?novo=1&voltar=/pages/checkout.html">+ Cadastrar novo endereço</a>' : ""}
+        ${enderecos.length < 5 ? `<a class="botao botao-secundario" href="/pages/enderecos.html?novo=1&voltar=/pages/checkout.html">${icone("mais")}Cadastrar novo endereço</a>` : ""}
         <p class="texto-suave texto-pequeno">Nome e telefone vêm da sua conta – não é preciso digitar de novo.</p>
         <section class="cartao cartao-creme" aria-label="Resumo do pedido">
           <h2>Resumo do pedido</h2>
@@ -51,7 +51,7 @@ async function carregar() {
           </div>
         </section>
         <div class="acoes-rodape">
-          <button class="botao botao-bloco" type="submit" ${podeSeguir ? "" : "disabled"}>Continuar para pagamento</button>
+          <button class="botao botao-bloco" type="submit" ${podeSeguir ? "" : "disabled"}>Continuar para pagamento ${icone("seta")}</button>
           <a class="botao-link centro" href="/pages/carrinho.html">Voltar ao carrinho</a>
         </div>
       </form>`;
