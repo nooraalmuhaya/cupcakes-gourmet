@@ -82,3 +82,11 @@ acabamento do front-end → testes → documentação → auditoria final.
 | D20 | Servidor do front-end | O próprio FastAPI serve a pasta `frontend/` (mesma origem, recomendado). Também funciona com `python -m http.server 5500`, com CORS liberado só para `localhost:5500` e `127.0.0.1:5500`. | Pedido da aluna + simplicidade. |
 | D21 | Testes automatizados | pytest contra um banco MySQL separado (`cupcakes_gourmet_test`), criado com o mesmo `01_schema_mysql.sql`. **Não** se usa SQLite. | RNF-14 e pedido de usar o MySQL real. |
 | D22 | Relógio | Datas gravadas com o horário local do servidor. | Projeto local, sem fuso configurável. |
+| D23 | Rótulos dos botões de status (A02) | RECEBIDO → "Iniciar preparo"; EM_PREPARO → 'Marcar como "Saiu para entrega"'; SAIU_PARA_ENTREGA → 'Marcar como "Entregue"'. | Exemplos da seção 10.3 (A02) e do protótipo. |
+| D24 | Horário de cada etapa na linha do tempo (T09) | Vem da data da notificação gerada naquela mudança de status. | O banco não tem tabela de histórico de status e o esquema não deveria ser alterado; RN-16 garante uma notificação por mudança. |
+| D25 | Pagamento de pedido cancelado pelo administrador | O registro de pagamento continua APROVADO (não há estorno simulado). | Estorno não aparece em nenhum artefato da Situação 1; o pagamento é só uma simulação. |
+| D26 | "Repetir pedido" | Aparece nos pedidos ENTREGUE (como no protótipo T10); adiciona até a quantidade disponível. | Protótipo T10 e RN-19. |
+| D27 | "Esqueci minha senha" | Não implementado; a tela de login explica e aponta para Ajuda e Suporte. | Seção 3.3: recuperação de senha por e-mail está fora do escopo. |
+| D28 | Administrador que abre telas de compra | Recebe MSG-E13 (não pode ter carrinho finalizado, endereços ou pedidos). | RN-22 e seção 9.2 ("administrador não tem endereços nem pedidos"). |
+| D29 | Rota de sessão para o cabeçalho | `GET /api/sessao` devolve usuário, itens no carrinho e notificações não lidas em uma chamada. | RNF-17: contador atualizado ao abrir cada tela. |
+| D30 | Testes funcionais no navegador | Executados por script (Playwright/Chromium), não por uma pessoa; o script está em `tests/e2e/`. | Deixa o resultado reproduzível. A aluna deve repetir o roteiro manualmente no ambiente dela. |
