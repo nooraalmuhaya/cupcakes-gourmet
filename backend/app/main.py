@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.config.settings import settings
-from app.routers import auth, produtos, saude
+from app.routers import auth, carrinho, produtos, saude
 from app.utils.erros import registrar_tratadores
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -62,7 +62,7 @@ def criar_app() -> FastAPI:
 
     registrar_tratadores(app)
 
-    for modulo in (saude, auth, produtos):
+    for modulo in (saude, auth, produtos, carrinho):
         app.include_router(modulo.router)
 
     # View (MVC): o próprio servidor entrega o front-end, na mesma origem da API.

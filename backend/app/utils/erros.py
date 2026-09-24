@@ -49,6 +49,17 @@ def _mensagem_validacao(erro: dict) -> str:
         return f"Use no máximo {limite} caracteres." if limite else "Texto muito longo."
     if tipo in {"string_too_short"}:
         return msg("MSG-E05")
+    ctx = erro.get("ctx", {})
+    if tipo in {"greater_than_equal", "greater_than"}:
+        return f"O valor mínimo é {ctx.get('ge', ctx.get('gt'))}."
+    if tipo in {"less_than_equal", "less_than"}:
+        return f"O valor máximo é {ctx.get('le', ctx.get('lt'))}."
+    if tipo in {"int_parsing", "int_type", "int_from_float"}:
+        return "Digite um número inteiro."
+    if tipo in {"bool_parsing", "bool_type"}:
+        return "Escolha sim ou não."
+    if tipo in {"json_invalid", "model_attributes_type", "dict_type"}:
+        return "Dados enviados em formato inválido."
     return "Valor inválido."
 
 
