@@ -41,8 +41,15 @@ ambiente) e `utils/` (catálogo de mensagens, erros e formatação).
 ## 3. Front-end
 
 - **HTML5, CSS3 e JavaScript puro** (módulos ES + Fetch API). Nenhum framework.
-- **Mobile-first**: layout pensado para 360 px ou mais; a partir de 900 px a barra
-  inferior vira menu no topo. A área do administrador é pensada para computador.
+- **Mobile-first**: o desenho é o do protótipo de celular da Situação 1. Em telas maiores
+  ele só se **adapta** (não existe um desenho separado para computador): o conteúdo fica
+  em uma coluna central de até 760 px; o cabeçalho e a **barra inferior** (Início,
+  Carrinho, Pedidos, Conta) continuam os mesmos, ocupando toda a largura, com os itens
+  alinhados a essa coluna; o cardápio passa para 2 colunas de cards a partir de 700 px e
+  os detalhes do produto mostram foto e texto lado a lado a partir de 900 px. A barra
+  inferior **fica embaixo em qualquer largura**, como no protótipo T01. A área do
+  administrador segue o protótipo A01–A04 (pensado para computador) e também funciona
+  no celular sem rolagem lateral (as tabelas rolam dentro do próprio quadro).
 - Arquivos:
   - `css/base.css` (cores, tipografia, estrutura), `css/components.css` (cabeçalho,
     barra inferior, botões, formulários, selos, toast, modal, carregando),

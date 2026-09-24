@@ -14,6 +14,7 @@
 .barra-topo .marca {
   display: flex; align-items: center; gap: 10px;
   color: var(--branco); text-decoration: none; font-weight: 700; font-size: 1.15rem;
+  min-height: 44px;
 }
 .marca-logo {
   width: 34px; height: 34px; border-radius: 50%;
@@ -41,13 +42,20 @@
 }
 .contador[hidden] { display: none; }
 
-/* ---------- Barra inferior (celular) / menu no topo (computador) ---------- */
+/* ---------- Barra inferior (protótipo T01): igual em todas as larguras de tela ---------- */
 .barra-inferior {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
   display: grid; grid-template-columns: repeat(4, 1fr);
   background: var(--branco); border-top: 1px solid var(--borda);
   height: var(--altura-barra);
   padding-bottom: env(safe-area-inset-bottom);
+}
+/* Em telas largas as barras continuam ocupando toda a largura, mas os itens
+   ficam alinhados à coluna de conteúdo (evita ícones espalhados nas pontas). */
+.area-cliente .barra-topo,
+.barra-inferior {
+  padding-left: max(12px, calc((100% - var(--largura-conteudo)) / 2));
+  padding-right: max(12px, calc((100% - var(--largura-conteudo)) / 2));
 }
 .barra-inferior a {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
@@ -60,25 +68,16 @@
   background: var(--marrom); border-radius: 0 0 3px 3px;
 }
 
-@media (min-width: 900px) {
-  .barra-inferior {
-    position: sticky; top: var(--altura-barra); bottom: auto;
-    height: 48px; border-top: 0; border-bottom: 1px solid var(--borda);
-    display: flex; justify-content: center; gap: 8px;
-  }
-  .barra-inferior a { flex-direction: row; gap: 8px; font-size: .95rem; padding: 0 18px; }
-  .barra-inferior a svg { width: 20px; height: 20px; }
-  .barra-inferior a[aria-current="page"]::before { top: auto; bottom: 0; left: 10px; right: 10px; border-radius: 3px 3px 0 0; }
-}
-
 /* ---------- Menu do administrador ---------- */
 .menu-admin { display: flex; gap: 6px; margin-left: 16px; }
 .menu-admin a {
   color: var(--branco); text-decoration: none; padding: 8px 14px; border-radius: 10px; font-weight: 600;
+  min-height: 44px; display: inline-flex; align-items: center;
 }
 .menu-admin a[aria-current="page"] { background: var(--marrom-escuro); }
 .saudacao-admin { font-size: .9rem; margin-right: 8px; }
 @media (max-width: 640px) {
+  .area-admin .barra-topo { flex-wrap: wrap; row-gap: 0; }
   .saudacao-admin { display: none; }
   .menu-admin { margin-left: 4px; }
   .menu-admin a { padding: 8px 8px; }
@@ -215,7 +214,6 @@
 .toast.toast-erro::before { content: "!"; color: #ff8a80; }
 .toast.toast-aviso::before { content: "⚠"; color: #ffd180; }
 @keyframes surgir { from { opacity: 0; transform: translateY(8px); } }
-@media (min-width: 900px) { .toast-area { bottom: 24px; } }
 .area-admin .toast-area { bottom: 24px; left: auto; right: 24px; transform: none; }
 
 /* ---------- Modal de confirmação ---------- */
@@ -260,6 +258,7 @@ table.tabela { width: 100%; border-collapse: collapse; min-width: 640px; }
 .tabela th { background: var(--creme); color: var(--marrom-escuro); font-size: .9rem; }
 .tabela tr:last-child td { border-bottom: 0; }
 .tabela .num { text-align: right; white-space: nowrap; }
+.tabela td:first-child strong { white-space: nowrap; }
 
 /* ---------- Filtros em "chips" ---------- */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }

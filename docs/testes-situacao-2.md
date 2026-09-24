@@ -152,7 +152,7 @@ Tela de celular usada: 390 × 844 px. Administração: 1280 × 860 px.
 | 6 | Cliente vê o pedido cancelado (cor + ícone + texto) | PASS |
 | Extra | Carrinho vazio mostra MSG-I03 e "Finalizar compra" desabilitado | PASS |
 | Extra | Cliente novo sem pedidos (MSG-I04) e sem notificações (MSG-I05) | PASS |
-| Extra | Sem rolagem horizontal em 360 px e em 1280 px (cardápio, detalhes, ajuda, login) | PASS |
+| Extra | Sem rolagem horizontal e barra inferior do protótipo em 360, 390, 768 e 1366 px (cardápio, detalhes, carrinho, ajuda, login) | PASS |
 
 ### Estado do banco depois da última execução (conferido no MySQL)
 
@@ -178,7 +178,70 @@ npx playwright install chromium # uma vez
 node fluxos.mjs http://127.0.0.1:8000 ../../docs/imagens
 ```
 
-## 5. O que não foi testado / não foi possível executar neste ambiente
+## 5. Responsividade (390, 768 e 1366 px)
+
+Objetivo: conferir que o desenho **mobile-first do protótipo** se adapta a tablet e
+computador **sem criar um novo desenho** – a barra inferior (Início, Carrinho, Pedidos,
+Conta) continua embaixo em todas as larguras.
+
+Executado com `tests/e2e/responsivo.mjs` (Chromium). O script cria dados reais (pedido
+entregue, pedido em preparo, carrinho com cupom) e abre as **21 telas** (T01–T15, o
+formulário do T13, A01–A04 e a página 404) em **390 × 844**, **768 × 1024** e
+**1366 × 768**, medindo em cada uma:
+
+- rolagem horizontal da página e elementos saindo da tela (fora de áreas de rolagem próprias, como tabelas);
+- posição da barra inferior (encostada no fim da tela) e seus 4 textos;
+- se o fim do conteúdo fica escondido atrás da barra inferior (rolando até o fim);
+- menor fonte de texto visível (mínimo aceito: 12 px);
+- controles com menos de 40 px de altura;
+- largura ocupada pelo conteúdo.
+
+### Primeira auditoria (antes dos ajustes)
+
+| Largura | Resultado | Problema encontrado |
+|---------|-----------|---------------------|
+| 390 px | Telas do cliente OK; **A01–A04 com rolagem horizontal** (427–472 px) | O botão "Sair" do cabeçalho do administrador saía da tela; no A02 a tabela de itens alargava o cartão |
+| 768 px | OK | – |
+| 1366 px | Sem erros medidos, mas, olhando as capturas: os 4 itens da barra inferior ficavam espalhados por 1366 px (Início em x≈170, Conta em x≈1195), longe da coluna de conteúdo de 728 px; no carrinho, nome, preço e quantidade do item ficavam na mesma linha (no protótipo ficam empilhados) | – |
+| Todas | Link da marca (34 px) e links do menu do admin (39 px) abaixo de 44 px de altura (plano de melhoria do protótipo pede 44 × 44) | – |
+
+Além disso, a primeira versão movia a barra inferior para o topo a partir de 900 px.
+Isso foi **retirado**: a barra fica embaixo em todas as larguras, como no protótipo T01.
+
+### Ajustes feitos (somente CSS, sem mudar o desenho)
+
+1. Barra inferior e cabeçalho do cliente: continuam com a largura total da tela, mas os
+   itens ficam alinhados à coluna de conteúdo em telas largas.
+2. Item do carrinho: nome / preço / quantidade sempre empilhados, como no T03.
+3. Links do cabeçalho com área de toque mínima de 44 px.
+4. Cabeçalho do administrador quebra a linha em telas estreitas; número do pedido não
+   quebra; a tabela do A02 rola dentro do cartão.
+
+### Resultado final
+
+| Largura | Telas verificadas | Rolagem horizontal | Barra inferior no fim da tela, 4 itens | Conteúdo escondido pela barra | Menor fonte | Resultado |
+|---------|------------------:|--------------------|----------------------------------------|-------------------------------|-------------|-----------|
+| 390 px | 21 | nenhuma | sim (16 telas do cliente) | nenhum (folga mínima de 88 px) | 12,8 px | **21/21 OK** |
+| 768 px | 21 | nenhuma | sim | nenhum (folga mínima de 88 px) | 12,8 px | **21/21 OK** |
+| 1366 px | 21 | nenhuma | sim, itens de x=303 a x=1063 (alinhados ao conteúdo) | nenhum (folga mínima de 88 px) | 12,8 px | **21/21 OK** |
+
+Total: **63/63 verificações OK**, 0 erros de JavaScript. Largura do conteúdo: 358 px em
+390 px, 728 px em 768 px e 728 px (coluna central) em 1366 px; área do administrador
+1148 px em 1366 px. Nenhum controle das telas ficou abaixo de 40 px de altura depois
+dos ajustes. Capturas em `docs/imagens/responsivo/`
+(ex.: `T01_390.png`, `T01_768.png`, `T01_1366.png`, `T03_1366.png`, `A02_390.png`).
+
+Depois dos ajustes, os 6 fluxos foram executados de novo: **48/48 PASS** nos dois modos
+(porta 8000 e `http.server` 5500), 0 erros de JavaScript.
+
+Como repetir:
+
+```bash
+cd tests/e2e
+node responsivo.mjs ../../docs/imagens/responsivo
+```
+
+## 6. O que não foi testado / não foi possível executar neste ambiente
 
 | Item | Situação |
 |------|----------|
