@@ -1,13 +1,11 @@
-# App de Cupcakes Gourmet – Cupcake Haven
+# App de Cupcakes Gourmet 
 
 Projeto Integrador Transdisciplinar em Engenharia de Software II – Cruzeiro do Sul Virtual
 Aluna: Noora Gamil Al Muhaya
 
 > **Situação 2 – Desenvolvimento.** Este repositório contém a implementação do que foi
-> planejado na Situação 1 (documentação em [`docs/situacao-1/`](docs/situacao-1/)).
+> planejado na Situação 1 
 > Os testes com colegas/usuários são da Situação 3 e **ainda não foram feitos**.
-
-![Cardápio no celular](docs/imagens/T01_cardapio.png)
 
 ## 1. Descrição
 
@@ -58,7 +56,6 @@ Veja o que ficou fora do escopo na seção 17 (Observações).
 | Segurança | bcrypt (hash de senha), cookie de sessão assinado (itsdangerous) |
 | Testes | pytest + httpx (back-end); Playwright/Chromium (fluxos no navegador, opcional) |
 
-Lista completa de bibliotecas com versões: [`backend/requirements.txt`](backend/requirements.txt).
 
 ## 5. Estrutura do projeto
 
@@ -248,5 +245,3 @@ diagramas estão em [`docs/situacao-1/`](docs/situacao-1/).
 ## 18. Repositório
 
 GitHub: <https://github.com/nooraalmuhaya/cupcakes-gourmet>
-(o desenvolvimento da Situação 2 está no branch `claude/situacao-2-cupcakes-app-p46qpy`;
-veja [`docs/git-status-situacao-2.md`](docs/git-status-situacao-2.md)).
