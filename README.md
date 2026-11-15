@@ -83,7 +83,7 @@ cupcakes-gourmet/
 ├── database/
 │   ├── 01_schema_mysql.sql   Script da Situação 1 (sem alterações)
 │   └── 02_dados_iniciais.sql Categorias, produtos, cupons e contas de teste
-├── docs/                     Documentação (Situação 1 e Situação 2)
+├── docs/                     Documentação: situacao-1/, situacao-2/, situacao-3/ e imagens/
 ├── tests/e2e/                Script dos testes funcionais no navegador (opcional)
 ├── .env.example
 └── README.md
@@ -199,11 +199,11 @@ Com o back-end rodando:
 - ReDoc: <http://127.0.0.1:8000/api/redoc>
 - OpenAPI (JSON): <http://127.0.0.1:8000/api/openapi.json>
 
-Lista das rotas em [`docs/arquitetura-situacao-2.md`](docs/arquitetura-situacao-2.md#4-api).
+Lista das rotas em [`docs/situacao-2/arquitetura-situacao-2.md`](docs/situacao-2/arquitetura-situacao-2.md#4-api).
 
 ## 14. Manual do usuário
 
-[`docs/manual-do-usuario.md`](docs/manual-do-usuario.md) – passo a passo com capturas
+[`docs/situacao-2/manual-do-usuario.md`](docs/situacao-2/manual-do-usuario.md) – passo a passo com capturas
 de tela reais do sistema.
 
 ## 15. Execução dos testes
@@ -219,7 +219,7 @@ de permissão nesse banco. **Não use o nome do banco principal** – os testes 
 dados do banco de teste.
 
 Resultado da última execução: **156 testes, todos passando**. Detalhes e testes
-funcionais no navegador: [`docs/testes-situacao-2.md`](docs/testes-situacao-2.md).
+funcionais no navegador: [`docs/situacao-2/testes-situacao-2.md`](docs/situacao-2/testes-situacao-2.md).
 
 ## 16. Estrutura do banco
 
@@ -240,7 +240,7 @@ diagramas estão em [`docs/situacao-1/`](docs/situacao-1/).
   número real da loja.
 - As imagens dos produtos são ilustrações simples em SVG, não fotos.
 - Decisões de implementação: [`DEVELOPMENT_NOTES.md`](DEVELOPMENT_NOTES.md).
-- Status de cada item: [`docs/STATUS_SITUACAO_2.md`](docs/STATUS_SITUACAO_2.md).
+- Status de cada item: [`docs/situacao-2/STATUS_SITUACAO_2.md`](docs/situacao-2/STATUS_SITUACAO_2.md).
 
 ## 18. Repositório
 

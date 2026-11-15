@@ -14,4 +14,4 @@ python -m pytest -q                # testes (usa o banco TEST_DB_NAME)
 ```
 
 Documentação da API: http://127.0.0.1:8000/api/docs
-Detalhes: [`../README.md`](../README.md) e [`../docs/arquitetura-situacao-2.md`](../docs/arquitetura-situacao-2.md).
+Detalhes: [`../README.md`](../README.md) e [`../docs/situacao-2/arquitetura-situacao-2.md`](../docs/situacao-2/arquitetura-situacao-2.md).

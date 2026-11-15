@@ -16,7 +16,7 @@ técnico. A fonte da verdade continua sendo o relatório
   - `uml/` (casos de uso, classes, enums, SD-01, SD-02, SD-03, AD-01, EST-01, mapa de navegação – `.mmd` e `.png`);
   - `banco/` (DER conceitual e lógico – `.mmd` e `.png`);
   - `prototipo/` (PDF de 18 páginas, 33 telas PNG + fontes SVG, mapa navegacional);
-  - `feedback-colegas/` (vazio – pendente, é da Situação 3).
+  - `feedback-colegas/` (vazio – ainda vou anexar as sugestões dos colegas).
 
 ### B. Tecnologias existentes
 Nenhum código. O relatório define: web responsiva mobile-first, MVC, MySQL 8.0.16+,

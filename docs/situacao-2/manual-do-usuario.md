@@ -55,7 +55,7 @@ coluna central). No cabeçalho ficam o **sino**
 
 Se algo estiver errado, a mensagem aparece em vermelho logo abaixo do campo:
 
-![Erros no cadastro](imagens/T05b_cadastro_validacao.png)
+![Erros no cadastro](../imagens/T05b_cadastro_validacao.png)
 
 Não há endereço no cadastro: ele é pedido na hora de finalizar o pedido.
 
@@ -68,7 +68,7 @@ estava (por exemplo, o carrinho).
 Se o e-mail ou a senha estiverem errados, aparece "E-mail ou senha incorretos."
 (o sistema não diz qual dos dois está errado, por segurança):
 
-![Login incorreto](imagens/T04b_login_dados_incorretos.png)
+![Login incorreto](../imagens/T04b_login_dados_incorretos.png)
 
 **Esqueci minha senha:** a recuperação de senha por e-mail não faz parte desta versão
 (ficou fora do escopo no planejamento). Fale com a loja em **Ajuda e Suporte**.
@@ -83,7 +83,7 @@ foto, nome, preço e selos. Toque em **Adicionar** para colocar 1 unidade no car
 
 Cupcakes sem estoque aparecem com o selo **⊘ Indisponível** e sem o botão Adicionar.
 
-![Cardápio](imagens/T01_cardapio.png)
+![Cardápio](../imagens/T01_cardapio.png)
 
 ## 5. Pesquisar e filtrar
 
@@ -94,11 +94,11 @@ Cupcakes sem estoque aparecem com o selo **⊘ Indisponível** e sem o botão Ad
   categoria e com a busca.
 - **Limpar filtros:** volta à lista completa.
 
-![Busca e filtros](imagens/T01b_busca_e_filtros.png)
+![Busca e filtros](../imagens/T01b_busca_e_filtros.png)
 
 Se nada for encontrado, aparece "Nenhum cupcake encontrado. Tente outro nome ou limpe os filtros.":
 
-![Nenhum resultado](imagens/T01c_nenhum_resultado.png)
+![Nenhum resultado](../imagens/T01c_nenhum_resultado.png)
 
 ## 6. Ver os detalhes de um cupcake
 
@@ -106,7 +106,7 @@ Toque no nome ou na foto do cupcake. A tela mostra descrição, ingredientes e o
 **alérgenos em destaque**. Escolha a quantidade com **−** e **+** (o máximo é o
 estoque) e toque em **Adicionar ao carrinho**.
 
-![Detalhes do produto](imagens/T02_detalhes.png)
+![Detalhes do produto](../imagens/T02_detalhes.png)
 
 ## 7. Carrinho
 
@@ -120,7 +120,7 @@ Toque no ícone do carrinho ou em **Carrinho** na barra.
 Se um item mudou de preço ou ficou sem estoque depois de ser adicionado, aparece um
 aviso e o item fica destacado; ajuste ou remova o item para continuar.
 
-![Carrinho vazio](imagens/T03c_carrinho_vazio.png)
+![Carrinho vazio](../imagens/T03c_carrinho_vazio.png)
 
 ## 8. Cupom de desconto
 
@@ -128,12 +128,12 @@ aviso e o item fica destacado; ajuste ou remova o item para continuar.
 2. No carrinho, digite o código no campo **Cupom de desconto** e toque em **Aplicar**.
 3. Com o cupom válido aparece "Cupom aplicado! Você economizou R$ ..." e a linha de desconto.
 
-![Cupom aplicado](imagens/T03_carrinho.png)
+![Cupom aplicado](../imagens/T03_carrinho.png)
 
 Se o cupom não puder ser usado, aparece o motivo (não encontrado, vencido, inativo ou
 já utilizado):
 
-![Cupom inválido](imagens/T03b_cupom_invalido.png)
+![Cupom inválido](../imagens/T03b_cupom_invalido.png)
 
 Regras: um cupom por pedido (aplicar outro troca o anterior); cada conta usa o mesmo
 cupom uma vez; o desconto não vale para a taxa de entrega. Toque em **Remover** para
@@ -147,11 +147,11 @@ Ao tocar em **Finalizar compra** (etapa 1 de 2):
 - **+ Cadastrar novo endereço** abre o formulário e depois volta para cá.
 - Se você ainda não tem endereço, o formulário abre direto.
 
-![Escolha do endereço](imagens/T06_checkout_endereco.png)
+![Escolha do endereço](../imagens/T06_checkout_endereco.png)
 
 No formulário, o **CEP** deve ter 8 números e os campos obrigatórios não podem ficar vazios:
 
-![CEP inválido](imagens/T13b_cep_invalido.png)
+![CEP inválido](../imagens/T13b_cep_invalido.png)
 
 Toque em **Continuar para pagamento**.
 
@@ -163,21 +163,21 @@ Toque em **Continuar para pagamento**.
    (3 dígitos) e toque em **Confirmar pagamento**. Os dados do cartão não são salvos.
 4. **PIX:** aparece um QR Code **ilustrativo**; toque em **Simular pagamento PIX**.
 
-![Validação do cartão](imagens/T07_pagamento_validacao.png)
-![PIX](imagens/T07b_pagamento_pix.png)
+![Validação do cartão](../imagens/T07_pagamento_validacao.png)
+![PIX](../imagens/T07b_pagamento_pix.png)
 
 **Pagamento recusado:** na demonstração, cartão com final **0000** é sempre recusado.
 Aparecem três opções: **Tentar novamente**, **Trocar forma de pagamento** ou
 **Cancelar pedido** (se cancelar, os itens continuam no carrinho).
 
-![Pagamento recusado](imagens/T07c_pagamento_recusado.png)
+![Pagamento recusado](../imagens/T07c_pagamento_recusado.png)
 
 ## 11. Confirmação do pedido
 
 Com o pagamento aprovado, aparece o **número do pedido** (formato
 CUP-AAAAMMDD-NNNN) e o resumo. O carrinho é esvaziado e você recebe uma notificação.
 
-![Pedido confirmado](imagens/T08_confirmacao.png)
+![Pedido confirmado](../imagens/T08_confirmacao.png)
 
 ## 12. Acompanhar o pedido
 
@@ -189,11 +189,11 @@ para entrega → Entregue**, com a etapa atual destacada e o horário de cada um
 - Se não for possível atualizar, aparece "Não foi possível atualizar agora. Mostrando o último status."
 - **Precisa de ajuda?** abre a tela de suporte.
 
-![Acompanhamento](imagens/T09_acompanhar.png)
+![Acompanhamento](../imagens/T09_acompanhar.png)
 
 Pedido cancelado aparece com cor, ícone e texto:
 
-![Pedido cancelado](imagens/T09b_pedido_cancelado.png)
+![Pedido cancelado](../imagens/T09b_pedido_cancelado.png)
 
 Se o pedido ainda estiver **aguardando pagamento**, a tela mostra **Pagar agora** e
 **Cancelar pedido**.
@@ -208,7 +208,7 @@ Toque em **Pedidos** na barra. Os pedidos aparecem do mais recente para o mais a
   disponíveis, com o preço atual. Os que não estiverem disponíveis são avisados.
 - **Avaliar** aparece nos pedidos entregues que ainda não foram avaliados.
 
-![Meus pedidos](imagens/T10_meus_pedidos.png)
+![Meus pedidos](../imagens/T10_meus_pedidos.png)
 
 ## 14. Avaliar um pedido
 
@@ -219,8 +219,8 @@ Toque em **Pedidos** na barra. Os pedidos aparecem do mais recente para o mais a
 
 A avaliação não pode ser editada depois de enviada; a nota aparece no pedido.
 
-![Avaliar](imagens/T11_avaliar.png)
-![Nota no pedido](imagens/T11b_avaliacao_enviada.png)
+![Avaliar](../imagens/T11_avaliar.png)
+![Nota no pedido](../imagens/T11b_avaliacao_enviada.png)
 
 ## 15. Notificações
 
@@ -228,7 +228,7 @@ Cada mudança de status do pedido gera uma notificação. O **sino** mostra quan
 foram lidas. Na tela de notificações, as não lidas ficam destacadas; tocar em uma
 marca como lida e abre o acompanhamento do pedido. **Marcar todas como lidas** limpa o contador.
 
-![Notificações](imagens/T14_notificacoes.png)
+![Notificações](../imagens/T14_notificacoes.png)
 
 ## 16. Minha conta e endereços
 
@@ -238,7 +238,7 @@ Em **Conta**:
 - Atalhos: **Meus Pedidos**, **Meus Endereços** (mostra "x de 5"), **Notificações** e **Ajuda e Suporte**.
 - **Sair** encerra a sessão.
 
-![Minha conta](imagens/T12_minha_conta.png)
+![Minha conta](../imagens/T12_minha_conta.png)
 
 **Meus Endereços** (até 5):
 
@@ -246,7 +246,7 @@ Em **Conta**:
 - O primeiro endereço vira o padrão. Se você excluir o padrão, o mais antigo passa a ser o padrão.
 - Excluir ou editar um endereço **não altera** pedidos já feitos.
 
-![Meus endereços](imagens/T13_meus_enderecos.png)
+![Meus endereços](../imagens/T13_meus_enderecos.png)
 
 ## 17. Ajuda e suporte
 
@@ -255,7 +255,7 @@ Mostra o **horário de atendimento** (segunda a sábado, das 9h às 19h), as
 que abre a conversa com a loja. Fora do horário aparece o aviso de que a resposta virá
 no próximo horário.
 
-![Ajuda e suporte](imagens/T15_ajuda.png)
+![Ajuda e suporte](../imagens/T15_ajuda.png)
 
 > O número do WhatsApp configurado no projeto é **fictício** (demonstração).
 
@@ -271,7 +271,7 @@ permissão para acessar esta página."
 Lista número, cliente, data, total e status, do mais recente para o mais antigo.
 Use os botões de **status** para filtrar e **Abrir** para ver o pedido.
 
-![Painel de pedidos](imagens/A01_painel_de_pedidos.png)
+![Painel de pedidos](../imagens/A01_painel_de_pedidos.png)
 
 ### 18.2 Atualizar o status
 
@@ -286,12 +286,12 @@ Na caixa **Atualizar status** aparece **só o botão do próximo status permitid
 
 Cada mudança gera uma notificação para o cliente e mostra "Status do pedido atualizado para ...".
 
-![Detalhe do pedido](imagens/A02_detalhe_status_atualizado.png)
+![Detalhe do pedido](../imagens/A02_detalhe_status_atualizado.png)
 
 **Cancelar pedido** aparece enquanto o pedido está "Pedido recebido" ou "Em preparo".
 É pedida uma confirmação; as quantidades voltam para o estoque.
 
-![Confirmar cancelamento](imagens/A02b_confirmar_cancelamento.png)
+![Confirmar cancelamento](../imagens/A02b_confirmar_cancelamento.png)
 
 Se o pedido foi alterado em outra aba, aparece "Não foi possível mudar o status. O
 pedido pode ter sido atualizado. Recarregue a página." e a tela é recarregada.
@@ -305,7 +305,7 @@ Lista todos os produtos (ativos e inativos) com categoria, preço, estoque e sit
 - **Desativar** (pede confirmação) esconde o produto do cardápio sem apagá-lo;
   **Reativar** mostra de novo. Produtos não são excluídos.
 
-![Produtos](imagens/A03_produtos.png)
+![Produtos](../imagens/A03_produtos.png)
 
 No formulário, preencha nome, categoria, descrição, ingredientes, alérgenos, preço,
 estoque, caminho da imagem e as opções Vegano / Sem glúten / Ativo. A **prévia** mostra
@@ -314,7 +314,7 @@ a imagem. Para usar uma imagem nova, coloque o arquivo em
 `assets/images/produtos/coco.svg`). Se o campo alérgenos ficar vazio, o sistema grava
 "Não contém alérgenos declarados". Mudar o preço não altera pedidos já feitos.
 
-![Formulário de produto](imagens/A04_formulario_preco_invalido.png)
+![Formulário de produto](../imagens/A04_formulario_preco_invalido.png)
 
 Cupons são cadastrados por script SQL (não há tela de cupons nesta versão).
 

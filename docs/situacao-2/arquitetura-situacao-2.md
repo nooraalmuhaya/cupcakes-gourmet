@@ -283,7 +283,7 @@ não vale para a taxa de entrega. O cupom fica na sessão e só é gravado quand
 
 ## 12. Execução local
 
-Veja o [`README.md`](../README.md) (seções 7 a 11). Resumo:
+Veja o [`README.md`](../../README.md) (seções 7 a 11). Resumo:
 
 ```bash
 mysql -u root -p < database/01_schema_mysql.sql
