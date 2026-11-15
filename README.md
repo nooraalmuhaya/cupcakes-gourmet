@@ -51,8 +51,8 @@ Veja o que ficou fora do escopo na seção 17 (Observações).
 | Camada | Tecnologia |
 |--------|------------|
 | Front-end (View) | HTML5, CSS3, JavaScript puro (módulos ES e Fetch API) – sem framework |
-| Back-end (Controller + Model) | Python 3.11, FastAPI, SQLAlchemy 2, Pydantic 2, Uvicorn |
-| Banco de dados | MySQL 8.0 (8.0.16 ou superior), driver PyMySQL |
+| Back-end (Controller + Model) | Python 3 (testado com 3.11 e 3.14), FastAPI, SQLAlchemy 2, Pydantic 2, Uvicorn |
+| Banco de dados | MySQL 8.0.16 ou superior (testado com 8.0.46 e 26.7), driver PyMySQL |
 | Segurança | bcrypt (hash de senha), cookie de sessão assinado (itsdangerous) |
 | Testes | pytest + httpx (back-end); Playwright/Chromium (fluxos no navegador, opcional) |
 
@@ -91,8 +91,8 @@ cupcakes-gourmet/
 
 ## 6. Pré-requisitos
 
-- Python 3.10 ou superior (testado com 3.11)
-- MySQL Server 8.0.16 ou superior (testado com 8.0.46)
+- Python 3.10 ou superior (testado com 3.11 e 3.14)
+- MySQL 8.0.16 ou superior (testado com 8.0.46 e 26.7)
 - Um navegador atualizado (Chrome, Edge ou Firefox)
 
 ## 7. Configuração do MySQL
@@ -117,6 +117,13 @@ cupcakes-gourmet/
 No Windows, os comandos acima podem ser executados no "MySQL Command Line Client" com
 `SOURCE C:/caminho/para/database/01_schema_mysql.sql;` ou pelo MySQL Workbench
 (File → Open SQL Script → Execute).
+
+> **Windows:** se o comando `mysql` não for reconhecido no terminal, use o caminho
+> completo do programa:
+> `"C:\Program Files\MySQL\MySQL Server <versão>\bin\mysql.exe"`.
+> No PowerShell, o `<` não funciona para redirecionar arquivos; use o Prompt de
+> Comando (cmd) ou o `SOURCE`, por exemplo:
+> `& "C:\Program Files\MySQL\MySQL Server <versão>\bin\mysql.exe" -u root -p -e "source database/01_schema_mysql.sql"`.
 
 ## 8. Configuração do `.env`
 
@@ -218,8 +225,10 @@ criado automaticamente a partir do `01_schema_mysql.sql`. O usuário do `.env` p
 de permissão nesse banco. **Não use o nome do banco principal** – os testes apagam os
 dados do banco de teste.
 
-Resultado da última execução: **156 testes, todos passando**. Detalhes e testes
-funcionais no navegador: [`docs/situacao-2/testes-situacao-2.md`](docs/situacao-2/testes-situacao-2.md).
+Resultado da última execução, no meu computador (Windows 11, Python 3.14, MySQL 26.7,
+15/11/2026): **156 testes, todos passando** (`156 passed, 1 warning in 254.07s`).
+Os 6 fluxos no navegador (`tests/e2e/fluxos.mjs`): **48/48 PASS**. Detalhes, incluindo
+a primeira execução no Linux: [`docs/situacao-2/testes-situacao-2.md`](docs/situacao-2/testes-situacao-2.md).
 
 ## 16. Estrutura do banco
 
@@ -244,4 +253,23 @@ diagramas estão em [`docs/situacao-1/`](docs/situacao-1/).
 
 ## 18. Repositório
 
-GitHub: <https://github.com/nooraalmuhaya/cupcakes-gourmet>
+GitHub: <https://github.com/nooraalmuhaya/cupcakes-gourmet> (branch `main`).
+
+## 19. Vídeo de demonstração
+
+Link do vídeo: (vou adicionar após a gravação)
+
+Roteiro que vou seguir na gravação: [`docs/situacao-2/roteiro-video.md`](docs/situacao-2/roteiro-video.md).
+
+## 20. Estrutura da documentação
+
+Organizei a documentação com uma pasta para cada situação do Projeto Integrador:
+
+| Pasta | Conteúdo |
+|-------|----------|
+| [`docs/situacao-1/`](docs/situacao-1/) | Situação 1 – revisão e planejamento: relatório (`.docx`/`.pdf`), documento do PI I, diagramas UML, DER, protótipo das telas e a pasta `feedback-colegas/` |
+| [`docs/situacao-2/`](docs/situacao-2/) | Situação 2 – desenvolvimento: [manual do usuário](docs/situacao-2/manual-do-usuario.md), [testes](docs/situacao-2/testes-situacao-2.md), [arquitetura](docs/situacao-2/arquitetura-situacao-2.md), [rastreabilidade](docs/situacao-2/rastreabilidade-situacao-2.md), [registro de mudanças](docs/situacao-2/CHANGELOG_SITUACAO_2.md), [status](docs/situacao-2/STATUS_SITUACAO_2.md) e [roteiro do vídeo](docs/situacao-2/roteiro-video.md) |
+| [`docs/situacao-3/`](docs/situacao-3/) | Situação 3 – testes com usuários (colegas); ainda vazia, só com os campos que vou preencher em cada relatório |
+| [`docs/imagens/`](docs/imagens/) | Capturas de tela reais do sistema, usadas no manual e nos testes |
+
+As decisões de implementação estão em [`DEVELOPMENT_NOTES.md`](DEVELOPMENT_NOTES.md).
