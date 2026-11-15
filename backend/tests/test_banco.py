@@ -1,4 +1,6 @@
 """Verifica que o banco MySQL da Situação 1 aplica as restrições (CHECK, UNIQUE, FK)."""
+import re
+
 import pytest
 from sqlalchemy import text
 from sqlalchemy.exc import IntegrityError, OperationalError
@@ -14,7 +16,10 @@ def executar(db, sql, **params):
 
 def test_saude_da_api_e_das_tabelas(anonimo):
     r = anonimo.get("/api/saude").json()
-    assert r["banco"] == "ok" and r["mysql"].startswith("8.") and r["tabelas_faltando"] == []
+    versao = tuple(int(p) for p in re.findall(r"\d+", r["mysql"])[:3])
+    assert r["banco"] == "ok"
+    assert versao >= (8, 0, 16)  # requisito: MySQL 8.0.16 ou superior
+    assert r["tabelas_faltando"] == []
 
 
 def test_collation_ignora_acentos(db):
