@@ -255,13 +255,7 @@ diagramas estão em [`docs/situacao-1/`](docs/situacao-1/).
 
 GitHub: <https://github.com/nooraalmuhaya/cupcakes-gourmet> (branch `main`).
 
-## 19. Vídeo de demonstração
-
-Link do vídeo: (vou adicionar após a gravação)
-
-Roteiro que vou seguir na gravação: [`docs/situacao-2/roteiro-video.md`](docs/situacao-2/roteiro-video.md).
-
-## 20. Estrutura da documentação
+## 19. Estrutura da documentação
 
 Organizei a documentação com uma pasta para cada situação do Projeto Integrador:
 
