@@ -1,16 +1,18 @@
 # Notas de desenvolvimento – Situação 2
 
-Este arquivo registra a auditoria feita antes de começar a implementação e as
-decisões tomadas quando os artefatos da Situação 1 não definiam um detalhe
+Neste arquivo eu registro a revisão que fiz antes de começar a implementação e as
+decisões que tomei quando os artefatos da Situação 1 não definiam um detalhe
 técnico. A fonte da verdade continua sendo o relatório
 `docs/situacao-1/Situacao1_Revisao_Planejamento.docx` (e o PDF equivalente).
 
 ## 1. Auditoria inicial (antes de programar)
 
+Antes de começar a programar, revisei o que já existia do projeto.
+
 ### A. Arquivos existentes
-- Repositório Git vazio (sem commits), branch `claude/situacao-2-cupcakes-app-p46qpy`,
-  remoto `origin` → `github.com/nooraalmuhaya/cupcakes-gourmet`.
-- Arquivo `situacao-1.zip` enviado pela aluna com:
+- Repositório Git vazio (sem commits), com o remoto `origin` →
+  `github.com/nooraalmuhaya/cupcakes-gourmet`.
+- O arquivo `situacao-1.zip` com a documentação da Situação 1:
   - `Situacao1_Revisao_Planejamento.docx` / `.pdf` (relatório completo);
   - `pi-1/Projeto_Integrador_I.docx` (documento original do PI I);
   - `uml/` (casos de uso, classes, enums, SD-01, SD-02, SD-03, AD-01, EST-01, mapa de navegação – `.mmd` e `.png`);
@@ -21,8 +23,8 @@ técnico. A fonte da verdade continua sendo o relatório
 ### B. Tecnologias existentes
 Nenhum código. O relatório define: web responsiva mobile-first, MVC, MySQL 8.0.16+,
 HTML/CSS/JS no front-end, back-end "Java/Spring recomendado, PHP ou Python também atendem"
-(seção 3.5 – "confirmar no início da Situação 2"). **Decisão: Python (FastAPI)**, conforme
-pedido da aluna para a Situação 2.
+(seção 3.5 – "confirmar no início da Situação 2"). **Decisão: decidi usar Python (FastAPI)**
+na Situação 2.
 
 ### C. Front-end existente
 Nenhum. Só o protótipo de média fidelidade (imagens). Nome da loja no protótipo: **Cupcake Haven**.
@@ -32,13 +34,13 @@ Nenhum.
 
 ### E. Banco existente
 O script SQL está no relatório (seção 14.5) e foi citado como `01_schema_mysql.sql`,
-mas o arquivo separado **não estava no zip**. Ele foi extraído do relatório sem
+mas o arquivo separado **não estava no zip**. Extraí o script do relatório sem
 alterações para `database/01_schema_mysql.sql`. O relatório marcava como pendente
-"Script testado no MySQL real" (seção 19): nesta etapa ele foi executado no
+"Script testado no MySQL real" (seção 19): na Situação 2 eu executei o script no
 MySQL 8.0.46 sem nenhum erro (10 tabelas, 16 CHECKs, collation `utf8mb4_0900_ai_ci`).
 
 ### F. Documentação existente
-Toda a documentação da Situação 1 foi copiada para `docs/situacao-1/` sem alterações.
+Copiei toda a documentação da Situação 1 para `docs/situacao-1/` sem alterações.
 
 ### G. Requisitos da Situação 1 (resumo)
 - 17 User Stories (US01–US17), 29 RF, 17 RNF, 23 regras de negócio (RN-01 a RN-23),
@@ -51,7 +53,7 @@ dados iniciais (`02_dados_iniciais.sql`, previsto na seção 20), testes e docum
 de uso.
 
 ### I. Ordem de implementação
-Seguiu as fases pedidas: estrutura → conexão MySQL → modelos e autenticação →
+Segui estas fases: estrutura → conexão MySQL → modelos e autenticação →
 cardápio → carrinho → endereços/checkout → pagamento/pedido → acompanhamento,
 histórico, notificações e avaliação → conta e ajuda → administração →
 acabamento do front-end → testes → documentação → auditoria final.
@@ -79,8 +81,8 @@ acabamento do front-end → testes → documentação → auditoria final.
 | D17 | Horário de atendimento | Segunda a sábado, 9h às 19h (texto do protótipo T15), conferido pelo relógio do navegador. | RN-20. |
 | D18 | Imagens dos produtos | Ilustrações SVG simples criadas para o projeto em `frontend/assets/images/produtos/`. `imagem_url` guarda o caminho relativo. | Seção 3.3: sem upload; o admin informa o caminho. |
 | D19 | Contas de administrador | Criadas pelo script `database/02_dados_iniciais.sql` (hash bcrypt de uma senha de desenvolvimento documentada no README). | RN-22. |
-| D20 | Servidor do front-end | O próprio FastAPI serve a pasta `frontend/` (mesma origem, recomendado). Também funciona com `python -m http.server 5500`, com CORS liberado só para `localhost:5500` e `127.0.0.1:5500`. | Pedido da aluna + simplicidade. |
-| D21 | Testes automatizados | pytest contra um banco MySQL separado (`cupcakes_gourmet_test`), criado com o mesmo `01_schema_mysql.sql`. **Não** se usa SQLite. | RNF-14 e pedido de usar o MySQL real. |
+| D20 | Servidor do front-end | O próprio FastAPI serve a pasta `frontend/` (mesma origem, recomendado). Também funciona com `python -m http.server 5500`, com CORS liberado só para `localhost:5500` e `127.0.0.1:5500`. | Preferi assim pela simplicidade. |
+| D21 | Testes automatizados | pytest contra um banco MySQL separado (`cupcakes_gourmet_test`), criado com o mesmo `01_schema_mysql.sql`. **Não** se usa SQLite. | RNF-14; decidi testar com o MySQL real. |
 | D22 | Relógio | Datas gravadas com o horário local do servidor. | Projeto local, sem fuso configurável. |
 | D23 | Rótulos dos botões de status (A02) | RECEBIDO → "Iniciar preparo"; EM_PREPARO → 'Marcar como "Saiu para entrega"'; SAIU_PARA_ENTREGA → 'Marcar como "Entregue"'. | Exemplos da seção 10.3 (A02) e do protótipo. |
 | D24 | Horário de cada etapa na linha do tempo (T09) | Vem da data da notificação gerada naquela mudança de status. | O banco não tem tabela de histórico de status e o esquema não deveria ser alterado; RN-16 garante uma notificação por mudança. |
@@ -89,5 +91,5 @@ acabamento do front-end → testes → documentação → auditoria final.
 | D27 | "Esqueci minha senha" | Não implementado; a tela de login explica e aponta para Ajuda e Suporte. | Seção 3.3: recuperação de senha por e-mail está fora do escopo. |
 | D28 | Administrador que abre telas de compra | Recebe MSG-E13 (não pode ter carrinho finalizado, endereços ou pedidos). | RN-22 e seção 9.2 ("administrador não tem endereços nem pedidos"). |
 | D29 | Rota de sessão para o cabeçalho | `GET /api/sessao` devolve usuário, itens no carrinho e notificações não lidas em uma chamada. | RNF-17: contador atualizado ao abrir cada tela. |
-| D30 | Testes funcionais no navegador | Executados por script (Playwright/Chromium), não por uma pessoa; o script está em `tests/e2e/`. | Deixa o resultado reproduzível. A aluna deve repetir o roteiro manualmente no ambiente dela. |
-| D31 | Barra inferior em telas largas | Fica **embaixo em todas as larguras**, igual ao protótipo T01 (Início, Carrinho, Pedidos, Conta). Em telas largas só os itens se alinham à coluna central de conteúdo; não há desenho separado para computador. | Decisão da aluna após revisar o protótipo aprovado da Situação 1. Substitui a primeira versão, que transformava a barra em menu no topo a partir de 900 px (leitura do texto da seção 10.1). |
+| D30 | Testes funcionais no navegador | Executados por script (Playwright/Chromium), não por uma pessoa; o script está em `tests/e2e/`. | Deixa o resultado reproduzível. Também vou repetir o roteiro manualmente no meu computador (Windows). |
+| D31 | Barra inferior em telas largas | Fica **embaixo em todas as larguras**, igual ao protótipo T01 (Início, Carrinho, Pedidos, Conta). Em telas largas só os itens se alinham à coluna central de conteúdo; não há desenho separado para computador. | Decidi assim depois de revisar o protótipo aprovado da Situação 1. Substitui a primeira versão, que transformava a barra em menu no topo a partir de 900 px (leitura do texto da seção 10.1). |

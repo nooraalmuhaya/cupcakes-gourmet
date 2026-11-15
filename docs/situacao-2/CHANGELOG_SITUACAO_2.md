@@ -1,8 +1,8 @@
 # Registro de mudanças – Situação 2
 
-Registro do que foi realmente feito na implementação, na ordem em que aconteceu.
+Aqui eu registro o que realmente fiz na implementação, na ordem em que aconteceu.
 Cada item corresponde a um commit do Git (`git log` mostra o histórico completo).
-Data de todo o trabalho: 24/09/2026.
+Data da implementação: 24/09/2026. Revisão final da documentação: 15/11/2026 (seção 14).
 
 ## 1. Estrutura do projeto
 - Criada a estrutura `backend/`, `frontend/`, `database/`, `docs/`.
@@ -75,4 +75,9 @@ Data de todo o trabalho: 24/09/2026.
   administrador sem rolagem lateral no celular. Resultado: 63/63 verificações OK.
 
 ## 13. Documentação
-- README, manual do usuário, arquitetura, rastreabilidade, testes, status e situação do Git.
+- README, manual do usuário, arquitetura, rastreabilidade, testes e status.
+
+## 14. Revisão final para a entrega (15/11/2026)
+- Organizei a documentação em uma pasta por situação: `docs/situacao-1/`,
+  `docs/situacao-2/` e `docs/situacao-3/` (esta última reservada para os testes com colegas).
+- Revisei os textos em primeira pessoa.

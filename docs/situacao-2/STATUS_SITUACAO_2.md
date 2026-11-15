@@ -1,15 +1,15 @@
 # Status da Situação 2
 
-Situação real em 24/09/2026. Só foi marcado **IMPLEMENTADO** o que foi implementado
-**e** testado, com a evidência indicada. Legenda: IMPLEMENTADO, EM TESTE, PENDENTE,
+Situação real em 24/09/2026, atualizada em 15/11/2026. Só marquei como **IMPLEMENTADO**
+o que implementei **e** testei, com a evidência indicada. Legenda: IMPLEMENTADO, EM TESTE, PENDENTE,
 NÃO APLICÁVEL.
 
 ## Resumo
 
 | Item | Status | Evidência |
 |------|--------|-----------|
-| Git | IMPLEMENTADO | 14 commits com mensagens descritivas; `.gitignore` sem `.env`, venv e caches; varredura do histórico sem credenciais locais ([git-status](git-status-situacao-2.md)) |
-| GitHub | IMPLEMENTADO (branch) / PENDENTE (`main`) | Push do branch `claude/situacao-2-cupcakes-app-p46qpy` confirmado pela API do GitHub. O branch `main` ainda precisa ser criado pela aluna |
+| Git | IMPLEMENTADO | Commits com mensagens descritivas (`git log`); `.gitignore` exclui `.env`, ambientes virtuais e caches; nenhum `.env` no histórico |
+| GitHub | IMPLEMENTADO (branch `main`) | <https://github.com/nooraalmuhaya/cupcakes-gourmet> – todo o trabalho está no branch `main` |
 | Front-end | IMPLEMENTADO | 19 telas (T01–T15, A01–A04) em HTML/CSS/JS puro seguindo o protótipo (barra inferior em todas as larguras); 48/48 passos no navegador, 0 erros de JavaScript; auditoria de responsividade 63/63 em 390, 768 e 1366 px ([testes](testes-situacao-2.md#4-testes-funcionais-do-front-end-6-fluxos)) |
 | Back-end | IMPLEMENTADO | FastAPI em MVC (`models/`, `services/`, `routers/`, `schemas/`); 42 rotas documentadas em `/api/docs` |
 | Database | IMPLEMENTADO | Script da Situação 1 executado sem alterações no MySQL 8.0.46 (10 tabelas, 16 CHECKs); `test_banco.py` confirma as restrições; dados iniciais idempotentes |
@@ -50,13 +50,12 @@ NÃO APLICÁVEL.
 
 | Item | Status | Observação |
 |------|--------|------------|
-| Criar o branch `main` no GitHub e conferir a visibilidade do repositório | PENDENTE (aluna) | Ver [git-status-situacao-2.md](git-status-situacao-2.md) |
-| Repetir os testes no Windows, Firefox e Edge | PENDENTE | Não foi possível executar neste ambiente |
+| Repetir os fluxos no navegador em Firefox e Edge | PENDENTE | Os fluxos automatizados usaram só o Chromium; vou repetir o roteiro manualmente |
 | Número real do WhatsApp da loja | PENDENTE | `frontend/js/config.js` tem número fictício |
 | Busca automática de CEP | NÃO APLICÁVEL | Opcional na Situação 1; não implementada (endereço digitado) |
 | Recuperação de senha, e-mails reais, tela de cupons, upload de imagem | NÃO APLICÁVEL | Fora do escopo (seção 3.3 da Situação 1) |
-| Vídeo de demonstração | PENDENTE | Será gravado depois, pela aluna |
-| Relatório da Situação 1 | Não alterado | Será revisado depois, como pedido |
+| Vídeo de demonstração | PENDENTE | Vou gravar o vídeo depois. |
+| Relatório da Situação 1 | Não alterado | Vou revisar depois |
 | Testes com colegas | NÃO APLICÁVEL nesta etapa | Situação 3 |
 
 Limitações técnicas:

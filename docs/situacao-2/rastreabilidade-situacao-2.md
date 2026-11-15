@@ -1,7 +1,7 @@
 # Rastreabilidade – Situação 2
 
-Continua a matriz da seção 16 do relatório da Situação 1, ligando cada User Story
-ao que foi implementado: **tela → endpoint → serviço → tabela → teste**.
+Neste documento eu continuo a matriz da seção 16 do relatório da Situação 1, ligando
+cada User Story ao que implementei: **tela → endpoint → serviço → tabela → teste**.
 
 Legenda dos testes: arquivos em `backend/tests/` (pytest) e passos do
 `tests/e2e/fluxos.mjs` (navegador, "F1" = fluxo 1). Todos os testes listados

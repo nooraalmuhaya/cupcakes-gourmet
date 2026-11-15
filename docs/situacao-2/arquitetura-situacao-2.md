@@ -1,7 +1,7 @@
 # Arquitetura – Situação 2
 
 Documento técnico da implementação do App de Cupcakes Gourmet (Cupcake Haven).
-Descreve como o que foi planejado na Situação 1 virou código.
+Aqui eu descrevo como transformei em código o que planejei na Situação 1.
 
 ## 1. Visão geral
 

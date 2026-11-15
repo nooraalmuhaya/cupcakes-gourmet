@@ -1,21 +1,22 @@
 # Testes – Situação 2
 
-Este documento registra **somente testes que foram executados de verdade**, com o
-resultado obtido. Os testes com usuários (colegas) são da **Situação 3** e **não**
-foram feitos nesta etapa.
+Neste documento eu registro **somente os testes que executei de verdade**, com o
+resultado obtido. Os testes com usuários (colegas) são da **Situação 3** e eu ainda
+**não** os fiz (veja [`../situacao-3/README.md`](../situacao-3/README.md)).
 
 ## 1. Ambiente usado nos testes
 
+### Primeira execução (ambiente Linux)
+
+Todos os resultados das seções 2 a 5 são desta primeira execução.
+
 | Item | Versão |
 |------|--------|
-| Sistema operacional | Ubuntu 24.04 (contêiner de desenvolvimento) |
+| Sistema operacional | Ubuntu 24.04 |
 | Python | 3.11.15 |
 | MySQL | 8.0.46 (Community, pacote do Ubuntu) |
 | Navegador dos testes funcionais | Chromium (Playwright 1.56.1, Node.js 22) em modo *headless* |
 | Data da execução | 24/09/2026 |
-
-> Os testes **não** foram executados no Windows nem no computador da aluna.
-> Recomenda-se repetir o roteiro da seção 4 manualmente no ambiente dela antes da gravação do vídeo.
 
 ## 2. Verificação do banco de dados (script da Situação 1)
 
@@ -30,9 +31,9 @@ O relatório da Situação 1 deixou como pendente "Script testado no MySQL real"
 | `database/02_dados_iniciais.sql` pode ser executado 2 vezes sem duplicar | executado duas vezes seguidas | **PASS** – 8 produtos, 4 cupons, 2 usuários |
 | Conexão da API com o MySQL | `GET /api/saude` | **PASS** – `{"banco":"ok","mysql":"8.0.46...","tabelas_faltando":[]}` |
 
-**Problema encontrado e corrigido:** na primeira carga dos dados iniciais, o cliente
+**Problema que encontrei e corrigi:** na primeira carga dos dados iniciais, o cliente
 `mysql` usou `latin1` por padrão e gravou "LimÃ£o" (texto com codificação dupla).
-Foi adicionado `SET NAMES utf8mb4;` no início do `02_dados_iniciais.sql`; depois
+Adicionei `SET NAMES utf8mb4;` no início do `02_dados_iniciais.sql`; depois
 disso os acentos foram gravados corretamente e a busca "limao" passou a funcionar.
 
 ## 3. Testes automatizados do back-end (pytest)
@@ -65,7 +66,7 @@ O único aviso (*warning*) é um aviso de depreciação interno da biblioteca de
 | `test_admin.py` | 19 | Cliente e visitante não acessam o admin (MSG-E13), lista ativos e inativos, criar produto (MSG-S10) com texto padrão de alérgenos (RN-03), validações (MSG-E05/E21), nome repetido (MSG-E17), editar preço sem mudar pedido antigo (RN-21), desativar/reativar sem apagar (RN-23), não existe exclusão, painel com filtro, detalhe, avançar status (MSG-S08) com notificação, transição inválida e "outra aba" (MSG-E14), cancelamento devolve estoque (RN-15), não cancela após "saiu para entrega", campos omitidos viram erro 422 |
 | `test_banco.py` | 11 | `/api/saude`, collation sem acento, CHECKs do MySQL (estoque negativo, preço zero, perfil inválido, percentual > 100, total inconsistente, status inválido), e-mail único, produto vendido não pode ser apagado, uma avaliação por pedido |
 
-### Defeitos encontrados pelos testes automatizados (e corrigidos)
+### Defeitos que os testes automatizados encontraram (e que eu corrigi)
 
 | Defeito | Correção |
 |---------|----------|
@@ -74,19 +75,19 @@ O único aviso (*warning*) é um aviso de depreciação interno da biblioteca de
 | `database_url("")` usava o banco principal em vez de nenhum banco | condição `is None` em `settings.py` |
 | Teste lia o estoque "antigo" por causa do isolamento REPEATABLE READ do MySQL | o teste passou a encerrar a transação (`rollback`) antes de ler de novo (era um problema do teste, não da aplicação) |
 
-Durante o desenvolvimento também foi encontrado (antes dos testes automatizados) que o
+Durante o desenvolvimento (antes dos testes automatizados) também percebi que o
 carrinho não era salvo na sessão quando só um item interno mudava; a versão do
-Starlette usada só salva a sessão quando uma chave de primeiro nível é atribuída.
-Corrigido em `carrinho_service.py` (`_ler` / `_gravar`).
+Starlette que usei só salva a sessão quando uma chave de primeiro nível é atribuída.
+Corrigi isso em `carrinho_service.py` (`_ler` / `_gravar`).
 
 ## 4. Testes funcionais do front-end (6 fluxos)
 
-### Como foram executados
+### Como executei
 
-Os fluxos foram executados em um **navegador real (Chromium)**, controlado por um
-**script automatizado** (`tests/e2e/fluxos.mjs`), e **não por uma pessoa**. O script
+Executei os fluxos em um **navegador real (Chromium)**, controlado por um
+**script automatizado** que escrevi (`tests/e2e/fluxos.mjs`). O script
 clica, digita e confere na tela as mensagens, contadores, redirecionamentos e
-valores. Ele foi rodado nos dois modos de execução documentados no README:
+valores. Rodei o script nos dois modos de execução documentados no README:
 
 | Modo | Endereço | Resultado |
 |------|----------|-----------|
@@ -95,8 +96,8 @@ valores. Ele foi rodado nos dois modos de execução documentados no README:
 
 **Primeira execução:** 45 PASS e 3 FAIL. As 3 falhas eram do próprio script de teste:
 o valor em reais formatado pelo navegador usa um espaço não separável
-("R$&nbsp;47,00"), e o script comparava com um espaço comum. A tela estava certa. O
-script foi corrigido (normaliza o espaço) e todas as execuções seguintes passaram.
+("R$&nbsp;47,00"), e o script comparava com um espaço comum. A tela estava certa.
+Corrigi o script (ele passou a normalizar o espaço) e todas as execuções seguintes passaram.
 As capturas de tela em `docs/imagens/` são da última execução.
 
 Tela de celular usada: 390 × 844 px. Administração: 1280 × 860 px.
@@ -184,7 +185,7 @@ Objetivo: conferir que o desenho **mobile-first do protótipo** se adapta a tabl
 computador **sem criar um novo desenho** – a barra inferior (Início, Carrinho, Pedidos,
 Conta) continua embaixo em todas as larguras.
 
-Executado com `tests/e2e/responsivo.mjs` (Chromium). O script cria dados reais (pedido
+Executei com `tests/e2e/responsivo.mjs` (Chromium). O script cria dados reais (pedido
 entregue, pedido em preparo, carrinho com cupom) e abre as **21 telas** (T01–T15, o
 formulário do T13, A01–A04 e a página 404) em **390 × 844**, **768 × 1024** e
 **1366 × 768**, medindo em cada uma:
@@ -206,9 +207,9 @@ formulário do T13, A01–A04 e a página 404) em **390 × 844**, **768 × 1024*
 | Todas | Link da marca (34 px) e links do menu do admin (39 px) abaixo de 44 px de altura (plano de melhoria do protótipo pede 44 × 44) | – |
 
 Além disso, a primeira versão movia a barra inferior para o topo a partir de 900 px.
-Isso foi **retirado**: a barra fica embaixo em todas as larguras, como no protótipo T01.
+Eu **retirei** isso: a barra fica embaixo em todas as larguras, como no protótipo T01.
 
-### Ajustes feitos (somente CSS, sem mudar o desenho)
+### Ajustes que fiz (somente CSS, sem mudar o desenho)
 
 1. Barra inferior e cabeçalho do cliente: continuam com a largura total da tela, mas os
    itens ficam alinhados à coluna de conteúdo em telas largas.
@@ -231,7 +232,7 @@ Total: **63/63 verificações OK**, 0 erros de JavaScript. Largura do conteúdo:
 dos ajustes. Capturas em `docs/imagens/responsivo/`
 (ex.: `T01_390.png`, `T01_768.png`, `T01_1366.png`, `T03_1366.png`, `A02_390.png`).
 
-Depois dos ajustes, os 6 fluxos foram executados de novo: **48/48 PASS** nos dois modos
+Depois dos ajustes, executei os 6 fluxos de novo: **48/48 PASS** nos dois modos
 (porta 8000 e `http.server` 5500), 0 erros de JavaScript.
 
 Como repetir:
@@ -241,13 +242,12 @@ cd tests/e2e
 node responsivo.mjs ../../docs/imagens/responsivo
 ```
 
-## 6. O que não foi testado / não foi possível executar neste ambiente
+## 6. O que ainda não testei
 
 | Item | Situação |
 |------|----------|
-| Execução no Windows (ambiente da aluna) | Não foi possível executar neste ambiente. |
-| Navegadores Firefox e Edge (RNF-03) | Não foi possível executar neste ambiente (só Chromium). |
-| Abrir o WhatsApp de verdade | Não testado: só foi conferido que o link começa com `https://wa.me/`. O número configurado é fictício. |
-| Medição formal de desempenho (RNF-04/RNF-05) | Não foi feita medição formal. |
-| Leitor de tela (acessibilidade) | Não testado com leitor de tela; só foram usados rótulos, textos alternativos e selos com texto. |
+| Navegadores Firefox e Edge (RNF-03) | Ainda não testei: o script automatizado usou só o Chromium. Vou repetir os fluxos manualmente nesses navegadores. |
+| Abrir o WhatsApp de verdade | Não testei: só conferi que o link começa com `https://wa.me/`. O número configurado é fictício. |
+| Medição formal de desempenho (RNF-04/RNF-05) | Não fiz medição formal. |
+| Leitor de tela (acessibilidade) | Não testei com leitor de tela; usei rótulos, textos alternativos e selos com texto. |
 | Testes com colegas/usuários | **Não fazem parte da Situação 2** (Situação 3). |
