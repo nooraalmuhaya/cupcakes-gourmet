@@ -12,14 +12,14 @@ NÃO APLICÁVEL.
 | GitHub | IMPLEMENTADO (branch `main`) | <https://github.com/nooraalmuhaya/cupcakes-gourmet> – todo o trabalho está no branch `main` |
 | Front-end | IMPLEMENTADO | 19 telas (T01–T15, A01–A04) em HTML/CSS/JS puro seguindo o protótipo (barra inferior em todas as larguras); 48/48 passos no navegador, 0 erros de JavaScript; auditoria de responsividade 63/63 em 390, 768 e 1366 px ([testes](testes-situacao-2.md#4-testes-funcionais-do-front-end-6-fluxos)) |
 | Back-end | IMPLEMENTADO | FastAPI em MVC (`models/`, `services/`, `routers/`, `schemas/`); 42 rotas documentadas em `/api/docs` |
-| Database | IMPLEMENTADO | Script da Situação 1 executado sem alterações no MySQL 8.0.46 (10 tabelas, 16 CHECKs); `test_banco.py` confirma as restrições; dados iniciais idempotentes |
+| Database | IMPLEMENTADO | Script da Situação 1 executado sem alterações no MySQL 8.0.46 (10 tabelas, 16 CHECKs); conexão conferida também no MySQL 26.7 (`/api/saude`); `test_banco.py` confirma as restrições; dados iniciais idempotentes |
 | Authentication | IMPLEMENTADO | bcrypt, cookie de sessão assinado e HttpOnly, perfis CLIENTE/ADMIN; `test_auth.py` (16), `test_admin.py` (acesso negado) e fluxo 1 no navegador |
 | Products | IMPLEMENTADO | Cardápio, detalhes, busca sem acento, filtros e administração de produtos; `test_produtos.py` (12), `test_admin.py`, fluxos 1 e 5 |
 | Cart | IMPLEMENTADO | Carrinho na sessão, cupom, taxa de entrega; `test_carrinho.py` (22), fluxo 2 |
 | Checkout | IMPLEMENTADO | Endereços, criação do pedido em transação, pagamento simulado (aprovado/recusado/PIX); `test_enderecos.py`, `test_pedidos.py`, fluxo 2 |
 | Orders | IMPLEMENTADO | Histórico, acompanhamento com consulta a cada 30 s, notificações, avaliação, repetir pedido; `test_pedidos.py` (35), fluxos 3 e 6 |
 | Admin | IMPLEMENTADO | Produtos (A03/A04) e pedidos (A01/A02) com transições do EST-01 e devolução de estoque; `test_admin.py` (19), fluxos 5 e 6 |
-| Tests | IMPLEMENTADO | 156 testes pytest passando; 48 passos funcionais passando em dois modos de execução |
+| Tests | IMPLEMENTADO | 156 testes pytest passando no Linux (Python 3.11, MySQL 8.0.46) e no meu computador com Windows (Python 3.14, MySQL 26.7 – `156 passed, 1 warning in 254.07s`, 15/11/2026); 48/48 passos funcionais no navegador nos dois ambientes |
 | Documentation | IMPLEMENTADO | README, manual do usuário com capturas reais, arquitetura, rastreabilidade, testes, registro de mudanças, notas de desenvolvimento |
 
 ## Auditoria final (checklist)
@@ -54,7 +54,7 @@ NÃO APLICÁVEL.
 | Número real do WhatsApp da loja | PENDENTE | `frontend/js/config.js` tem número fictício |
 | Busca automática de CEP | NÃO APLICÁVEL | Opcional na Situação 1; não implementada (endereço digitado) |
 | Recuperação de senha, e-mails reais, tela de cupons, upload de imagem | NÃO APLICÁVEL | Fora do escopo (seção 3.3 da Situação 1) |
-| Vídeo de demonstração | PENDENTE | Vou gravar o vídeo depois. |
+| Vídeo de demonstração | PENDENTE | Vou gravar o vídeo depois. O roteiro está em [`roteiro-video.md`](roteiro-video.md) |
 | Relatório da Situação 1 | Não alterado | Vou revisar depois |
 | Testes com colegas | NÃO APLICÁVEL nesta etapa | Situação 3 |
 

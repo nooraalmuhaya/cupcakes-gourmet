@@ -81,3 +81,8 @@ Data da implementação: 24/09/2026. Revisão final da documentação: 15/11/202
 - Organizei a documentação em uma pasta por situação: `docs/situacao-1/`,
   `docs/situacao-2/` e `docs/situacao-3/` (esta última reservada para os testes com colegas).
 - Revisei os textos em primeira pessoa.
+- Executei os testes no meu computador (Windows 11, Python 3.14, MySQL 26.7). Um teste
+  falhou porque só aceitava MySQL versão 8; corrigi o teste para conferir "8.0.16 ou
+  superior". Resultado final: 156 testes passando e 48/48 passos no navegador
+  ([`testes-situacao-2.md`](testes-situacao-2.md)).
+- Escrevi o roteiro do vídeo de demonstração ([`roteiro-video.md`](roteiro-video.md)).

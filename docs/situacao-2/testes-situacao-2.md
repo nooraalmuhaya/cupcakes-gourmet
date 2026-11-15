@@ -18,6 +18,47 @@ Todos os resultados das seções 2 a 5 são desta primeira execução.
 | Navegador dos testes funcionais | Chromium (Playwright 1.56.1, Node.js 22) em modo *headless* |
 | Data da execução | 24/09/2026 |
 
+### Execução no meu computador (Windows)
+
+Depois, repeti os testes no meu computador.
+
+| Item | Versão |
+|------|--------|
+| Data da execução | 15/11/2026 |
+| Sistema operacional | Windows 11 Pro |
+| Python | 3.14.4 (ambiente virtual em `backend/.venv`) |
+| MySQL | MySQL Server 26.7 (serviço do Windows `MySQL267`) |
+| Navegador dos testes funcionais | Chromium 141 (Playwright 1.56.1, Node.js 25.9.0) em modo *headless* |
+
+**Verificação do banco** (`GET /api/saude`):
+
+```
+{"api":"ok","banco":"ok","mysql":"26.7.0","tabelas_faltando":[]}
+```
+
+**Testes automatizados** (`cd backend`, `.venv\Scripts\activate`, `python -m pytest -q`):
+
+- Primeira execução: `1 failed, 155 passed, 1 warning in 176.95s (0:02:56)`.
+  O teste que falhou foi `test_banco.py::test_saude_da_api_e_das_tabelas`. Ele conferia
+  se a versão do MySQL começava com `"8."`, e o meu servidor é o 26.7.0. Não era um
+  defeito da aplicação: a conexão e as tabelas estavam OK. Era o próprio teste que
+  só aceitava a versão 8. Corrigi o teste para conferir o requisito real do projeto,
+  "MySQL 8.0.16 ou superior" (versão `>= 8.0.16`).
+- Execução depois da correção:
+
+```
+156 passed, 1 warning in 254.07s (0:04:14)
+```
+
+O aviso é o mesmo da primeira execução (depreciação interna de `starlette.testclient` + `httpx`).
+
+**Testes funcionais no navegador** (`tests/e2e/fluxos.mjs`, front-end servido pelo
+back-end em `http://127.0.0.1:8000`): **48 PASS / 0 FAIL**, 0 erros de JavaScript
+(`TOTAL 48 | PASS 48 | FAIL 0`). Nesta execução não gerei capturas de tela novas;
+as imagens de `docs/imagens/` continuam sendo as da primeira execução. Ainda não
+repeti no Windows o modo `python -m http.server 5500` nem a auditoria de
+responsividade (`responsivo.mjs`).
+
 ## 2. Verificação do banco de dados (script da Situação 1)
 
 O relatório da Situação 1 deixou como pendente "Script testado no MySQL real" (seção 19).
@@ -44,11 +85,13 @@ disso os acentos foram gravados corretamente e a busca "limao" passou a funciona
   se `TEST_DB_NAME` for igual a `DB_NAME`.
 - Comando: `cd backend && python -m pytest -q`
 
-### Resultado da última execução
+### Resultado na primeira execução (ambiente Linux)
 
 ```
 156 passed, 1 warning in 59.22s
 ```
+
+No Windows: `156 passed, 1 warning in 254.07s (0:04:14)` (veja a seção 1).
 
 O único aviso (*warning*) é um aviso de depreciação interno da biblioteca de testes
 (`starlette.testclient` + `httpx`), sem relação com o código do projeto.
@@ -173,6 +216,7 @@ usuários: 4 (1 ADMIN), 4 com senha em hash bcrypt ($2b$)
 
 ```bash
 # com o back-end rodando na porta 8000
+# atenção: o script cria contas, pedidos e um produto no banco configurado no .env
 cd tests/e2e
 npm install playwright          # uma vez
 npx playwright install chromium # uma vez
